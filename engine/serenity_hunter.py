@@ -138,6 +138,116 @@ DEEP_CHAIN = {
     ]},
   ]
 },
+
+"半导体": {
+  "components": [
+    {"name":"大硅片(12寸/300mm)","cost_pct":"15%","materials":[
+      {"material":"高纯多晶硅(11N+)","suppliers":["通威股份(600438)","大全能源(688303)"],"foreign":"德国Wacker/美国Hemlock","gap":"较大","domestic_pct":"35%","hidden_gem":"大全能源(688303)——多晶硅纯度从7N→11N突破,半导体级硅料,市值仅400亿"},
+      {"material":"电子级抛光液(CMP)","suppliers":["安集科技(688019)","鼎龙股份(300054)"],"foreign":"美国Cabot/日本Fujimi","gap":"严重","domestic_pct":"15%","hidden_gem":"鼎龙股份(300054)——从打印耗材跨界CMP抛光垫,长存长鑫已批量供货"},
+      {"material":"12寸单晶炉(热场)","suppliers":["晶盛机电(300316)","北方华创(002371)"],"foreign":"德国PVA TePla/日本Ferrotec","gap":"较大","domestic_pct":"25%","hidden_gem":"金博股份(688598)——碳碳复合材料热场,从光伏跨界半导体,市值仅80亿"}
+    ]},
+    {"name":"光刻胶(ArF/KrF)","cost_pct":"8%","materials":[
+      {"material":"光刻胶树脂(聚对羟基苯乙烯)","suppliers":["万润股份(002643)","强力新材(300429)"],"foreign":"日本JSR/TOK/信越垄断","gap":"致命","domestic_pct":"<5%","hidden_gem":"万润股份(002643)——液晶材料龙头跨界光刻胶树脂,ArF树脂中试通过"},
+      {"material":"光致产酸剂(PAG)","suppliers":["强力新材(300429)","久日新材(688199)"],"foreign":"日本Midori Kagaku/美国Heraeus","gap":"致命","domestic_pct":"<5%","hidden_gem":"久日新材(688199)——光引发剂龙头跨界半导体PAG,市值仅30亿"},
+      {"material":"电子级溶剂(PGMEA)","suppliers":["晶瑞电材(300655)","上海新阳(300236)"],"foreign":"日本Daicel/美国Dow","gap":"中等","domestic_pct":"30%"}
+    ]},
+    {"name":"高纯溅射靶材","cost_pct":"5%","materials":[
+      {"material":"高纯钨靶(6N)","suppliers":["安泰科技(000969)","章源钨业(002378)"],"foreign":"日本日矿金属/美国Honeywell","gap":"严重","domestic_pct":"15%","hidden_gem":"章源钨业(002378)——钨矿采选→高纯钨粉→溅射靶材全链,从矿山跨界半导体"},
+      {"material":"高纯钴靶(5N)","suppliers":["格林美(002340)","寒锐钴业(300618)"],"foreign":"美国Honeywell/日本JX金属","gap":"较大","domestic_pct":"20%","hidden_gem":"寒锐钴业(300618)——钴粉产能全球前三,从电池跨界半导体靶材"}
+    ]},
+  ]
+},
+
+"PCB": {
+  "components": [
+    {"name":"高频高速CCL(覆铜板)","cost_pct":"40%","materials":[
+      {"material":"PTFE高频树脂","suppliers":["东岳集团(00189.HK)","巨化股份(600160)"],"foreign":"美国Rogers/日本AGC","gap":"致命","domestic_pct":"<5%","hidden_gem":"巨化股份(600160)——从制冷剂跨界PTFE高频树脂,已通过生益科技验证"},
+      {"material":"低轮廓铜箔(HVLP)","suppliers":["诺德股份(600110)","嘉元科技(688388)"],"foreign":"日本三井金属/古河电工","gap":"严重","domestic_pct":"10%","hidden_gem":"诺德股份(600110)——锂电铜箔龙头,从动力电池跨界AI服务器HVLP铜箔"},
+      {"material":"碳氢树脂(碳氢陶瓷)","suppliers":["圣泉集团(605589)","东材科技(601208)"],"foreign":"美国Rogers/日本三菱瓦斯","gap":"较大","domestic_pct":"15%","hidden_gem":"圣泉集团(605589)——酚醛树脂全球龙头,从铸造材料跨界高频CCL树脂"}
+    ]},
+    {"name":"IC载板(ABF/BT)","cost_pct":"25%","materials":[
+      {"material":"ABF膜(Ajinomoto Build-up Film)","suppliers":[],"foreign":"日本味之素100%垄断","gap":"致命","domestic_pct":"0%","hidden_gem":"无上市标的——全球仅味之素一家,是Serenity终极瓶颈案例"},
+      {"material":"BT树脂基板","suppliers":["生益科技(600183)","华正新材(603186)"],"foreign":"日本三菱瓦斯/日立化成","gap":"严重","domestic_pct":"10%","hidden_gem":"华正新材(603186)——从普通CCL跨界BT载板基材,通过深南电路验证"}
+    ]},
+    {"name":"电子布/电子纱","cost_pct":"10%","materials":[
+      {"material":"超细电子纱(≤5μm)","suppliers":["中国巨石(600176)","宏和科技(603256)"],"foreign":"日本日东纺/美国AGY","gap":"严重","domestic_pct":"20%","hidden_gem":"宏和科技(603256)——高端电子布国内唯一量产,1027号布对标日东纺"},
+      {"material":"电子布织机(喷气式)","suppliers":[],"foreign":"日本丰田自动织机/比利时Picanol","gap":"致命","domestic_pct":"0%","hidden_gem":"织机排至2030年,物理产能瓶颈→中国巨石/宏和科技的扩产上限被织机锁死"}
+    ]},
+  ]
+},
+
+"先进封装": {
+  "components": [
+    {"name":"硅中介层(Interposer)","cost_pct":"25%","materials":[
+      {"material":"TSV深孔刻蚀(>100μm深宽比>10:1)","suppliers":["中微公司(688012)","北方华创(002371)"],"foreign":"美国Lam Research/应用材料","gap":"较大","domestic_pct":"20%","hidden_gem":"拓荆科技(688072)——PECVD设备龙头,TSV侧壁钝化必需"},
+      {"material":"TSV铜电镀填充(无空洞)","suppliers":["上海新阳(300236)","安集科技(688019)"],"foreign":"美国Entegris/日本Ebara","gap":"严重","domestic_pct":"10%","hidden_gem":"上海新阳(300236)——铜互联电镀液从传统封装跨先进封装TSV"},
+      {"material":"临时键合/解键合胶","suppliers":["飞凯材料(300398)","晶方科技(603005)"],"foreign":"3M/Brewer Science/东京应化","gap":"严重","domestic_pct":"10%","hidden_gem":"飞凯材料(300398)——紫外固化材料+临时键合胶双赛道"}
+    ]},
+    {"name":"C4/C2微凸块","cost_pct":"15%","materials":[
+      {"material":"微凸块锡银合金电镀","suppliers":["兴森科技(002436)","深南电路(002916)"],"foreign":"日本住友/美国MacDermid","gap":"较大","domestic_pct":"15%","hidden_gem":"兴森科技(002436)——PCB样板龙头跨界IC载板+凸块,FCBGA载板量产"},
+      {"material":"底部填充胶(Underfill+UF)","suppliers":["德邦科技(688035)","回天新材(300041)"],"foreign":"日本Namics/Henkel","gap":"较大","domestic_pct":"15%","hidden_gem":"德邦科技(688035)——电子封装胶专精,CoWoS必需,市值仅50亿"}
+    ]},
+    {"name":"玻璃基板(下一代)","cost_pct":"10%","materials":[
+      {"material":"玻璃通孔(TGV)激光加工","suppliers":["大族激光(002008)","德龙激光(688170)"],"foreign":"德国LPKF/美国IPG","gap":"较大","domestic_pct":"10%","hidden_gem":"德龙激光(688170)——超快激光微加工,专攻玻璃TGV钻孔,市值仅40亿"},
+      {"material":"玻璃基板(超薄<100μm)","suppliers":["彩虹股份(600707)","东旭光电(000413)"],"foreign":"美国Corning/日本AGC","gap":"严重","domestic_pct":"5%"}
+    ]},
+  ]
+},
+
+"商业航天": {
+  "components": [
+    {"name":"液体火箭发动机","cost_pct":"30%","materials":[
+      {"material":"高温合金(涡轮泵,>1000°C)","suppliers":["钢研高纳(300034)","抚顺特钢(600399)","图南股份(000932)"],"foreign":"美国Special Metals/ATI","gap":"致命","domestic_pct":"<5%","hidden_gem":"图南股份(000932)——铸造高温合金专精,火箭发动机涡轮盘唯一民营供应商"},
+      {"material":"铼(推力室涂层)","suppliers":["炼石航空(000697)","洛阳钼业(603993)"],"foreign":"全球铼产量仅50吨/年","gap":"致命","domestic_pct":"全球60%","hidden_gem":"炼石航空(000697)——铼矿+铼合金+航空发动机叶片全链,市值仅80亿"},
+      {"material":"3D打印铜合金推力室","suppliers":["铂力特(688333)","华曙高科(688433)"],"foreign":"美国Relativity/Launcher","gap":"较大","domestic_pct":"25%","hidden_gem":"华曙高科(688433)——高分子+金属3D打印,从牙科跨界火箭,市值仅100亿"}
+    ]},
+    {"name":"相控阵天线(卫星通信)","cost_pct":"20%","materials":[
+      {"material":"GaN射频芯片","suppliers":["三安光电(600703)","海威华芯(未上市)"],"foreign":"美国Qorvo/Wolfspeed","gap":"严重","domestic_pct":"15%","hidden_gem":"臻镭科技(688270)——射频前端芯片,从军用雷达跨界卫星互联网"},
+      {"material":"微波介质陶瓷(滤波器)","suppliers":["灿勤科技(688182)","大富科技(300134)"],"foreign":"日本村田/美国CTS","gap":"较大","domestic_pct":"30%","hidden_gem":"灿勤科技(688182)——5G基站陶瓷滤波器跨界卫星通信,华为核心供应商"}
+    ]},
+  ]
+},
+
+"算电协同": {
+  "components": [
+    {"name":"液冷系统(氟化液)","cost_pct":"20%","materials":[
+      {"material":"全氟聚醚(PFPE)+氢氟醚(HFE)","suppliers":["东阳光(600673)","巨化股份(600160)","新宙邦(300037)"],"foreign":"3M Novec退出","gap":"致命","domestic_pct":"15%","hidden_gem":"新宙邦(300037)——半导体级氟化液Boreaf通过Intel验证,从电池电解液跨界"},
+      {"material":"CDU冷量分配单元","suppliers":["英维克(002837)","高澜股份(300499)"],"foreign":"德国Stulz/美国Vertiv","gap":"中等","domestic_pct":"40%"},
+      {"material":"微通道冷板(搅拌摩擦焊)","suppliers":["科华数据(002335)","银轮股份(002126)"],"foreign":"日本昭和电工","gap":"较大","domestic_pct":"30%","hidden_gem":"银轮股份(002126)——从汽车热管理跨界数据中心液冷,已进字节跳动供应链"}
+    ]},
+    {"name":"AI调度电网","cost_pct":"15%","materials":[
+      {"material":"电网孪生仿真平台","suppliers":["国电南瑞(600406)","国能日新(301162)"],"foreign":"Siemens/GE","gap":"较大","domestic_pct":"25%","hidden_gem":"国能日新(301162)——电力交易+新能源功率预测AI,从气象跨界电网调度,市值仅60亿"},
+      {"material":"高压直流变压器(IGCT)","suppliers":["国电南瑞(600406)","中国西电(601179)"],"foreign":"ABB/Siemens","gap":"较大","domestic_pct":"30%"}
+    ]},
+  ]
+},
+
+"6G/通信": {
+  "components": [
+    {"name":"太赫兹射频前端","cost_pct":"25%","materials":[
+      {"material":"InP HBT晶体管(>300GHz)","suppliers":["三安光电(600703)","海威华芯(未上市)"],"foreign":"美国Teledyne/日本NTT","gap":"致命","domestic_pct":"<5%","hidden_gem":"臻镭科技(688270)——射频前端芯片,从军用到太赫兹通信"},
+      {"material":"太赫兹天线阵列(超材料)","suppliers":["光启技术(002625)","硕贝德(300322)"],"foreign":"美国Kymeta/Echodyne","gap":"严重","domestic_pct":"10%","hidden_gem":"光启技术(002625)——超材料隐身+天线,从军用隐身跨界太赫兹,市值500亿"}
+    ]},
+    {"name":"量子通信器件","cost_pct":"10%","materials":[
+      {"material":"单光子探测器(SNSPD)","suppliers":["国盾量子(688027)","光迅科技(002281)"],"foreign":"美国Photon Spot/瑞士ID Quantique","gap":"致命","domestic_pct":"<5%","hidden_gem":"国盾量子(688027)——量子通信设备全球前三,从量子密钥分发跨界量子雷达"},
+      {"material":"铌酸锂薄膜(TFLN)调制器","suppliers":["福晶科技(002222)","光库科技(300620)"],"foreign":"美国HyperLight/Liobate","gap":"较大","domestic_pct":"15%","hidden_gem":"福晶科技(002222)——全球非线性光学晶体龙头,从激光跨界铌酸锂调制器"}
+    ]},
+  ]
+},
+
+"AI应用": {
+  "components": [
+    {"name":"AI推理芯片(边缘)","cost_pct":"20%","materials":[
+      {"material":"NPU IP核(边缘推理)","suppliers":["芯原股份(688521)","瑞芯微(603893)"],"foreign":"ARM Ethos/Synopsys","gap":"较大","domestic_pct":"20%","hidden_gem":"芯原股份(688521)——全球第七大IP厂商,NPU IP授权给20+家芯片公司"},
+      {"material":"存算一体芯片(新兴路线)","suppliers":["恒烁股份(688416)","忆阻科技(未上市)"],"foreign":"美国Mythic/Syntiant","gap":"很大但早期","domestic_pct":"10%","hidden_gem":"恒烁股份(688416)——NOR Flash龙头跨界存算一体AI芯片,从存储到推理"}
+    ]},
+    {"name":"AI训练数据","cost_pct":"15%","materials":[
+      {"material":"多模态标注数据(3D点云)","suppliers":["海天瑞声(688787)","云从科技(688327)"],"foreign":"美国Scale AI/Appen","gap":"中等","domestic_pct":"30%","hidden_gem":"海天瑞声(688787)——AI训练数据'卖铲人',从语音识别跨界自动驾驶+机器人"},
+      {"material":"合成数据生成(Sim2Real)","suppliers":["光轮智能(未上市)","海天瑞声(688787)"],"foreign":"NVIDIA Omniverse/Microsoft","gap":"较大","domestic_pct":"15%"}
+    ]},
+  ]
+},
+
 }
 
 # ═══════════════════════════════════════════════════════════
@@ -186,7 +296,10 @@ def score_hidden_gem(material_info):
     elif gap == "较大": score += 14
     elif gap == "中等": score += 7
 
-    pct = int(str(material_info.get("domestic_pct","50")).replace("%","").replace("<","").replace(">",""))
+    pct_str = str(material_info.get("domestic_pct","50"))
+    import re
+    nums = re.findall(r'(\d+)', pct_str)
+    pct = int(nums[0]) if nums else 50
     if pct <= 5: score += 25
     elif pct <= 15: score += 18
     elif pct <= 30: score += 10
