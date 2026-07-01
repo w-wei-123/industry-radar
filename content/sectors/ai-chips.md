@@ -16,6 +16,7 @@ stocks:
   - 688568
   - 688234
 updated: '2026-06-26'
+relatedSectors: [semiconductor, advanced-packaging, optical-cpo, compute-power-grid, solid-state-battery]
 alerts:
   - date: '2026-06-22'
     text: 海外机构Aletheia Capital大幅上调DRAM/HBM价格预期，存储芯片AI物料占比从40%→2027年70%+；三安光电800G光芯片批量出货、1.6T送样，5天3板涨38%

@@ -15,6 +15,7 @@ stocks:
   - 300548
   - 300620
 updated: '2026-07-01'
+relatedSectors: [ai-chips, semiconductor, pcb, 6g-communications]
 alerts:
   - date: '2026-06-30'
     text: CPO规模化商用元年确立！英伟达Vera Rubin平台全面量产+Spectrum-X硅光CPO交换机规模化交付(能效提升5倍)；海光芯正登陆港交所(阿里/小米/中芯聚源基石)；联发科+高通入局光芯片挑战博通/Marvell双寡头

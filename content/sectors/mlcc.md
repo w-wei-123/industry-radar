@@ -12,6 +12,7 @@ stocks:
   - 300136
   - 300726
 updated: '2026-06-26'
+relatedSectors: [pcb, ai-chips, semiconductor, compute-power-grid]
 alerts:
   - date: '2026-06-22'
     text: 芯片板块强势走高，MLCC/PCB/先进封装全线上涨；麦捷科技澄清无MLCC业务但6月涨118%提示非理性炒作

@@ -5,6 +5,7 @@ import CompanyTable from '@/components/CompanyTable';
 import MaterialGapTable from '@/components/MaterialGapTable';
 import MarketChart from '@/components/MarketChart';
 import SupplyChainMap from '@/components/SupplyChainMap';
+import RelatedSectors from '@/components/RelatedSectors';
 import ReactMarkdown from 'react-markdown';
 
 function stripTableSections(md: string): string {
@@ -150,6 +151,9 @@ export default async function SectorPage({
           <MarketChart data={sector.marketData} />
         </section>
       )}
+
+      {/* Related Sectors — Serenity chain conduction */}
+      <RelatedSectors slugs={sector.meta.relatedSectors || []} />
 
       {/* Back to home */}
       <div className="mt-16 pt-8 border-t border-gray-200">

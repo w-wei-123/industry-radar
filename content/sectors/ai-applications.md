@@ -16,6 +16,7 @@ stocks:
   - 300418
   - 603859
 updated: '2026-06-19'
+relatedSectors: [ai-chips, optical-cpo]
 alerts:
   - date: '2026-06-19'
     text: 陆家嘴论坛宣布科创板第五套标准扩容至AI大模型企业，支持量子/具身智能上市；72家科技公司同日发布异动风险提示

@@ -16,6 +16,7 @@ stocks:
   - 000823
   - 002579
 updated: '2026-07-01'
+relatedSectors: [mlcc, ai-chips, optical-cpo, advanced-packaging]
 alerts:
   - date: '2026-06-30'
     text: 沪电股份AI PCB订单排至2027年底，外销占比85%(谷歌/Meta)；43亿AI高端PCB项目下半年试产+18个月内累计投资超224亿；已递交港股上市申请；里昂首次覆盖AI PCB板块予5家中国公司"跑赢大市"

@@ -15,6 +15,7 @@ export interface SectorMeta {
   stocks: string[];
   updated: string;
   alertCount: number;
+  relatedSectors?: string[]; // slug list of related sectors
 }
 
 export interface Company {
@@ -96,6 +97,7 @@ export function getAllSectors(): SectorMeta[] {
       stocks: data.stocks || [],
       updated: formatDate(data.updated),
       alertCount: getActiveAlerts(alerts).length,
+      relatedSectors: data.relatedSectors || [],
     } as SectorMeta;
   });
 }
@@ -158,6 +160,7 @@ export function getSectorBySlug(slug: string): SectorData | null {
       stocks: data.stocks || [],
       updated: formatDate(data.updated),
       alertCount: activeAlerts.length,
+      relatedSectors: data.relatedSectors || [],
     },
     content,
     alerts,

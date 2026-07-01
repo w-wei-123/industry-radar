@@ -16,6 +16,7 @@ stocks:
   - 600879
   - 600862
 updated: '2026-07-01'
+relatedSectors: [solid-state-battery, commercial-aerospace, ai-chips, 6g-communications]
 alerts:
   - date: '2026-06-30'
     text: 蓝色向量(Skyla)半年5轮融资超4亿元，6座2吨级eVTOL V30全尺寸验证机启动总装；沃飞长空登全球独角兽榜+财富科技50强，AE200量产机冲刺适航；电鹰科技EFC1200飞碟eVTOL亮相亚欧博览会签5架订单

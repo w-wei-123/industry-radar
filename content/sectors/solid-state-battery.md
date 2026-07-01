@@ -18,6 +18,7 @@ stocks:
   - 002882
   - 603200
 updated: '2026-07-01'
+relatedSectors: [low-altitude-economy, humanoid-robot, compute-power-grid]
 alerts:
   - date: '2026-06-30'
     text: 硫化物全固态电池进入体系化竞争元年！广汽首条0.5GWh中试线投产60Ah电芯批量下线2026H2装车路试；国轩"金石"突破400Wh/kg；博力威干法全极片硫化物500次循环容量保持率99%；天赐百吨级硫化锂中试线Q3投产

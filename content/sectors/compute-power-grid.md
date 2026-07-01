@@ -18,6 +18,7 @@ stocks:
   - 300617
   - 300365
 updated: '2026-07-01'
+relatedSectors: [ai-chips, semiconductor, solid-state-battery]
 alerts:
   - date: '2026-06-30'
     text: 乌兰察布启动全国首个"增量配电网+绿电直供"零碳算力园区；落地数据中心89个算力16.5万P智能算力占比超90%；国内首套算力能源一体化调控平台落地

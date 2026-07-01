@@ -19,6 +19,7 @@ stocks:
   - 002049
   - 688375
 updated: '2026-07-01'
+relatedSectors: [commercial-aerospace, optical-cpo, semiconductor]
 alerts:
   - date: '2026-06-30'
     text: 香港城大太赫兹国家重点实验室赴山西600米深煤矿推进6G智能矿山应用；6G从技术预研全面进入系统验证与产业生态构建阶段

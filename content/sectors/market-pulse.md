@@ -19,6 +19,7 @@ stocks:
   - 300750
   - 002156
 updated: '2026-06-28'
+relatedSectors: [semiconductor, ai-chips, optical-cpo, mlcc, pcb, advanced-packaging, humanoid-robot]
 supplyChain: |
   # 产业链传导框架
   ## 第一层：直接需求触发

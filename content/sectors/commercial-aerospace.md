@@ -16,6 +16,7 @@ stocks:
   - 002465
   - 688270
 updated: '2026-07-01'
+relatedSectors: [6g-communications, low-altitude-economy, solid-state-battery]
 alerts:
   - date: '2026-06-30'
     text: 朱雀三号(蓝箭)完成静态点火试验，箭体已在酒泉起竖，预计7月上旬垂直回收试验；若成功将驱动发射成本断崖下降(全面复用降本90.4%)
