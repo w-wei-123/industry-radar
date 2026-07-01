@@ -13,7 +13,37 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN" className="h-full antialiased">
-      <body className="min-h-full bg-white text-gray-900">{children}</body>
+      <body className="min-h-full bg-white text-gray-900">
+        {children}
+        {/* 已读标记：记住上次访问时间，隐藏已看过的 alerts */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+(function() {
+  var KEY = 'radar_last_visit';
+  var now = new Date().toISOString().split('T')[0];
+  var lastVisit = localStorage.getItem(KEY);
+
+  // 隐藏已看过的板块红点
+  if (lastVisit) {
+    document.querySelectorAll('.sector-card').forEach(function(card) {
+      var updated = card.getAttribute('data-updated');
+      if (updated && updated <= lastVisit) {
+        var badge = card.querySelector('.alert-badge');
+        var text = card.querySelector('.alert-text');
+        if (badge) badge.style.display = 'none';
+        if (text) text.style.display = 'none';
+      }
+    });
+  }
+
+  // 记录本次访问时间
+  localStorage.setItem(KEY, now);
+})();
+          `.trim(),
+          }}
+        />
+      </body>
     </html>
   );
 }

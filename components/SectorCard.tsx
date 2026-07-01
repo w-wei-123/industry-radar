@@ -5,11 +5,14 @@ export default function SectorCard({ sector }: { sector: SectorMeta }) {
   return (
     <Link
       href={`/sector/${sector.slug}`}
-      className="block p-6 rounded-xl border border-gray-200 hover:border-blue-400 hover:shadow-lg transition-all group bg-white relative"
+      className="block p-6 rounded-xl border border-gray-200 hover:border-blue-400 hover:shadow-lg transition-all group bg-white relative sector-card"
+      data-sector={sector.slug}
+      data-updated={sector.updated || ''}
+      data-alert-count={sector.alertCount}
     >
-      {/* Alert badge */}
+      {/* Alert badge — hidden by JS when already seen */}
       {sector.alertCount > 0 && (
-        <span className="absolute top-3 right-3 inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-500 text-white text-xs font-bold animate-pulse">
+        <span className="alert-badge absolute top-3 right-3 inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-500 text-white text-xs font-bold animate-pulse">
           {sector.alertCount}
         </span>
       )}
@@ -33,7 +36,7 @@ export default function SectorCard({ sector }: { sector: SectorMeta }) {
         <span>{sector.stocks.length} 只成分股</span>
         <div className="flex items-center gap-3">
           {sector.alertCount > 0 && (
-            <span className="text-red-500 text-xs font-medium">
+            <span className="alert-text text-red-500 text-xs font-medium">
               {sector.alertCount} 条新消息
             </span>
           )}

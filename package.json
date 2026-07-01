@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "deploy": "next build && git add out/ && git commit -m \"deploy: out dir\" && git push"
   },
   "dependencies": {
     "echarts": "^6.1.0",
