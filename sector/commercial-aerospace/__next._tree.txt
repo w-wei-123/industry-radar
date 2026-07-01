@@ -1,0 +1,2 @@
+:HL["/industry-radar/_next/static/chunks/0gc24rioi9gs4.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"sector","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"commercial-aerospace","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"-7D5BfKDK8tXmpASIBtgs"}
