@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "deploy": "next build && git add out/ && git commit -m \"deploy: out dir\" && git push"
+    "postbuild": "touch docs/.nojekyll",
+    "deploy": "npm run build && git add docs/ && git commit -m \"deploy: $(date +%Y-%m-%d)\" && git push"
   },
   "dependencies": {
     "echarts": "^6.1.0",
