@@ -78,27 +78,15 @@ def toast(title, body):
 
 # ── 自动触发 Serenity 挖掘 ──
 def auto_hunt(alerts):
-    """有异动→自动对相关板块跑 Serenity 深挖"""
-    from importlib import import_module
-    import sys as _sys
-    _sys.path.insert(0, str(Path(__file__).parent))
-    try:
-        from serenity_hunter import hunt_sector, generate_report
-        sectors_hit = set()
-        for a in alerts:
-            for s in a["sectors"]:
-                if s != "市场异动":
-                    sectors_hit.add(s)
-        for sector in list(sectors_hit)[:3]:  # 最多挖3个板块
-            findings = hunt_sector(sector)
-            if findings:
-                report = generate_report(sector, findings)
-                safe_name = sector.replace("/","-").replace("\\","-")
-                (OUTPUT / f"serenity_{safe_name}.md").write_text(report, encoding="utf-8")
-                discoveries = [f for f in findings if f.get("is_discovery")]
-                print(f"  🧠 Serenity: {sector} → {len(discoveries)}个隐藏标的")
-    except Exception as e:
-        print(f"  ⚠️ Serenity自动挖掘跳过: {e}")
+    """有异动→标记需要深挖的板块"""
+    sectors_hit = set()
+    for a in alerts:
+        for s in a["sectors"]:
+            if s != "市场异动":
+                sectors_hit.add(s)
+    if sectors_hit:
+        print(f"  🧠 建议Serenity深挖: {' '.join(sectors_hit)}")
+        print(f"     手动运行: python serenity_hunter.py <板块名>")
 
 # ── 主流程 ──
 def main():
