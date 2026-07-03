@@ -69,7 +69,7 @@ function parseAlerts(raw: unknown): Alert[] {
 }
 
 /** Only count alerts from the last 14 days for badge display */
-const ALERT_DAYS = 14;
+const ALERT_DAYS = 5;
 function getActiveAlerts(alerts: Alert[]): Alert[] {
   const cutoff = new Date();
   cutoff.setDate(cutoff.getDate() - ALERT_DAYS);
