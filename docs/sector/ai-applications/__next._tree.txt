@@ -1,2 +1,2 @@
-:HL["/industry-radar/_next/static/chunks/3qrvg81th77ak.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"sector","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"ai-applications","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"dXklkhcXy8_PL6oPreRbR"}
+:HL["/industry-radar/_next/static/chunks/2-5i247x9og81.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"sector","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"ai-applications","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"6dZ2sdp8GSHNcIbDxYAfq"}
