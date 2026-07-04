@@ -14,7 +14,7 @@ stocks:
   - 688072
   - 688019
 updated: '2026-07-01'
-relatedSectors: [semiconductor, ai-chips, pcb]
+relatedSectors: [semiconductor, ai-chips, pcb, storage-chips]
 alerts:
   - date: '2026-06-27'
     text: 2026成国产先进封装扩产大年！上半年合计投资超300亿：长电78亿临港+甬矽103亿三期+华天30亿南京+深科技14.7亿；大摩大幅上调CoWoS需求预测：2027年将达269万片

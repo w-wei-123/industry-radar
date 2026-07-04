@@ -20,7 +20,7 @@ stocks:
   - 002156
   - 002185
 updated: '2026-07-01'
-relatedSectors: [advanced-packaging, ai-chips, optical-cpo, mlcc, pcb, compute-power-grid]
+relatedSectors: [advanced-packaging, ai-chips, optical-cpo, mlcc, pcb, compute-power-grid, storage-chips]
 alerts:
   - date: '2026-06-30'
     text: 粤芯半导体硅光芯片核心参数优于海外头部同类产品，订单供不应求；英伟达在华AI芯片销售停滞，华为昇腾/寒武纪/海光信息加速替代
