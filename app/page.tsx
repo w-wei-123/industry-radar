@@ -3,6 +3,9 @@ import SectorCard from '@/components/SectorCard';
 
 export default function Home() {
   const sectors = getAllSectors();
+  const latestDate = sectors.length > 0
+    ? sectors.reduce((max, s) => s.updated > max ? s.updated : max, '')
+    : '';
 
   return (
     <main className="max-w-7xl mx-auto px-4 py-12">
@@ -14,6 +17,11 @@ export default function Home() {
         <p className="mt-4 text-lg text-gray-500 max-w-2xl mx-auto">
           聚焦 A 股前沿行业 · 头部企业 · 产业链全景 · 材料缺口 · 市场前景
         </p>
+        {latestDate && (
+          <p className="mt-2 text-sm text-blue-600 font-medium">
+            🕐 最后更新 {latestDate}
+          </p>
+        )}
       </div>
 
       {/* Sector Grid */}
