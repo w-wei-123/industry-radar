@@ -18,7 +18,7 @@ stocks:
   - 000837
   - 300580
 updated: '2026-07-01'
-relatedSectors: [ai-chips, solid-state-battery, mlcc, semiconductor]
+relatedSectors: [ai-chips, solid-state-battery, semiconductor]
 alerts:
   - date: '2026-06-30'
     text: 智元第15000台"精灵G2"下线(距万台仅三个月)，年产能十万台，千台落地3C/汽车/物流；优必选U1预售破13361台(最高99万)消费级市场拐点初现；工信部+国资委印发实景实训专项行动目标万台级落地

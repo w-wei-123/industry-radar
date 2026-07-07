@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "postbuild": "touch docs/.nojekyll",
-    "deploy": "npm run build && git add docs/ && git commit -m \"deploy: $(date +%Y-%m-%d)\" && git push"
+    "deploy": "npm run build && git add docs/ && git commit -m \"deploy: $(date +%Y-%m-%d)\" && git push",
+    "notify": "python engine/notify.py \"行业雷达\" \"网站已更新，Ctrl+Shift+R 刷新查看\""
   },
   "dependencies": {
     "echarts": "^6.1.0",

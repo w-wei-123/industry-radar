@@ -22,7 +22,7 @@ stocks:
   - 688017
   - 688008
 updated: '2026-07-04'
-relatedSectors: [semiconductor, storage-chips, ai-chips, optical-cpo, mlcc, pcb, advanced-packaging, compute-power-grid]
+relatedSectors: [semiconductor, storage-chips, ai-chips, optical-cpo, pcb, advanced-packaging, compute-power-grid]
 supplyChain: |
   # AI产业链价值流向
   ## 上游: 基础支撑

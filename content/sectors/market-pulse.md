@@ -57,7 +57,7 @@ updated: '2026-07-07'
 **五、7/7 MACHINA巴黎峰会：Optimus V3欧洲首秀**
 
 特斯拉Optimus V3在欧洲首次公开展出，但A股机器人板块今天毫无反应（绿的谐波-7%）。说明机器人短期审美疲劳，等8月WRC再看了。
-relatedSectors: [semiconductor, ai-chips, optical-cpo, mlcc, pcb, advanced-packaging, humanoid-robot, storage-chips]
+relatedSectors: [semiconductor, ai-chips, optical-cpo, pcb, advanced-packaging, humanoid-robot, storage-chips]
 supplyChain: |
   # 产业链传导框架
   ## 第一层：直接需求触发
