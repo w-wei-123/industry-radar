@@ -1,2 +1,2 @@
-:HL["/industry-radar/_next/static/chunks/3pyyp6uabcnrm.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"sector","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"optical-cpo","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"10r2wDMFZWzAo5o_RKdgZ"}
+:HL["/industry-radar/_next/static/chunks/12r6g3plfvr97.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"sector","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"optical-cpo","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"WXlbQmFBKOikuMfbAx7SJ"}
