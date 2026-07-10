@@ -34,37 +34,51 @@ export default function RootLayout({
             __html: `
 (function() {
   var BUILD_TIME = '${BUILD_TIME}';
-  var VISIT_KEY = 'radar_last_visit';
   var VERSION_KEY = 'radar_build_version';
-  var now = new Date().toISOString().split('T')[0];
-  var lastVisit = localStorage.getItem(VISIT_KEY);
-  var lastVersion = localStorage.getItem(VERSION_KEY);
+  var READ_KEY = 'radar_read_counts';   // per-sector read counts: {"slug": 5}
 
-  // 1. 更新提示条：点击刷新 + 版本检测自动显示
+  // 1. 更新提示条
   var banner = document.getElementById('update-banner');
   if (banner) {
     banner.addEventListener('click', function() { location.reload(); });
+    var lastVersion = localStorage.getItem(VERSION_KEY);
     if (lastVersion && lastVersion !== BUILD_TIME) {
       banner.classList.remove('hidden');
     }
   }
   localStorage.setItem(VERSION_KEY, BUILD_TIME);
 
-  // 2. 红点检测：上次访问 < 板块更新 → 隐藏红点
-  if (lastVisit) {
-    document.querySelectorAll('.sector-card').forEach(function(card) {
-      var updated = card.getAttribute('data-updated');
-      if (updated && updated <= lastVisit) {
-        var badge = card.querySelector('.alert-badge');
-        var text = card.querySelector('.alert-text');
-        if (badge) badge.style.display = 'none';
-        if (text) text.style.display = 'none';
-      }
-    });
-  }
+  // 2. QQ式未读计数: 总消息数 - 已读数 = 未读数
+  var readCounts = {};
+  try {
+    readCounts = JSON.parse(localStorage.getItem(READ_KEY) || '{}');
+  } catch(e) {}
 
-  // 3. 记录本次访问
-  localStorage.setItem(VISIT_KEY, now);
+  document.querySelectorAll('.sector-card').forEach(function(card) {
+    var slug = card.getAttribute('data-sector');
+    var total = parseInt(card.getAttribute('data-alert-count')) || 0;
+    var read = readCounts[slug] || 0;
+    var unread = Math.max(0, total - read);
+    var badge = card.querySelector('.alert-badge');
+
+    if (badge && unread > 0) {
+      // Update badge text to show unread count
+      badge.textContent = unread;
+      badge.style.display = '';
+    } else if (badge && unread === 0) {
+      badge.style.display = 'none';
+    }
+  });
+
+  // 3. 点击卡片 = 已读该板块所有消息
+  document.querySelectorAll('.sector-card').forEach(function(card) {
+    card.addEventListener('click', function() {
+      var slug = card.getAttribute('data-sector');
+      var total = parseInt(card.getAttribute('data-alert-count')) || 0;
+      readCounts[slug] = total;
+      localStorage.setItem(READ_KEY, JSON.stringify(readCounts));
+    });
+  });
 })();
           `.trim(),
           }}
