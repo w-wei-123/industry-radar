@@ -10,7 +10,8 @@ import sys, io, json, time, random, urllib.request, subprocess, os
 from datetime import date
 from pathlib import Path
 
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+if not getattr(sys.stdout, 'encoding', '') or 'utf-8' not in (sys.stdout.encoding or '').lower():
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 OUTPUT = Path(__file__).parent / "output"
 OUTPUT.mkdir(parents=True, exist_ok=True)
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
@@ -146,6 +147,55 @@ def main():
         lines.append("✅ 无异常信号")
 
     report = "\n".join(lines)
+
+    # 市场情绪（涨停/炸板/连板/晋级率/赚钱效应/题材热度）
+    try:
+        import market_sentiment as ms
+        _sdate = ms.find_last_trade_date(date.today())
+        if _sdate:
+            _s = ms.build_stats(_sdate)
+            if _s:
+                _emo = {'亢奋': '🔥', '活跃': '😄', '中性': '😐',
+                        '低迷': '🥶', '冰点': '💀'}.get(_s['level'], '')
+                report += f"\n\n## 市场情绪 {_emo} {_s['level']}（情绪分 {_s['score']}）\n"
+                report += f"- 涨停 {_s['zt']} | 炸板 {_s['zb']}（炸板率 {_s['zbr']}%）| 跌停 {_s['dt']} | 最高 {_s['maxBoard']}板"
+                _lad = ' → '.join(f"{b}板×{n}" for b, n in sorted(_s['ladder'].items()))
+                report += f"\n- 连板天梯: {_lad}"
+                if _s['ljRate'] is not None:
+                    report += f"\n- 晋级率 {_s['ljRate']}% | 赚钱效应(昨日涨停今均) {_s['profit']}%"
+                _rs = ' | '.join(f"{r}×{n}" for r, n in _s.get('reasons', [])[:5])
+                if _rs:
+                    report += f"\n- 题材热度: {_rs}"
+    except Exception:
+        pass
+
+    # 龙虎榜资金动向（机构净买 / 净买 / 净卖警示）
+    try:
+        import lhb
+        _ltd = lhb.find_last_trade_date(date.today())
+        if _ltd:
+            _lrows = lhb.get_lhb(_ltd)
+            _seen = {}
+            for _r in _lrows:
+                _c = _r['code']
+                if _c not in _seen or abs(_r['instNet']) > abs(_seen[_c]['instNet']):
+                    _seen[_c] = _r
+            _lrows = list(_seen.values())
+            if _lrows:
+                report += "\n\n## 龙虎榜资金动向\n"
+                for _line in lhb.report_block(_lrows):
+                    report += _line + "\n"
+    except Exception:
+        pass
+
+    # 命中率复盘（龙虎榜alpha / 情绪分前瞻 / 事件待验证）
+    try:
+        import review
+        _rlines = review.run(date.today())
+        if _rlines:
+            report += "\n".join(_rlines) + "\n"
+    except Exception:
+        pass
 
     # 前瞻事件：日历 + 搜索清单，先拼进报告再写盘
     event_lines, search_lines = forward_event_report()

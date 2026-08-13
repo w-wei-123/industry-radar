@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="build-time" content="2026-08-14 00:40:45">
+<meta name="build-time" content="2026-08-14 01:07:42">
 <title>人形机器人 — 行业雷达</title>
 <style>
 :root { --blue:#2563eb; --blue-d:#1d4ed8; --gray:#f8fafc; --border:#e2e8f0; }
@@ -113,6 +113,14 @@ tr:hover td { background:#f8fafc; }
 .related a { background:#f1f5f9; border:1px solid var(--border); padding:4px 12px; border-radius:8px;
              font-size:26px; color:#334155; }
 .related a:hover { background:#e2e8f0; text-decoration:none; }
+.sentiment { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:8px; }
+.s-item { background:#f8fafc; border:1px solid var(--border); border-radius:10px;
+          padding:8px 14px; min-width:90px; text-align:center; }
+.s-label { font-size:24px; color:#94a3b8; }
+.s-val { font-size:44px; font-weight:700; color:#0f172a; }
+.s-val small { font-size:24px; color:#94a3b8; font-weight:400; }
+.s-ladder { font-size:28px; color:#334155; margin:10px 0 4px; }
+.s-reasons { margin-top:8px; display:flex; flex-wrap:wrap; gap:6px; }
 @media (max-width:640px) {
   .hero h1 { font-size:52px; }
   .grid { grid-template-columns:1fr; }

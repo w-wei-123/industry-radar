@@ -475,6 +475,14 @@ tr:hover td { background:#f8fafc; }
 .related a { background:#f1f5f9; border:1px solid var(--border); padding:4px 12px; border-radius:8px;
              font-size:26px; color:#334155; }
 .related a:hover { background:#e2e8f0; text-decoration:none; }
+.sentiment { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:8px; }
+.s-item { background:#f8fafc; border:1px solid var(--border); border-radius:10px;
+          padding:8px 14px; min-width:90px; text-align:center; }
+.s-label { font-size:24px; color:#94a3b8; }
+.s-val { font-size:44px; font-weight:700; color:#0f172a; }
+.s-val small { font-size:24px; color:#94a3b8; font-weight:400; }
+.s-ladder { font-size:28px; color:#334155; margin:10px 0 4px; }
+.s-reasons { margin-top:8px; display:flex; flex-wrap:wrap; gap:6px; }
 @media (max-width:640px) {
   .hero h1 { font-size:52px; }
   .grid { grid-template-columns:1fr; }
@@ -536,6 +544,102 @@ def render_calendar(events: List[Dict]) -> str:
             f'<div class="table-wrap"><table><thead><tr><th>日期</th><th>事件</th>'
             f'<th>分类</th><th>影响板块</th><th>看点</th></tr></thead><tbody>'
             f'{"".join(rows)}</tbody></table></div></section>')
+
+
+def load_sentiment() -> Optional[Dict]:
+    """读市场情绪（market_sentiment.json，每日扫描生成）"""
+    p = ROOT / 'engine' / 'output' / 'market_sentiment.json'
+    if not p.exists():
+        return None
+    try:
+        import json as _json
+        return _json.loads(p.read_text(encoding='utf-8'))
+    except Exception:
+        return None
+
+
+def render_sentiment(s: Optional[Dict]) -> str:
+    """渲染市场情绪卡片（涨停/炸板/连板天梯/晋级率/题材热度）"""
+    if not s:
+        return ''
+    emoji = {'亢奋': '🔥', '活跃': '😄', '中性': '😐',
+             '低迷': '🥶', '冰点': '💀'}.get(str(s.get('level', '')), '')
+    score = s.get('score', '?')
+    zt, zb, dt = s.get('zt', 0), s.get('zb', 0), s.get('dt', 0)
+    zbr = s.get('zbr', 0)
+    maxb = s.get('maxBoard', 0)
+    ladder = ' → '.join(f'{b}板×{n}' for b, n in sorted((s.get('ladder') or {}).items()))
+    lj = s.get('ljRate')
+    profit = s.get('profit')
+    reasons = ' '.join(f'<span class="tag">{md_escape(r)}×{n}</span>'
+                       for r, n in (s.get('reasons') or [])[:6])
+    items = [f'<div class="s-item"><div class="s-label">涨停</div><div class="s-val">{zt}</div></div>',
+             f'<div class="s-item"><div class="s-label">炸板率</div><div class="s-val">{zbr}%<small>(炸{zb})</small></div></div>',
+             f'<div class="s-item"><div class="s-label">跌停</div><div class="s-val">{dt}</div></div>',
+             f'<div class="s-item"><div class="s-label">最高板</div><div class="s-val">{maxb}</div></div>']
+    if lj is not None:
+        items.append(f'<div class="s-item"><div class="s-label">晋级率</div><div class="s-val">{lj}%</div></div>')
+        items.append(f'<div class="s-item"><div class="s-label">赚钱效应</div><div class="s-val">{profit}%</div></div>')
+    return (f'<section class="section-block"><h2 class="section-title">📊 市场情绪 {emoji} {md_escape(str(s.get("level","")))}'
+            f'<span>情绪分 {score}</span></h2>'
+            f'<div class="sentiment">{"".join(items)}</div>'
+            f'<p class="s-ladder">连板天梯: {md_escape(ladder)}</p>'
+            f'<div class="s-reasons">{reasons}</div></section>')
+
+
+def load_lhb() -> Optional[Dict]:
+    """读龙虎榜资金动向（lhb.json，每日扫描生成）"""
+    p = ROOT / 'engine' / 'output' / 'lhb.json'
+    if not p.exists():
+        return None
+    try:
+        import json as _json
+        return _json.loads(p.read_text(encoding='utf-8'))
+    except Exception:
+        return None
+
+
+def render_lhb(s: Optional[Dict]) -> str:
+    """渲染龙虎榜资金动向（机构净买/净买/净卖警示）"""
+    if not s:
+        return ''
+    rows = s.get('rows') or []
+    if not rows:
+        return ''
+    inst = [r for r in rows if (r.get('instNet') or 0) > 0.01]
+    inst.sort(key=lambda r: -r['instNet'])
+    buy = sorted(rows, key=lambda r: -r['netAmt'])[:6]
+    sell = sorted(rows, key=lambda r: r['netAmt'])[:3]
+    item = lambda r: f'{md_escape(str(r["name"]))} {r["netAmt"]:+.2f}亿'
+    parts = []
+    if inst:
+        parts.append(f'<p class="s-ladder"><b>机构净买</b>: '
+                     + ' | '.join(f'{md_escape(str(r["name"]))}({r["instNet"]:.2f}亿)' for r in inst[:4]) + '</p>')
+    parts.append(f'<p class="s-ladder"><b>净买</b>: ' + ' | '.join(item(r) for r in buy) + '</p>')
+    parts.append(f'<p class="s-ladder" style="color:#dc2626"><b>净卖警示</b>: ' + ' | '.join(item(r) for r in sell) + '</p>')
+    return (f'<section class="section-block"><h2 class="section-title">🐉 龙虎榜资金动向'
+            f'<span>{s.get("date", "")} 上榜 {len(rows)}只</span></h2>'
+            + ''.join(parts) + '</section>')
+
+
+def load_review() -> Optional[str]:
+    """读命中率复盘（review.md，每日扫描生成）"""
+    p = ROOT / 'engine' / 'output' / 'review.md'
+    if not p.exists():
+        return None
+    try:
+        return p.read_text(encoding='utf-8').strip()
+    except Exception:
+        return None
+
+
+def render_review(content: Optional[str]) -> str:
+    """渲染命中率复盘（系统自我验证：龙虎榜alpha/情绪分前瞻/事件待验证）"""
+    if not content:
+        return ''
+    body = render_markdown(content)
+    return (f'<section class="section-block"><h2 class="section-title">🔁 命中率复盘'
+            f'<span>系统自我验证 · 反向优化</span></h2>{body}</section>')
 
 
 def render_home(sectors: list, build_time: str) -> str:
@@ -618,9 +722,11 @@ def render_sector_page(s: dict, sectors: list, build_time: str) -> str:
 
     # 内容块
     body_html = render_markdown(strip_tables(content))
-    # market-pulse 页动态插入事件日历（跟随 forward_events 自动清理）
+    # market-pulse 页动态插入 情绪区 + 龙虎榜 + 事件日历（跟随每日扫描自动更新）
     if slug == 'market-pulse':
-        body_html = render_calendar(load_calendar_events()) + body_html
+        dyn = (render_sentiment(load_sentiment()) + render_lhb(load_lhb())
+               + render_review(load_review()) + render_calendar(load_calendar_events()))
+        body_html = dyn + body_html
 
     # 供应链
     sc_html = ''
