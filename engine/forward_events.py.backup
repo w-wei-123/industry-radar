@@ -121,10 +121,7 @@ def load_events():
     return auto_prune(events, date.today())
 
 def auto_prune(events, today):
-    """自动清理规则：
-      1) 已发生超过3天 → 消除
-      2) 距今超过7天的未来推演（还没发生但太远）→ 消除，反正每天扫描会补新推演
-      保留窗口：过去3天 ~ 未来7天"""
+    """自动清理规则：已发生过(日期+3天 < 今天)的事件消除，未发生的不动"""
     kept = []
     removed = 0
     for e in events:
@@ -133,8 +130,8 @@ def auto_prune(events, today):
         except Exception:
             kept.append(e)
             continue
-        # 已发生超3天 或 距今超7天（未来太远）→ 自动消除
-        if e_date + timedelta(days=3) < today or e_date - timedelta(days=7) > today:
+        # 已发生超过3天 → 自动消除；未发生/3天内 → 保留
+        if e_date + timedelta(days=3) < today:
             removed += 1
             continue
         kept.append(e)

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="build-time" content="2026-08-14 00:29:50">
+<meta name="build-time" content="2026-08-14 00:40:45">
 <title>算电协同 — 行业雷达</title>
 <style>
 :root { --blue:#2563eb; --blue-d:#1d4ed8; --gray:#f8fafc; --border:#e2e8f0; }
@@ -14,107 +14,107 @@ a:hover { text-decoration:underline; }
        box-shadow:0 1px 3px rgba(0,0,0,.15); }
 .nav-inner { max-width:1200px; margin:0 auto; padding:0 16px; display:flex; align-items:center;
              gap:16px; height:52px; }
-.nav-logo { font-weight:800; font-size:17px; color:#fff; white-space:nowrap; }
+.nav-logo { font-weight:800; font-size:34px; color:#fff; white-space:nowrap; }
 .nav-logo:hover { text-decoration:none; }
 .nav-links { display:flex; gap:6px; overflow-x:auto; padding-bottom:4px; flex:1;
              scrollbar-width:none; }
 .nav-links::-webkit-scrollbar { display:none; }
-.nav-link { color:#cbd5e1; font-size:13px; padding:4px 10px; border-radius:6px; white-space:nowrap; }
+.nav-link { color:#cbd5e1; font-size:26px; padding:4px 10px; border-radius:6px; white-space:nowrap; }
 .nav-link:hover { color:#fff; background:rgba(255,255,255,.12); text-decoration:none; }
 .nav-link.active { color:#fff; background:var(--blue); font-weight:600; }
 .container { max-width:1200px; margin:0 auto; padding:24px 16px 60px; }
 .hero { text-align:center; padding:36px 0 28px; }
-.hero h1 { font-size:34px; font-weight:800; color:#0f172a; }
-.hero p { color:#64748b; margin-top:8px; font-size:15px; }
-.hero .updated { color:var(--blue); font-weight:600; margin-top:6px; font-size:13px; }
+.hero h1 { font-size:68px; font-weight:800; color:#0f172a; }
+.hero p { color:#64748b; margin-top:8px; font-size:30px; }
+.hero .updated { color:var(--blue); font-weight:600; margin-top:6px; font-size:26px; }
 .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:16px; }
 .card { position:relative; background:#fff; border:2px solid var(--border); border-radius:14px;
         padding:18px; transition:box-shadow .15s, border-color .15s; display:block; }
 .card:hover { box-shadow:0 6px 20px rgba(0,0,0,.08); border-color:#94a3b8; text-decoration:none; }
-.card h2 { font-size:17px; font-weight:700; color:#0f172a; }
+.card h2 { font-size:34px; font-weight:700; color:#0f172a; }
 .card:hover h2 { color:var(--blue); }
-.card .tags { color:#94a3b8; font-size:12px; margin-top:6px; }
+.card .tags { color:#94a3b8; font-size:24px; margin-top:6px; }
 .card .meta { display:flex; justify-content:space-between; margin-top:12px; color:#94a3b8;
-              font-size:11px; }
+              font-size:22px; }
 .card .meta .stocks { }
 .card.new { border-color:var(--blue); background:#eff6ff; }
 .card.recent { border-color:#cbd5e1; }
 .badge { position:absolute; top:-10px; right:-10px; min-width:26px; height:26px; padding:0 8px;
          display:flex; align-items:center; justify-content:center; background:#ef4444; color:#fff;
-         font-size:12px; font-weight:700; border-radius:999px; box-shadow:0 2px 6px rgba(0,0,0,.2); }
+         font-size:24px; font-weight:700; border-radius:999px; box-shadow:0 2px 6px rgba(0,0,0,.2); }
 .badge.blue { background:var(--blue); }
 .badge.gray { background:#94a3b8; }
-.back { display:inline-block; font-size:13px; margin-bottom:20px; }
+.back { display:inline-block; font-size:26px; margin-bottom:20px; }
 .sector-header { margin-bottom:20px; }
-.sector-header h1 { font-size:28px; font-weight:800; color:#0f172a; }
+.sector-header h1 { font-size:56px; font-weight:800; color:#0f172a; }
 .tag-row { display:flex; flex-wrap:wrap; gap:6px; margin:10px 0; }
-.tag { background:#eff6ff; color:var(--blue-d); border:1px solid #bfdbfe; font-size:12px;
+.tag { background:#eff6ff; color:var(--blue-d); border:1px solid #bfdbfe; font-size:24px;
        padding:3px 10px; border-radius:999px; }
-.sector-meta { color:#94a3b8; font-size:13px; }
+.sector-meta { color:#94a3b8; font-size:26px; }
 .alert-section { margin:16px 0 28px; }
-.alert-section h2 { font-size:17px; color:#dc2626; margin-bottom:10px; }
+.alert-section h2 { font-size:34px; color:#dc2626; margin-bottom:10px; }
 .alert { display:flex; gap:12px; background:#fef2f2; border:1px solid #fecaca; border-radius:10px;
          padding:12px 14px; margin-bottom:8px; }
 .alert .num { flex-shrink:0; width:22px; height:22px; border-radius:50%; background:#ef4444;
-              color:#fff; font-size:11px; font-weight:700; display:flex; align-items:center;
+              color:#fff; font-size:22px; font-weight:700; display:flex; align-items:center;
               justify-content:center; }
-.alert p { font-size:13px; color:#991b1b; }
-.alert .date { font-size:11px; color:#f87171; margin-top:3px; }
+.alert p { font-size:26px; color:#991b1b; }
+.alert .date { font-size:22px; color:#f87171; margin-top:3px; }
 .article { background:#fff; border:1px solid var(--border); border-radius:14px; padding:28px;
            margin-bottom:28px; }
-.article h2 { font-size:21px; font-weight:700; color:#0f172a; margin:28px 0 12px; padding-bottom:8px;
+.article h2 { font-size:42px; font-weight:700; color:#0f172a; margin:28px 0 12px; padding-bottom:8px;
               border-bottom:2px solid #d1d5db; }
 .article h2:first-child { margin-top:0; }
-.article h3 { font-size:16px; font-weight:600; color:#1e293b; margin:20px 0 8px; }
-.article h4 { font-size:14px; font-weight:600; color:#334155; margin:16px 0 6px; }
-.article p { font-size:14px; line-height:1.85; color:#334155; margin-bottom:12px; }
+.article h3 { font-size:32px; font-weight:600; color:#1e293b; margin:20px 0 8px; }
+.article h4 { font-size:28px; font-weight:600; color:#334155; margin:16px 0 6px; }
+.article p { font-size:28px; line-height:1.85; color:#334155; margin-bottom:12px; }
 .article ul,.article ol { margin:0 0 12px 20px; }
-.article li { font-size:14px; line-height:1.75; color:#334155; margin-bottom:4px; }
+.article li { font-size:28px; line-height:1.75; color:#334155; margin-bottom:4px; }
 .article strong { color:#0f172a; }
 .article blockquote { border-left:3px solid var(--blue); padding:10px 14px; margin:12px 0;
-                      background:#eff6ff; border-radius:0 8px 8px 0; font-size:13px; color:#334155; }
+                      background:#eff6ff; border-radius:0 8px 8px 0; font-size:26px; color:#334155; }
 .article blockquote p { margin-bottom:0; }
 .article hr { border:none; border-top:1px solid #d1d5db; margin:24px 0; }
-.article code { background:#e5e7eb; padding:2px 6px; border-radius:4px; font-size:13px; color:#4b5563;
+.article code { background:#e5e7eb; padding:2px 6px; border-radius:4px; font-size:26px; color:#4b5563;
                 font-family:'Cascadia Code','Fira Code',monospace; }
 .article pre { background:#0f172a; color:#e2e8f0; padding:16px; border-radius:10px; overflow-x:auto;
-               margin:12px 0; font-size:12.5px; line-height:1.6; }
+               margin:12px 0; font-size:25px; line-height:1.6; }
 .article pre code { background:none; color:inherit; padding:0; }
 .table-wrap { overflow-x:auto; margin:14px 0; }
-table { width:100%; border-collapse:collapse; font-size:13px; }
+table { width:100%; border-collapse:collapse; font-size:26px; }
 th { background:#f1f5f9; text-align:left; padding:9px 12px; font-weight:600; color:#0f172a;
      border-bottom:2px solid #e2e8f0; white-space:nowrap; }
 td { padding:9px 12px; border-bottom:1px solid #e2e8f0; color:#334155; vertical-align:top; }
 td.td-first { font-weight:600; color:#0f172a; white-space:nowrap; }
 tr:hover td { background:#f8fafc; }
 .section-block { margin-bottom:28px; }
-.section-title { font-size:19px; font-weight:700; color:#0f172a; margin-bottom:12px; }
-.section-title span { font-size:13px; color:#94a3b8; font-weight:400; margin-left:6px; }
-.gap-tag { display:inline-block; padding:1px 8px; border-radius:999px; font-size:11px; }
+.section-title { font-size:38px; font-weight:700; color:#0f172a; margin-bottom:12px; }
+.section-title span { font-size:26px; color:#94a3b8; font-weight:400; margin-left:6px; }
+.gap-tag { display:inline-block; padding:1px 8px; border-radius:999px; font-size:22px; }
 .gap-high { background:#fef2f2; color:#dc2626; border:1px solid #fecaca; }
 .gap-mid { background:#fffbeb; color:#b45309; border:1px solid #fde68a; }
 .chart-box { background:#fff; border:1px solid var(--border); border-radius:12px; padding:16px; }
-.chart-label { font-size:14px; font-weight:600; color:#0f172a; margin-bottom:8px; }
-.chart-unit { font-size:11px; color:#94a3b8; margin-top:4px; text-align:right; }
+.chart-label { font-size:28px; font-weight:600; color:#0f172a; margin-bottom:8px; }
+.chart-unit { font-size:22px; color:#94a3b8; margin-top:4px; text-align:right; }
 .sc-root { display:flex; flex-direction:column; }
-.sc-item { font-size:13.5px; color:#334155; padding:5px 10px; border-left:3px solid var(--border);
+.sc-item { font-size:27px; color:#334155; padding:5px 10px; border-left:3px solid var(--border);
            margin:2px 0; border-radius:0 6px 6px 0; }
 .sc-item strong { color:#0f172a; }
 .sc-item.lv1 { background:#eff6ff; border-left-color:var(--blue); font-weight:600; color:#1e40af;
-               font-size:14px; }
+               font-size:28px; }
 .sc-item.lv2 { margin-left:16px; background:#f8fafc; border-left-color:#93c5fd; }
 .sc-item.lv3 { margin-left:32px; border-left-color:#c7d2fe; }
-.sc-item.lv4 { margin-left:48px; border-left-color:#e2e8f0; color:#64748b; font-size:12.5px; }
-.footer { text-align:center; color:#94a3b8; font-size:12px; padding:24px 0 40px; border-top:1px solid var(--border); }
+.sc-item.lv4 { margin-left:48px; border-left-color:#e2e8f0; color:#64748b; font-size:25px; }
+.footer { text-align:center; color:#94a3b8; font-size:24px; padding:24px 0 40px; border-top:1px solid var(--border); }
 .footer p { margin:4px 0; }
-.details summary { cursor:pointer; color:#94a3b8; font-size:13px; margin:8px 0; }
+.details summary { cursor:pointer; color:#94a3b8; font-size:26px; margin:8px 0; }
 .details summary:hover { color:var(--blue); }
 .related { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
 .related a { background:#f1f5f9; border:1px solid var(--border); padding:4px 12px; border-radius:8px;
-             font-size:13px; color:#334155; }
+             font-size:26px; color:#334155; }
 .related a:hover { background:#e2e8f0; text-decoration:none; }
 @media (max-width:640px) {
-  .hero h1 { font-size:26px; }
+  .hero h1 { font-size:52px; }
   .grid { grid-template-columns:1fr; }
   .article { padding:18px; }
 }
@@ -131,7 +131,7 @@ tr:hover td { background:#f8fafc; }
     <div class="tag-row"><span class="tag">东数西算</span><span class="tag">液冷</span><span class="tag">智能电网</span><span class="tag">AIDC</span><span class="tag">绿电直供</span></div>
     <p class="sector-meta">14 只成分股 · 更新于 2026-07-13</p>
   </div>
-  <details class="details"><summary>📋 历史提醒（4条，14天前）</summary><div style="margin-top:8px"><div class="alert"><span class="num">1</span><div><p>AI算力三巨头中报兑现：工业富联(601138)H1净利234-244亿(+93-101%)，AI服务器出货翻倍；浪潮信息(000977)H1净利26-31亿(+226-288%)，7/8一字涨停股价逼近历史新高；紫光股份(000938)H1净利19.1-23.2亿(+84-123%)。AI算力基建进入业绩兑现阶段</p><p class="date">2026-07-13 · 涉及：工业富联、浪潮信息、紫光股份</p></div></div><div class="alert"><span class="num">2</span><div><p>乌兰察布启动全国首个"增量配电网+绿电直供"零碳算力园区；落地数据中心89个算力16.5万P智能算力占比超90%；国内首套算力能源一体化调控平台落地</p><p class="date">2026-06-30 · 涉及：乌兰察布、中金数据</p></div></div><div class="alert"><span class="num">3</span><div><p>算力首次纳入国家能源顶层规划——写入十五五新型能源体系规划(被6次提及)；2030年算力用电量预计8000亿千瓦时占全社会6%；四部委联合印发AI与能源双向赋能29项任务行动方案；达沃斯论坛晶科能源：算电协同为光储带来30%-50%额外需求</p><p class="date">2026-06-25 · 涉及：晶科能源、九洲集团、施耐德</p></div></div><div class="alert"><span class="num">4</span><div><p>英伟达Vera Rubin全面量产，首个100%液冷散热GPU平台；全国首个跨三地算电协同智能调度测试成功（芜湖发布）；800VDC液冷电源+中压固态变压器（SST）架构变革启动；SOFC从可选方案加速跃升为AI数据中心标配</p><p class="date">2026-06-22 · 涉及：英维克、高澜股份、科创新源、申菱环境、三环集团</p></div></div></div></details>
+  
   <div class="article"><h2>行业概述</h2>
 <p>"算电协同"由华为数字能源首次提出，核心理念是<strong>"算优化电，电支撑算"</strong>——AI 算力中心爆炸式增长与电力瓶颈之间的矛盾催生了这个万亿级新赛道。<strong>2026 年首次写入政府工作报告</strong>，明确"实施超大规模智算集群、算电协同等新基建工程"。</p>
 <p>核心逻辑：单个 10 万卡智算中心年耗电超 10 亿度，相当于一座中等城市用电量。AI 算力用电 CAGR 超 40%，电力供给和散热成为算力扩张的第一瓶颈。"算电协同"从绿电直供→智能电网调度→液冷节能全链条解决这个问题。</p>
@@ -162,26 +162,26 @@ tr:hover td { background:#f8fafc; }
 <tr><td class="td-first">智算中心氢能/燃料电池备用电源</td><td><span class="gap-tag ">较大</span></td><td>约20%（技术验证阶段）</td><td>潍柴动力（000338）、亿华通（688339）</td></tr>
 </tbody></table></div></section>
   <section class="section-block"><h2 class="section-title">📈 市场规模预测</h2><div class="chart-box"><p class="chart-label">中国算电协同产业市场规模</p><svg viewBox="0 0 488 220" width="100%" height="220" role="img" aria-label="中国算电协同产业市场规模"><line x1="16" y1="190" x2="480" y2="190" stroke="#e2e8f0"/><line x1="16" y1="190" x2="16" y2="12" stroke="#e2e8f0"/><rect x="20" y="177" width="36" height="13" rx="3" fill="#2563eb" opacity="0.85"><title>2023: 5000亿元</title></rect>
-<text x="38" y="171" text-anchor="middle" font-size="11" fill="#64748b">5000</text>
-<text x="38" y="208" text-anchor="middle" font-size="12" fill="#94a3b8">2023</text>
+<text x="38" y="171" text-anchor="middle" font-size="22" fill="#64748b">5000</text>
+<text x="38" y="208" text-anchor="middle" font-size="24" fill="#94a3b8">2023</text>
 <rect x="84" y="169" width="36" height="21" rx="3" fill="#2563eb" opacity="0.85"><title>2024: 8000亿元</title></rect>
-<text x="102" y="163" text-anchor="middle" font-size="11" fill="#64748b">8000</text>
-<text x="102" y="208" text-anchor="middle" font-size="12" fill="#94a3b8">2024</text>
+<text x="102" y="163" text-anchor="middle" font-size="22" fill="#64748b">8000</text>
+<text x="102" y="208" text-anchor="middle" font-size="24" fill="#94a3b8">2024</text>
 <rect x="148" y="158" width="36" height="32" rx="3" fill="#2563eb" opacity="0.85"><title>2025: 12000亿元</title></rect>
-<text x="166" y="152" text-anchor="middle" font-size="11" fill="#64748b">12000</text>
-<text x="166" y="208" text-anchor="middle" font-size="12" fill="#94a3b8">2025</text>
+<text x="166" y="152" text-anchor="middle" font-size="22" fill="#64748b">12000</text>
+<text x="166" y="208" text-anchor="middle" font-size="24" fill="#94a3b8">2025</text>
 <rect x="212" y="142" width="36" height="48" rx="3" fill="#2563eb" opacity="0.85"><title>2026: 18000亿元</title></rect>
-<text x="230" y="136" text-anchor="middle" font-size="11" fill="#64748b">18000</text>
-<text x="230" y="208" text-anchor="middle" font-size="12" fill="#94a3b8">2026</text>
+<text x="230" y="136" text-anchor="middle" font-size="22" fill="#64748b">18000</text>
+<text x="230" y="208" text-anchor="middle" font-size="24" fill="#94a3b8">2026</text>
 <rect x="276" y="124" width="36" height="66" rx="3" fill="#2563eb" opacity="0.85"><title>2027: 25000亿元</title></rect>
-<text x="294" y="118" text-anchor="middle" font-size="11" fill="#64748b">25000</text>
-<text x="294" y="208" text-anchor="middle" font-size="12" fill="#94a3b8">2027</text>
+<text x="294" y="118" text-anchor="middle" font-size="22" fill="#64748b">25000</text>
+<text x="294" y="208" text-anchor="middle" font-size="24" fill="#94a3b8">2027</text>
 <rect x="340" y="97" width="36" height="93" rx="3" fill="#2563eb" opacity="0.85"><title>2028: 35000亿元</title></rect>
-<text x="358" y="91" text-anchor="middle" font-size="11" fill="#64748b">35000</text>
-<text x="358" y="208" text-anchor="middle" font-size="12" fill="#94a3b8">2028</text>
+<text x="358" y="91" text-anchor="middle" font-size="22" fill="#64748b">35000</text>
+<text x="358" y="208" text-anchor="middle" font-size="24" fill="#94a3b8">2028</text>
 <rect x="404" y="30" width="36" height="160" rx="3" fill="#2563eb" opacity="0.85"><title>2030: 60000亿元</title></rect>
-<text x="422" y="24" text-anchor="middle" font-size="11" fill="#64748b">60000</text>
-<text x="422" y="208" text-anchor="middle" font-size="12" fill="#94a3b8">2030</text></svg><p class="chart-unit">单位：元</p></div></section>
+<text x="422" y="24" text-anchor="middle" font-size="22" fill="#64748b">60000</text>
+<text x="422" y="208" text-anchor="middle" font-size="24" fill="#94a3b8">2030</text></svg><p class="chart-unit">单位：元</p></div></section>
   <section class="section-block"><h2 class="section-title">🔗 相关板块</h2><div class="related"><a href="ai-chips.html">AI芯片/算力</a><a href="semiconductor.html">半导体</a><a href="solid-state-battery.html">固态电池</a></div></section>
   <div style="margin-top:32px;padding-top:20px;border-top:1px solid var(--border)">
     <a class="back" href="index.html">← 返回首页查看其他板块</a>

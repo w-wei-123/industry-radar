@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="build-time" content="2026-08-14 00:29:50">
+<meta name="build-time" content="2026-08-14 00:40:45">
 <title>市场异动&amp;前瞻推演 — 行业雷达</title>
 <style>
 :root { --blue:#2563eb; --blue-d:#1d4ed8; --gray:#f8fafc; --border:#e2e8f0; }
@@ -14,107 +14,107 @@ a:hover { text-decoration:underline; }
        box-shadow:0 1px 3px rgba(0,0,0,.15); }
 .nav-inner { max-width:1200px; margin:0 auto; padding:0 16px; display:flex; align-items:center;
              gap:16px; height:52px; }
-.nav-logo { font-weight:800; font-size:17px; color:#fff; white-space:nowrap; }
+.nav-logo { font-weight:800; font-size:34px; color:#fff; white-space:nowrap; }
 .nav-logo:hover { text-decoration:none; }
 .nav-links { display:flex; gap:6px; overflow-x:auto; padding-bottom:4px; flex:1;
              scrollbar-width:none; }
 .nav-links::-webkit-scrollbar { display:none; }
-.nav-link { color:#cbd5e1; font-size:13px; padding:4px 10px; border-radius:6px; white-space:nowrap; }
+.nav-link { color:#cbd5e1; font-size:26px; padding:4px 10px; border-radius:6px; white-space:nowrap; }
 .nav-link:hover { color:#fff; background:rgba(255,255,255,.12); text-decoration:none; }
 .nav-link.active { color:#fff; background:var(--blue); font-weight:600; }
 .container { max-width:1200px; margin:0 auto; padding:24px 16px 60px; }
 .hero { text-align:center; padding:36px 0 28px; }
-.hero h1 { font-size:34px; font-weight:800; color:#0f172a; }
-.hero p { color:#64748b; margin-top:8px; font-size:15px; }
-.hero .updated { color:var(--blue); font-weight:600; margin-top:6px; font-size:13px; }
+.hero h1 { font-size:68px; font-weight:800; color:#0f172a; }
+.hero p { color:#64748b; margin-top:8px; font-size:30px; }
+.hero .updated { color:var(--blue); font-weight:600; margin-top:6px; font-size:26px; }
 .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:16px; }
 .card { position:relative; background:#fff; border:2px solid var(--border); border-radius:14px;
         padding:18px; transition:box-shadow .15s, border-color .15s; display:block; }
 .card:hover { box-shadow:0 6px 20px rgba(0,0,0,.08); border-color:#94a3b8; text-decoration:none; }
-.card h2 { font-size:17px; font-weight:700; color:#0f172a; }
+.card h2 { font-size:34px; font-weight:700; color:#0f172a; }
 .card:hover h2 { color:var(--blue); }
-.card .tags { color:#94a3b8; font-size:12px; margin-top:6px; }
+.card .tags { color:#94a3b8; font-size:24px; margin-top:6px; }
 .card .meta { display:flex; justify-content:space-between; margin-top:12px; color:#94a3b8;
-              font-size:11px; }
+              font-size:22px; }
 .card .meta .stocks { }
 .card.new { border-color:var(--blue); background:#eff6ff; }
 .card.recent { border-color:#cbd5e1; }
 .badge { position:absolute; top:-10px; right:-10px; min-width:26px; height:26px; padding:0 8px;
          display:flex; align-items:center; justify-content:center; background:#ef4444; color:#fff;
-         font-size:12px; font-weight:700; border-radius:999px; box-shadow:0 2px 6px rgba(0,0,0,.2); }
+         font-size:24px; font-weight:700; border-radius:999px; box-shadow:0 2px 6px rgba(0,0,0,.2); }
 .badge.blue { background:var(--blue); }
 .badge.gray { background:#94a3b8; }
-.back { display:inline-block; font-size:13px; margin-bottom:20px; }
+.back { display:inline-block; font-size:26px; margin-bottom:20px; }
 .sector-header { margin-bottom:20px; }
-.sector-header h1 { font-size:28px; font-weight:800; color:#0f172a; }
+.sector-header h1 { font-size:56px; font-weight:800; color:#0f172a; }
 .tag-row { display:flex; flex-wrap:wrap; gap:6px; margin:10px 0; }
-.tag { background:#eff6ff; color:var(--blue-d); border:1px solid #bfdbfe; font-size:12px;
+.tag { background:#eff6ff; color:var(--blue-d); border:1px solid #bfdbfe; font-size:24px;
        padding:3px 10px; border-radius:999px; }
-.sector-meta { color:#94a3b8; font-size:13px; }
+.sector-meta { color:#94a3b8; font-size:26px; }
 .alert-section { margin:16px 0 28px; }
-.alert-section h2 { font-size:17px; color:#dc2626; margin-bottom:10px; }
+.alert-section h2 { font-size:34px; color:#dc2626; margin-bottom:10px; }
 .alert { display:flex; gap:12px; background:#fef2f2; border:1px solid #fecaca; border-radius:10px;
          padding:12px 14px; margin-bottom:8px; }
 .alert .num { flex-shrink:0; width:22px; height:22px; border-radius:50%; background:#ef4444;
-              color:#fff; font-size:11px; font-weight:700; display:flex; align-items:center;
+              color:#fff; font-size:22px; font-weight:700; display:flex; align-items:center;
               justify-content:center; }
-.alert p { font-size:13px; color:#991b1b; }
-.alert .date { font-size:11px; color:#f87171; margin-top:3px; }
+.alert p { font-size:26px; color:#991b1b; }
+.alert .date { font-size:22px; color:#f87171; margin-top:3px; }
 .article { background:#fff; border:1px solid var(--border); border-radius:14px; padding:28px;
            margin-bottom:28px; }
-.article h2 { font-size:21px; font-weight:700; color:#0f172a; margin:28px 0 12px; padding-bottom:8px;
+.article h2 { font-size:42px; font-weight:700; color:#0f172a; margin:28px 0 12px; padding-bottom:8px;
               border-bottom:2px solid #d1d5db; }
 .article h2:first-child { margin-top:0; }
-.article h3 { font-size:16px; font-weight:600; color:#1e293b; margin:20px 0 8px; }
-.article h4 { font-size:14px; font-weight:600; color:#334155; margin:16px 0 6px; }
-.article p { font-size:14px; line-height:1.85; color:#334155; margin-bottom:12px; }
+.article h3 { font-size:32px; font-weight:600; color:#1e293b; margin:20px 0 8px; }
+.article h4 { font-size:28px; font-weight:600; color:#334155; margin:16px 0 6px; }
+.article p { font-size:28px; line-height:1.85; color:#334155; margin-bottom:12px; }
 .article ul,.article ol { margin:0 0 12px 20px; }
-.article li { font-size:14px; line-height:1.75; color:#334155; margin-bottom:4px; }
+.article li { font-size:28px; line-height:1.75; color:#334155; margin-bottom:4px; }
 .article strong { color:#0f172a; }
 .article blockquote { border-left:3px solid var(--blue); padding:10px 14px; margin:12px 0;
-                      background:#eff6ff; border-radius:0 8px 8px 0; font-size:13px; color:#334155; }
+                      background:#eff6ff; border-radius:0 8px 8px 0; font-size:26px; color:#334155; }
 .article blockquote p { margin-bottom:0; }
 .article hr { border:none; border-top:1px solid #d1d5db; margin:24px 0; }
-.article code { background:#e5e7eb; padding:2px 6px; border-radius:4px; font-size:13px; color:#4b5563;
+.article code { background:#e5e7eb; padding:2px 6px; border-radius:4px; font-size:26px; color:#4b5563;
                 font-family:'Cascadia Code','Fira Code',monospace; }
 .article pre { background:#0f172a; color:#e2e8f0; padding:16px; border-radius:10px; overflow-x:auto;
-               margin:12px 0; font-size:12.5px; line-height:1.6; }
+               margin:12px 0; font-size:25px; line-height:1.6; }
 .article pre code { background:none; color:inherit; padding:0; }
 .table-wrap { overflow-x:auto; margin:14px 0; }
-table { width:100%; border-collapse:collapse; font-size:13px; }
+table { width:100%; border-collapse:collapse; font-size:26px; }
 th { background:#f1f5f9; text-align:left; padding:9px 12px; font-weight:600; color:#0f172a;
      border-bottom:2px solid #e2e8f0; white-space:nowrap; }
 td { padding:9px 12px; border-bottom:1px solid #e2e8f0; color:#334155; vertical-align:top; }
 td.td-first { font-weight:600; color:#0f172a; white-space:nowrap; }
 tr:hover td { background:#f8fafc; }
 .section-block { margin-bottom:28px; }
-.section-title { font-size:19px; font-weight:700; color:#0f172a; margin-bottom:12px; }
-.section-title span { font-size:13px; color:#94a3b8; font-weight:400; margin-left:6px; }
-.gap-tag { display:inline-block; padding:1px 8px; border-radius:999px; font-size:11px; }
+.section-title { font-size:38px; font-weight:700; color:#0f172a; margin-bottom:12px; }
+.section-title span { font-size:26px; color:#94a3b8; font-weight:400; margin-left:6px; }
+.gap-tag { display:inline-block; padding:1px 8px; border-radius:999px; font-size:22px; }
 .gap-high { background:#fef2f2; color:#dc2626; border:1px solid #fecaca; }
 .gap-mid { background:#fffbeb; color:#b45309; border:1px solid #fde68a; }
 .chart-box { background:#fff; border:1px solid var(--border); border-radius:12px; padding:16px; }
-.chart-label { font-size:14px; font-weight:600; color:#0f172a; margin-bottom:8px; }
-.chart-unit { font-size:11px; color:#94a3b8; margin-top:4px; text-align:right; }
+.chart-label { font-size:28px; font-weight:600; color:#0f172a; margin-bottom:8px; }
+.chart-unit { font-size:22px; color:#94a3b8; margin-top:4px; text-align:right; }
 .sc-root { display:flex; flex-direction:column; }
-.sc-item { font-size:13.5px; color:#334155; padding:5px 10px; border-left:3px solid var(--border);
+.sc-item { font-size:27px; color:#334155; padding:5px 10px; border-left:3px solid var(--border);
            margin:2px 0; border-radius:0 6px 6px 0; }
 .sc-item strong { color:#0f172a; }
 .sc-item.lv1 { background:#eff6ff; border-left-color:var(--blue); font-weight:600; color:#1e40af;
-               font-size:14px; }
+               font-size:28px; }
 .sc-item.lv2 { margin-left:16px; background:#f8fafc; border-left-color:#93c5fd; }
 .sc-item.lv3 { margin-left:32px; border-left-color:#c7d2fe; }
-.sc-item.lv4 { margin-left:48px; border-left-color:#e2e8f0; color:#64748b; font-size:12.5px; }
-.footer { text-align:center; color:#94a3b8; font-size:12px; padding:24px 0 40px; border-top:1px solid var(--border); }
+.sc-item.lv4 { margin-left:48px; border-left-color:#e2e8f0; color:#64748b; font-size:25px; }
+.footer { text-align:center; color:#94a3b8; font-size:24px; padding:24px 0 40px; border-top:1px solid var(--border); }
 .footer p { margin:4px 0; }
-.details summary { cursor:pointer; color:#94a3b8; font-size:13px; margin:8px 0; }
+.details summary { cursor:pointer; color:#94a3b8; font-size:26px; margin:8px 0; }
 .details summary:hover { color:var(--blue); }
 .related { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
 .related a { background:#f1f5f9; border:1px solid var(--border); padding:4px 12px; border-radius:8px;
-             font-size:13px; color:#334155; }
+             font-size:26px; color:#334155; }
 .related a:hover { background:#e2e8f0; text-decoration:none; }
 @media (max-width:640px) {
-  .hero h1 { font-size:26px; }
+  .hero h1 { font-size:52px; }
   .grid { grid-template-columns:1fr; }
   .article { padding:18px; }
 }
@@ -131,8 +131,8 @@ tr:hover td { background:#f8fafc; }
     <div class="tag-row"><span class="tag">异动追踪</span><span class="tag">产业链传导</span><span class="tag">前瞻推演</span><span class="tag">供需缺口</span><span class="tag">逻辑反推</span></div>
     <p class="sector-meta">15 只成分股 · 更新于 2026-08-13</p>
   </div>
-  <div class="alert-section"><h2>🔔 近期提醒（2条，14天内）</h2><div class="alert"><span class="num">1</span><div><p>医药主线爆发（医疗服务单周+16%，创新药License-out超千亿美元，百济净利+627%）；电力主线确认（新型电力系统"十五五"规划→电网投资5万亿+，用电负荷四创新高）；8/14起对印度单模光纤征反倾销税5年（利好国产光纤）。高位风险：秦安5板(澄清不涉人形机器人)、一鸣4板(PE249警示炒作)。妖股验证：惠天热电🟡、澳洋健康🟡、坤泰入黑名单(Q1净利-61%)</p><p class="date">2026-08-13 · 涉及：秦安股份、一鸣食品、惠天热电、澳洋健康、坤泰股份</p></div></div><div class="alert"><span class="num">2</span><div><p>前瞻事件快报：①朱雀三号遥二今晨发射顺延（非取消），商业航天板块普跌，新窗口预估8/31 ②宇树科技A股"人形机器人第一股"8/20挂牌，发行PE 219倍/市值610亿，8/10申购超购8288倍 ③住房消费首次列入大宗消费首位，北京放宽限购 ④原油暴涨5%（霍尔木兹协议未达）+LME铜库存告急。MLCC/机器人今日异动：洁美科技+10%、绿的谐波+9.3%、中国卫星-8.1%</p><p class="date">2026-08-11 · 涉及：宇树科技、中国卫星、洁美科技、绿的谐波</p></div></div></div><details class="details"><summary>📋 历史提醒（5条，14天前）</summary><div style="margin-top:8px"><div class="alert"><span class="num">1</span><div><p>半导体全面泄洪：华海清科-10.9%、长电科技-10%、兆易创新-10%（继7/11天量暴跌后继续下行）、中微-7.6%。先进封装/半导体/光通信全线崩溃。景旺电子+7.9%逆势（PCB独苗）。商业航天新主线确认：ETF连续10天净流入，机构越跌越买。WAIC明日开幕，国产算力+AI智能体是埋伏窗口</p><p class="date">2026-07-16 · 涉及：华海清科、长电科技、兆易创新、中微公司、景旺电子</p></div></div><div class="alert"><span class="num">2</span><div><p>半导体"黑色星期五"！兆易创新593.8亿天量暴跌-7.76%(振幅15.19%)，"利好出尽"引发存储/光模块杀跌。科创50跌超5%、创业板跌4.37%，半导体主力单日流出420亿、全周电子流出565.91亿。全场3772股上涨但权重科技拖垮指数。资金高低切换：商业航天(长征十号乙回收)午后虹吸40+股涨停，医药军工白酒防御补涨</p><p class="date">2026-07-11 · 涉及：兆易创新、中国卫通、中国卫星</p></div></div><div class="alert"><span class="num">3</span><div><p>长征十号乙首飞成功！全球首创海上网系回收技术验证通过，中国成为第二个掌握大运力可回收火箭的国家。商业航天板块爆发</p><p class="date">2026-07-10 · 涉及：泰胜风能、华菱线缆、上海瀚讯</p></div></div><div class="alert"><span class="num">4</span><div><p>机器人彻底崩了：绿的谐波三日从+18%到-16%，涨停板出货模式完整。浪潮信息涨停+10%接棒AI硬件主线</p><p class="date">2026-07-08 · 涉及：绿的谐波、浪潮信息</p></div></div><div class="alert"><span class="num">5</span><div><p>涨停板出货潮：航锦科技高开+10%到收+1%，蔚蓝锂芯涨停到-7%，实益达涨停换手25%。液冷确认方向</p><p class="date">2026-07-07 · 涉及：航锦科技、蔚蓝锂芯、实益达</p></div></div></div></details>
-  <div class="article"><p><strong>🔴 8/13 更新：医药主线爆发 · 电力主线确认 · 光通信反倾销催化 · 妖股验证清单</strong></p>
+  <div class="alert-section"><h2>🔔 近期提醒（2条，过去3天~未来7天）</h2><div class="alert"><span class="num">1</span><div><p>医药主线爆发（医疗服务单周+16%，创新药License-out超千亿美元，百济净利+627%）；电力主线确认（新型电力系统"十五五"规划→电网投资5万亿+，用电负荷四创新高）；8/14起对印度单模光纤征反倾销税5年（利好国产光纤）。高位风险：秦安5板(澄清不涉人形机器人)、一鸣4板(PE249警示炒作)。妖股验证：惠天热电🟡、澳洋健康🟡、坤泰入黑名单(Q1净利-61%)</p><p class="date">2026-08-13 · 涉及：秦安股份、一鸣食品、惠天热电、澳洋健康、坤泰股份</p></div></div><div class="alert"><span class="num">2</span><div><p>前瞻事件快报：①朱雀三号遥二今晨发射顺延（非取消），商业航天板块普跌，新窗口预估8/31 ②宇树科技A股"人形机器人第一股"8/20挂牌，发行PE 219倍/市值610亿，8/10申购超购8288倍 ③住房消费首次列入大宗消费首位，北京放宽限购 ④原油暴涨5%（霍尔木兹协议未达）+LME铜库存告急。MLCC/机器人今日异动：洁美科技+10%、绿的谐波+9.3%、中国卫星-8.1%</p><p class="date">2026-08-11 · 涉及：宇树科技、中国卫星、洁美科技、绿的谐波</p></div></div></div>
+  <div class="article"><section class="section-block"><h2 class="section-title">📅 事件日历<span>自动清理：已发生超3天 / 推演超7天剔除</span></h2><div class="table-wrap"><table><thead><tr><th>日期</th><th>事件</th><th>分类</th><th>影响板块</th><th>看点</th></tr></thead><tbody><tr><td class="td-first">2026-08-14</td><td>对印度单模光纤征反倾销税5年</td><td>政策</td><td>光通信</td><td>利好国产光纤</td></tr><tr><td class="td-first">2026-08-19</td><td>惠天热电子公司1.43亿合同纠纷开庭</td><td>政策</td><td>电力</td><td>诉讼风险事件</td></tr><tr><td class="td-first">2026-08-19</td><td>世界机器人大会WRC(北京)</td><td>巨头发布</td><td>机器人</td><td>8/19-23密集催化</td></tr><tr><td class="td-first">2026-08-20</td><td>宇树科技挂牌上市(8/12缴款)</td><td>IPO</td><td>机器人</td><td>A股'人形机器人第一股'，发行PE 219倍/市值约610亿；8/10申购、8/12缴款、8月下旬挂牌</td></tr></tbody></table></div></section><p><strong>🔴 8/13 更新：医药主线爆发 · 电力主线确认 · 光通信反倾销催化 · 妖股验证清单</strong></p>
 <p><strong>一、医药/创新药：当前最强主线</strong></p>
 <ul>
 <li>医疗服务板块单周大涨 <strong>16%</strong>，生物制品+6.5%、化学制药+6.1%</li>
@@ -1075,181 +1075,6 @@ tr:hover td { background:#f8fafc; }
 <p><strong>液冷Serenity瓶颈</strong>：氟化冷却液。3M 2025年底彻底退出氟化物业务→全球供给缺口。国产替代两条路线：①巨化股份(电子级氟化液) ②东阳光(相变冷却液)。东阳光是"产-算-电"全链标的——既有氟化液，又搞数据中心，还做电极箔。190亿框架合同锁定了量，但市场把它当成传统化工股，PE极低。</p>
 <p><strong>四、MLCC继续失血</strong></p>
 <p>风华高科-7.5%、洁美科技-7.8%、国瓷材料换手10.4%→MLCC链连续第三个交易日被抽血。MLCC逻辑没破（AI用量182倍+稀土管制供给侧出清），但短期资金被存储和液冷抢走。如果MLCC再跌5-10%，国瓷材料(300285)的陶瓷粉料就是Serenity级别的错杀机会。</p>
-<hr>
-<hr>
-<h2>📅 7-8月产业催化剂日历</h2>
-<div class="table-wrap"><table>
-<thead><tr>
-<th>日期</th>
-<th>事件</th>
-<th>方向</th>
-<th>强度</th>
-</tr></thead><tbody>
-<tr>
-<td class="td-first"><strong>7/7</strong></td>
-<td>MACHINA 巴黎峰会 — Optimus V3 欧洲首秀</td>
-<td>🤖</td>
-<td>⭐⭐⭐</td>
-</tr>
-<tr>
-<td class="td-first"><strong>7/7</strong></td>
-<td>OpenAI GPT-5.6 发布</td>
-<td>AI</td>
-<td>⭐⭐⭐⭐</td>
-</tr>
-<tr>
-<td class="td-first"><strong>7/9</strong></td>
-<td>朱雀三号遥二 — 垂直回收验证</td>
-<td>🚀</td>
-<td>⭐⭐⭐</td>
-</tr>
-<tr>
-<td class="td-first"><strong>7/10</strong></td>
-<td>SK 海力士纳斯达克 IPO（280亿美元）</td>
-<td>💾</td>
-<td>⭐⭐⭐⭐</td>
-</tr>
-<tr>
-<td class="td-first"><strong>🔥 7/10-13</strong></td>
-<td><strong>长征十号乙首飞</strong> — 全球首创海上网系回收</td>
-<td>🚀</td>
-<td>⭐⭐⭐⭐⭐</td>
-</tr>
-<tr>
-<td class="td-first"><strong>7/10-12</strong></td>
-<td>南京具身智能机器人产业展</td>
-<td>🤖</td>
-<td>⭐⭐⭐</td>
-</tr>
-<tr>
-<td class="td-first"><strong>7/15</strong></td>
-<td>⚠️ A 股中报预告强制披露截止日</td>
-<td>📊</td>
-<td>⭐⭐⭐⭐</td>
-</tr>
-<tr>
-<td class="td-first"><strong>7/17-20</strong></td>
-<td><strong>WAIC 世界人工智能大会</strong>（上海）</td>
-<td>AI</td>
-<td>⭐⭐⭐⭐⭐</td>
-</tr>
-<tr>
-<td class="td-first"><strong>7 月中</strong></td>
-<td>DeepSeek V4 正式版上线</td>
-<td>AI</td>
-<td>⭐⭐⭐⭐</td>
-</tr>
-<tr>
-<td class="td-first"><strong>7/22</strong></td>
-<td>特斯拉二季报</td>
-<td>🤖</td>
-<td>⭐⭐⭐⭐</td>
-</tr>
-<tr>
-<td class="td-first"><strong>7/28</strong></td>
-<td>谷歌/微软二季报（AI 云业务）</td>
-<td>AI</td>
-<td>⭐⭐⭐⭐</td>
-</tr>
-<tr>
-<td class="td-first"><strong>7/30</strong></td>
-<td>🔥 <strong>美联储利率决议</strong></td>
-<td>🌐</td>
-<td>⭐⭐⭐⭐⭐</td>
-</tr>
-<tr>
-<td class="td-first"><strong>7/31</strong></td>
-<td><strong>长鑫科技科创板上市</strong></td>
-<td>💾</td>
-<td>⭐⭐⭐⭐⭐</td>
-</tr>
-<tr>
-<td class="td-first"><strong>8/10</strong></td>
-<td>⚠️ <strong>原油暴涨5%</strong>（霍尔木兹协议未达） + LME铜库存告急</td>
-<td>🌐</td>
-<td>⭐⭐⭐⭐</td>
-</tr>
-<tr>
-<td class="td-first"><strong>8/11</strong></td>
-<td>朱雀三号遥二发射 <strong>顺延</strong>（原定今晨，新窗口预估8/31）</td>
-<td>🚀</td>
-<td>⭐⭐⭐⭐</td>
-</tr>
-<tr>
-<td class="td-first"><strong>8/20</strong></td>
-<td><strong>宇树科技挂牌</strong>（A股"人形机器人第一股"，PE 219倍/市值610亿）</td>
-<td>🤖</td>
-<td>⭐⭐⭐⭐⭐</td>
-</tr>
-<tr>
-<td class="td-first"><strong>8/14</strong></td>
-<td>🔥 对印度单模光纤继续征反倾销税 <strong>5 年</strong>（利好国产光纤）</td>
-<td>📡</td>
-<td>⭐⭐⭐</td>
-</tr>
-<tr>
-<td class="td-first"><strong>8/19</strong></td>
-<td>⚠️ 惠天热电子公司 1.43 亿合同纠纷开庭</td>
-<td>⚡</td>
-<td>⭐⭐</td>
-</tr>
-<tr>
-<td class="td-first"><strong>8/19-23</strong></td>
-<td><strong>世界机器人大会 WRC</strong>（北京）</td>
-<td>🤖</td>
-<td>⭐⭐⭐⭐⭐</td>
-</tr>
-<tr>
-<td class="td-first"><strong>8/25</strong></td>
-<td>惠天热电半年报披露（预亏-0.9~1.25亿）</td>
-<td>⚡</td>
-<td>⭐⭐</td>
-</tr>
-<tr>
-<td class="td-first"><strong>8/26</strong></td>
-<td><strong>英伟达二季报</strong></td>
-<td>AI</td>
-<td>⭐⭐⭐⭐⭐</td>
-</tr>
-<tr>
-<td class="td-first"><strong>10 月</strong></td>
-<td>上海商业航天产业展 + 全球商业航天峰会</td>
-<td>🚀</td>
-<td>⭐⭐⭐⭐</td>
-</tr>
-</tbody></table></div>
-<blockquote>
-<p>🤖 机器人 | 💾 存储/半导体 | 🚀 商业航天 | AI 人工智能 | 🌐 宏观</p>
-</blockquote>
-<hr>
-<h2>🔭 8/11 前瞻事件快报（前瞻扫描器首跑）</h2>
-<p><strong>① 朱雀三号遥二：不是取消，是顺延</strong></p>
-<ul>
-<li>原定今晨7:40-8:27酒泉发射，临时推迟；任务<strong>未取消</strong>，行业预估新窗口约 <strong>8/31</strong></li>
-<li>核心看点：一级可回收能否成功（遥一回收失败爆炸，遥二升级发动机+风场修正算法+尾舱热防护）</li>
-<li><strong>盘面反馈</strong>：商业航天板块普跌，中国卫星 -8.1%、ST臻镭 -7.3%（负反馈与"取消"消息相关，需等新窗口确认）</li>
-</ul>
-<p><strong>② 宇树科技：A股"人形机器人第一股"8月下旬挂牌</strong></p>
-<ul>
-<li>发行价 150.8 元、募资 61 亿、市值约 610 亿、发行 PE <strong>219 倍</strong>（行业平均 38 倍）</li>
-<li>8/10 网上申购超购 8288 倍、中签率 0.018%；8/12 缴款；社保+DeepSeek+中石油战略配售</li>
-<li>2025 出货 5500 台全球市占 32.4%；<strong>WRC 8/19-23 接棒</strong> → 机器人板块 8 月下旬密集催化</li>
-<li><strong>警惕</strong>：PE 219 倍定价已计入极度乐观，上市即巅峰风险高（参考长鑫科技 7/31 上市后走势）</li>
-</ul>
-<p><strong>③ 住房消费政策：首次列为大宗消费首位</strong></p>
-<ul>
-<li>国务院批复《扩大消费"十五五"规划》：住房消费与汽车、家居家电并列，<strong>且居首位</strong></li>
-<li>北京 8/7 放宽限购（五环内社保1年+多子女+1套，五环外不限）；公积金可提装修费物业费</li>
-<li>逻辑：从"增量拉动"转向"存量更新"→ 旧房改造带建材/装修/家居/物业链；二手占比已达 50.4%</li>
-<li><strong>注意</strong>：这是"存量提质"不是"重回新房"，不能简单对标地产暴涨</li>
-</ul>
-<p><strong>④ 期货异动：原油 +5% 一骑绝尘</strong></p>
-<ul>
-<li>霍尔木兹海峡重开协议未达 → WTI +5.05% 至 82.13 美元、布油 +4.99%</li>
-<li>SPR 库存降至 1983 年以来最低；美7月非农大低预期→美元走弱→人民币创新高</li>
-<li>传导：油服/石油开采直接受益；沪铜 10.7 万+高位（库存单日-4675吨）</li>
-<li>焦煤 +2.25% 夜盘领跑，甲醇/焦炭跟涨 → 关注煤炭/煤化工</li>
-</ul>
 <hr>
 <h2>🧠 Pro 深度推演</h2>
 <h3>三个反直觉结论</h3>

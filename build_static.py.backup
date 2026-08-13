@@ -294,8 +294,8 @@ def render_market_chart(md: dict) -> str:
         y_top = h - 30 - bh
         bars.append(f'<rect x="{x}" y="{y_top}" width="36" height="{bh}" rx="3" fill="#2563eb" opacity="0.85">'
                     f'<title>{y}: {v/1e8:.0f}亿{unit}</title></rect>')
-        bars.append(f'<text x="{x+18}" y="{y_top-6}" text-anchor="middle" font-size="22" fill="#64748b">{v/1e8:.0f}</text>')
-        bars.append(f'<text x="{x+18}" y="{h-12}" text-anchor="middle" font-size="24" fill="#94a3b8">{y}</text>')
+        bars.append(f'<text x="{x+18}" y="{y_top-6}" text-anchor="middle" font-size="11" fill="#64748b">{v/1e8:.0f}</text>')
+        bars.append(f'<text x="{x+18}" y="{h-12}" text-anchor="middle" font-size="12" fill="#94a3b8">{y}</text>')
     return (f'<div class="chart-box"><p class="chart-label">{md_escape(label)}</p>'
             f'<svg viewBox="0 0 {w} {h}" width="100%" height="{h}" role="img" aria-label="{md_escape(label)}">'
             f'<line x1="16" y1="{h-30}" x2="{w-8}" y2="{h-30}" stroke="#e2e8f0"/>'
@@ -376,107 +376,107 @@ a:hover { text-decoration:underline; }
        box-shadow:0 1px 3px rgba(0,0,0,.15); }
 .nav-inner { max-width:1200px; margin:0 auto; padding:0 16px; display:flex; align-items:center;
              gap:16px; height:52px; }
-.nav-logo { font-weight:800; font-size:34px; color:#fff; white-space:nowrap; }
+.nav-logo { font-weight:800; font-size:17px; color:#fff; white-space:nowrap; }
 .nav-logo:hover { text-decoration:none; }
 .nav-links { display:flex; gap:6px; overflow-x:auto; padding-bottom:4px; flex:1;
              scrollbar-width:none; }
 .nav-links::-webkit-scrollbar { display:none; }
-.nav-link { color:#cbd5e1; font-size:26px; padding:4px 10px; border-radius:6px; white-space:nowrap; }
+.nav-link { color:#cbd5e1; font-size:13px; padding:4px 10px; border-radius:6px; white-space:nowrap; }
 .nav-link:hover { color:#fff; background:rgba(255,255,255,.12); text-decoration:none; }
 .nav-link.active { color:#fff; background:var(--blue); font-weight:600; }
 .container { max-width:1200px; margin:0 auto; padding:24px 16px 60px; }
 .hero { text-align:center; padding:36px 0 28px; }
-.hero h1 { font-size:68px; font-weight:800; color:#0f172a; }
-.hero p { color:#64748b; margin-top:8px; font-size:30px; }
-.hero .updated { color:var(--blue); font-weight:600; margin-top:6px; font-size:26px; }
+.hero h1 { font-size:34px; font-weight:800; color:#0f172a; }
+.hero p { color:#64748b; margin-top:8px; font-size:15px; }
+.hero .updated { color:var(--blue); font-weight:600; margin-top:6px; font-size:13px; }
 .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:16px; }
 .card { position:relative; background:#fff; border:2px solid var(--border); border-radius:14px;
         padding:18px; transition:box-shadow .15s, border-color .15s; display:block; }
 .card:hover { box-shadow:0 6px 20px rgba(0,0,0,.08); border-color:#94a3b8; text-decoration:none; }
-.card h2 { font-size:34px; font-weight:700; color:#0f172a; }
+.card h2 { font-size:17px; font-weight:700; color:#0f172a; }
 .card:hover h2 { color:var(--blue); }
-.card .tags { color:#94a3b8; font-size:24px; margin-top:6px; }
+.card .tags { color:#94a3b8; font-size:12px; margin-top:6px; }
 .card .meta { display:flex; justify-content:space-between; margin-top:12px; color:#94a3b8;
-              font-size:22px; }
+              font-size:11px; }
 .card .meta .stocks { }
 .card.new { border-color:var(--blue); background:#eff6ff; }
 .card.recent { border-color:#cbd5e1; }
 .badge { position:absolute; top:-10px; right:-10px; min-width:26px; height:26px; padding:0 8px;
          display:flex; align-items:center; justify-content:center; background:#ef4444; color:#fff;
-         font-size:24px; font-weight:700; border-radius:999px; box-shadow:0 2px 6px rgba(0,0,0,.2); }
+         font-size:12px; font-weight:700; border-radius:999px; box-shadow:0 2px 6px rgba(0,0,0,.2); }
 .badge.blue { background:var(--blue); }
 .badge.gray { background:#94a3b8; }
-.back { display:inline-block; font-size:26px; margin-bottom:20px; }
+.back { display:inline-block; font-size:13px; margin-bottom:20px; }
 .sector-header { margin-bottom:20px; }
-.sector-header h1 { font-size:56px; font-weight:800; color:#0f172a; }
+.sector-header h1 { font-size:28px; font-weight:800; color:#0f172a; }
 .tag-row { display:flex; flex-wrap:wrap; gap:6px; margin:10px 0; }
-.tag { background:#eff6ff; color:var(--blue-d); border:1px solid #bfdbfe; font-size:24px;
+.tag { background:#eff6ff; color:var(--blue-d); border:1px solid #bfdbfe; font-size:12px;
        padding:3px 10px; border-radius:999px; }
-.sector-meta { color:#94a3b8; font-size:26px; }
+.sector-meta { color:#94a3b8; font-size:13px; }
 .alert-section { margin:16px 0 28px; }
-.alert-section h2 { font-size:34px; color:#dc2626; margin-bottom:10px; }
+.alert-section h2 { font-size:17px; color:#dc2626; margin-bottom:10px; }
 .alert { display:flex; gap:12px; background:#fef2f2; border:1px solid #fecaca; border-radius:10px;
          padding:12px 14px; margin-bottom:8px; }
 .alert .num { flex-shrink:0; width:22px; height:22px; border-radius:50%; background:#ef4444;
-              color:#fff; font-size:22px; font-weight:700; display:flex; align-items:center;
+              color:#fff; font-size:11px; font-weight:700; display:flex; align-items:center;
               justify-content:center; }
-.alert p { font-size:26px; color:#991b1b; }
-.alert .date { font-size:22px; color:#f87171; margin-top:3px; }
+.alert p { font-size:13px; color:#991b1b; }
+.alert .date { font-size:11px; color:#f87171; margin-top:3px; }
 .article { background:#fff; border:1px solid var(--border); border-radius:14px; padding:28px;
            margin-bottom:28px; }
-.article h2 { font-size:42px; font-weight:700; color:#0f172a; margin:28px 0 12px; padding-bottom:8px;
+.article h2 { font-size:21px; font-weight:700; color:#0f172a; margin:28px 0 12px; padding-bottom:8px;
               border-bottom:2px solid #d1d5db; }
 .article h2:first-child { margin-top:0; }
-.article h3 { font-size:32px; font-weight:600; color:#1e293b; margin:20px 0 8px; }
-.article h4 { font-size:28px; font-weight:600; color:#334155; margin:16px 0 6px; }
-.article p { font-size:28px; line-height:1.85; color:#334155; margin-bottom:12px; }
+.article h3 { font-size:16px; font-weight:600; color:#1e293b; margin:20px 0 8px; }
+.article h4 { font-size:14px; font-weight:600; color:#334155; margin:16px 0 6px; }
+.article p { font-size:14px; line-height:1.85; color:#334155; margin-bottom:12px; }
 .article ul,.article ol { margin:0 0 12px 20px; }
-.article li { font-size:28px; line-height:1.75; color:#334155; margin-bottom:4px; }
+.article li { font-size:14px; line-height:1.75; color:#334155; margin-bottom:4px; }
 .article strong { color:#0f172a; }
 .article blockquote { border-left:3px solid var(--blue); padding:10px 14px; margin:12px 0;
-                      background:#eff6ff; border-radius:0 8px 8px 0; font-size:26px; color:#334155; }
+                      background:#eff6ff; border-radius:0 8px 8px 0; font-size:13px; color:#334155; }
 .article blockquote p { margin-bottom:0; }
 .article hr { border:none; border-top:1px solid #d1d5db; margin:24px 0; }
-.article code { background:#e5e7eb; padding:2px 6px; border-radius:4px; font-size:26px; color:#4b5563;
+.article code { background:#e5e7eb; padding:2px 6px; border-radius:4px; font-size:13px; color:#4b5563;
                 font-family:'Cascadia Code','Fira Code',monospace; }
 .article pre { background:#0f172a; color:#e2e8f0; padding:16px; border-radius:10px; overflow-x:auto;
-               margin:12px 0; font-size:25px; line-height:1.6; }
+               margin:12px 0; font-size:12.5px; line-height:1.6; }
 .article pre code { background:none; color:inherit; padding:0; }
 .table-wrap { overflow-x:auto; margin:14px 0; }
-table { width:100%; border-collapse:collapse; font-size:26px; }
+table { width:100%; border-collapse:collapse; font-size:13px; }
 th { background:#f1f5f9; text-align:left; padding:9px 12px; font-weight:600; color:#0f172a;
      border-bottom:2px solid #e2e8f0; white-space:nowrap; }
 td { padding:9px 12px; border-bottom:1px solid #e2e8f0; color:#334155; vertical-align:top; }
 td.td-first { font-weight:600; color:#0f172a; white-space:nowrap; }
 tr:hover td { background:#f8fafc; }
 .section-block { margin-bottom:28px; }
-.section-title { font-size:38px; font-weight:700; color:#0f172a; margin-bottom:12px; }
-.section-title span { font-size:26px; color:#94a3b8; font-weight:400; margin-left:6px; }
-.gap-tag { display:inline-block; padding:1px 8px; border-radius:999px; font-size:22px; }
+.section-title { font-size:19px; font-weight:700; color:#0f172a; margin-bottom:12px; }
+.section-title span { font-size:13px; color:#94a3b8; font-weight:400; margin-left:6px; }
+.gap-tag { display:inline-block; padding:1px 8px; border-radius:999px; font-size:11px; }
 .gap-high { background:#fef2f2; color:#dc2626; border:1px solid #fecaca; }
 .gap-mid { background:#fffbeb; color:#b45309; border:1px solid #fde68a; }
 .chart-box { background:#fff; border:1px solid var(--border); border-radius:12px; padding:16px; }
-.chart-label { font-size:28px; font-weight:600; color:#0f172a; margin-bottom:8px; }
-.chart-unit { font-size:22px; color:#94a3b8; margin-top:4px; text-align:right; }
+.chart-label { font-size:14px; font-weight:600; color:#0f172a; margin-bottom:8px; }
+.chart-unit { font-size:11px; color:#94a3b8; margin-top:4px; text-align:right; }
 .sc-root { display:flex; flex-direction:column; }
-.sc-item { font-size:27px; color:#334155; padding:5px 10px; border-left:3px solid var(--border);
+.sc-item { font-size:13.5px; color:#334155; padding:5px 10px; border-left:3px solid var(--border);
            margin:2px 0; border-radius:0 6px 6px 0; }
 .sc-item strong { color:#0f172a; }
 .sc-item.lv1 { background:#eff6ff; border-left-color:var(--blue); font-weight:600; color:#1e40af;
-               font-size:28px; }
+               font-size:14px; }
 .sc-item.lv2 { margin-left:16px; background:#f8fafc; border-left-color:#93c5fd; }
 .sc-item.lv3 { margin-left:32px; border-left-color:#c7d2fe; }
-.sc-item.lv4 { margin-left:48px; border-left-color:#e2e8f0; color:#64748b; font-size:25px; }
-.footer { text-align:center; color:#94a3b8; font-size:24px; padding:24px 0 40px; border-top:1px solid var(--border); }
+.sc-item.lv4 { margin-left:48px; border-left-color:#e2e8f0; color:#64748b; font-size:12.5px; }
+.footer { text-align:center; color:#94a3b8; font-size:12px; padding:24px 0 40px; border-top:1px solid var(--border); }
 .footer p { margin:4px 0; }
-.details summary { cursor:pointer; color:#94a3b8; font-size:26px; margin:8px 0; }
+.details summary { cursor:pointer; color:#94a3b8; font-size:13px; margin:8px 0; }
 .details summary:hover { color:var(--blue); }
 .related { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
 .related a { background:#f1f5f9; border:1px solid var(--border); padding:4px 12px; border-radius:8px;
-             font-size:26px; color:#334155; }
+             font-size:13px; color:#334155; }
 .related a:hover { background:#e2e8f0; text-decoration:none; }
 @media (max-width:640px) {
-  .hero h1 { font-size:52px; }
+  .hero h1 { font-size:26px; }
   .grid { grid-template-columns:1fr; }
   .article { padding:18px; }
 }
@@ -505,39 +505,6 @@ def render_alert(alert: dict, i: int) -> str:
             f'<p class="date">{date_str}{comp_str}</p></div></div>')
 
 
-def load_calendar_events() -> List[Dict]:
-    """读事件日历（forward_events.json，已被 auto_prune 清理过期）"""
-    p = ROOT / 'engine' / 'forward_events.json'
-    if not p.exists():
-        return []
-    try:
-        import json as _json
-        events = _json.loads(p.read_text(encoding='utf-8'))
-    except Exception:
-        return []
-    return sorted(events, key=lambda e: str(e.get('date', '9999-99-99')))
-
-
-def render_calendar(events: List[Dict]) -> str:
-    """渲染事件日历表格（动态，跟随 auto_prune 自动清理）"""
-    if not events:
-        return ''
-    rows = []
-    for e in events:
-        d = str(e.get('date', ''))
-        title = md_escape(str(e.get('title', '')))
-        cat = md_escape(str(e.get('cat', '')))
-        sector = md_escape(str(e.get('sector', '')))
-        note = md_escape(str(e.get('note', '')))
-        rows.append(f'<tr><td class="td-first">{d}</td><td>{title}</td>'
-                    f'<td>{cat}</td><td>{sector}</td><td>{note}</td></tr>')
-    return (f'<section class="section-block"><h2 class="section-title">📅 事件日历'
-            f'<span>自动清理：已发生超3天 / 推演超7天剔除</span></h2>'
-            f'<div class="table-wrap"><table><thead><tr><th>日期</th><th>事件</th>'
-            f'<th>分类</th><th>影响板块</th><th>看点</th></tr></thead><tbody>'
-            f'{"".join(rows)}</tbody></table></div></section>')
-
-
 def render_home(sectors: list, build_time: str) -> str:
     latest = max((s['meta'].get('updated', '') for s in sectors), default='')
     today = date.today().isoformat()
@@ -550,7 +517,7 @@ def render_home(sectors: list, build_time: str) -> str:
         ds = days_since(updated)
         alert_count = 0
         for a in s['alerts']:
-            if -7 <= days_since(str(a.get('date', ''))) <= 3:
+            if days_since(str(a.get('date', ''))) <= 5:
                 alert_count += 1
         tags = meta.get('tags', [])[:3]
         stock_count = len(meta.get('stocks', []))
@@ -612,15 +579,12 @@ def render_sector_page(s: dict, sectors: list, build_time: str) -> str:
     supply_chain = s['supplyChain']
     related = meta.get('relatedSectors', [])
 
-    # 活跃提醒窗口：已发生3天内 或 未来7天内（过期推演每天扫描会补新，直接剔除）
-    active = [a for a in alerts if -7 <= days_since(str(a.get('date', ''))) <= 3]
-    history = []
+    # 分活跃/历史提醒（14天）
+    active = [a for a in alerts if days_since(str(a.get('date', ''))) <= 14]
+    history = [a for a in alerts if days_since(str(a.get('date', ''))) > 14]
 
     # 内容块
     body_html = render_markdown(strip_tables(content))
-    # market-pulse 页动态插入事件日历（跟随 forward_events 自动清理）
-    if slug == 'market-pulse':
-        body_html = render_calendar(load_calendar_events()) + body_html
 
     # 供应链
     sc_html = ''
@@ -668,7 +632,10 @@ def render_sector_page(s: dict, sectors: list, build_time: str) -> str:
     alerts_html = ''
     if active:
         alert_items = ''.join(render_alert(a, i) for i, a in enumerate(active))
-        alerts_html = f'<div class="alert-section"><h2>🔔 近期提醒（{len(active)}条，过去3天~未来7天）</h2>{alert_items}</div>'
+        alerts_html = f'<div class="alert-section"><h2>🔔 近期提醒（{len(active)}条，14天内）</h2>{alert_items}</div>'
+    if history:
+        hist_items = ''.join(render_alert(a, i) for i, a in enumerate(history))
+        alerts_html += f'<details class="details"><summary>📋 历史提醒（{len(history)}条，14天前）</summary><div style="margin-top:8px">{hist_items}</div></details>'
 
     tag_row = ''.join(f'<span class="tag">{md_escape(str(t))}</span>' for t in tags)
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="build-time" content="2026-08-14 00:29:50">
+<meta name="build-time" content="2026-08-14 00:40:45">
 <title>AI应用 — 行业雷达</title>
 <style>
 :root { --blue:#2563eb; --blue-d:#1d4ed8; --gray:#f8fafc; --border:#e2e8f0; }
@@ -14,107 +14,107 @@ a:hover { text-decoration:underline; }
        box-shadow:0 1px 3px rgba(0,0,0,.15); }
 .nav-inner { max-width:1200px; margin:0 auto; padding:0 16px; display:flex; align-items:center;
              gap:16px; height:52px; }
-.nav-logo { font-weight:800; font-size:17px; color:#fff; white-space:nowrap; }
+.nav-logo { font-weight:800; font-size:34px; color:#fff; white-space:nowrap; }
 .nav-logo:hover { text-decoration:none; }
 .nav-links { display:flex; gap:6px; overflow-x:auto; padding-bottom:4px; flex:1;
              scrollbar-width:none; }
 .nav-links::-webkit-scrollbar { display:none; }
-.nav-link { color:#cbd5e1; font-size:13px; padding:4px 10px; border-radius:6px; white-space:nowrap; }
+.nav-link { color:#cbd5e1; font-size:26px; padding:4px 10px; border-radius:6px; white-space:nowrap; }
 .nav-link:hover { color:#fff; background:rgba(255,255,255,.12); text-decoration:none; }
 .nav-link.active { color:#fff; background:var(--blue); font-weight:600; }
 .container { max-width:1200px; margin:0 auto; padding:24px 16px 60px; }
 .hero { text-align:center; padding:36px 0 28px; }
-.hero h1 { font-size:34px; font-weight:800; color:#0f172a; }
-.hero p { color:#64748b; margin-top:8px; font-size:15px; }
-.hero .updated { color:var(--blue); font-weight:600; margin-top:6px; font-size:13px; }
+.hero h1 { font-size:68px; font-weight:800; color:#0f172a; }
+.hero p { color:#64748b; margin-top:8px; font-size:30px; }
+.hero .updated { color:var(--blue); font-weight:600; margin-top:6px; font-size:26px; }
 .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:16px; }
 .card { position:relative; background:#fff; border:2px solid var(--border); border-radius:14px;
         padding:18px; transition:box-shadow .15s, border-color .15s; display:block; }
 .card:hover { box-shadow:0 6px 20px rgba(0,0,0,.08); border-color:#94a3b8; text-decoration:none; }
-.card h2 { font-size:17px; font-weight:700; color:#0f172a; }
+.card h2 { font-size:34px; font-weight:700; color:#0f172a; }
 .card:hover h2 { color:var(--blue); }
-.card .tags { color:#94a3b8; font-size:12px; margin-top:6px; }
+.card .tags { color:#94a3b8; font-size:24px; margin-top:6px; }
 .card .meta { display:flex; justify-content:space-between; margin-top:12px; color:#94a3b8;
-              font-size:11px; }
+              font-size:22px; }
 .card .meta .stocks { }
 .card.new { border-color:var(--blue); background:#eff6ff; }
 .card.recent { border-color:#cbd5e1; }
 .badge { position:absolute; top:-10px; right:-10px; min-width:26px; height:26px; padding:0 8px;
          display:flex; align-items:center; justify-content:center; background:#ef4444; color:#fff;
-         font-size:12px; font-weight:700; border-radius:999px; box-shadow:0 2px 6px rgba(0,0,0,.2); }
+         font-size:24px; font-weight:700; border-radius:999px; box-shadow:0 2px 6px rgba(0,0,0,.2); }
 .badge.blue { background:var(--blue); }
 .badge.gray { background:#94a3b8; }
-.back { display:inline-block; font-size:13px; margin-bottom:20px; }
+.back { display:inline-block; font-size:26px; margin-bottom:20px; }
 .sector-header { margin-bottom:20px; }
-.sector-header h1 { font-size:28px; font-weight:800; color:#0f172a; }
+.sector-header h1 { font-size:56px; font-weight:800; color:#0f172a; }
 .tag-row { display:flex; flex-wrap:wrap; gap:6px; margin:10px 0; }
-.tag { background:#eff6ff; color:var(--blue-d); border:1px solid #bfdbfe; font-size:12px;
+.tag { background:#eff6ff; color:var(--blue-d); border:1px solid #bfdbfe; font-size:24px;
        padding:3px 10px; border-radius:999px; }
-.sector-meta { color:#94a3b8; font-size:13px; }
+.sector-meta { color:#94a3b8; font-size:26px; }
 .alert-section { margin:16px 0 28px; }
-.alert-section h2 { font-size:17px; color:#dc2626; margin-bottom:10px; }
+.alert-section h2 { font-size:34px; color:#dc2626; margin-bottom:10px; }
 .alert { display:flex; gap:12px; background:#fef2f2; border:1px solid #fecaca; border-radius:10px;
          padding:12px 14px; margin-bottom:8px; }
 .alert .num { flex-shrink:0; width:22px; height:22px; border-radius:50%; background:#ef4444;
-              color:#fff; font-size:11px; font-weight:700; display:flex; align-items:center;
+              color:#fff; font-size:22px; font-weight:700; display:flex; align-items:center;
               justify-content:center; }
-.alert p { font-size:13px; color:#991b1b; }
-.alert .date { font-size:11px; color:#f87171; margin-top:3px; }
+.alert p { font-size:26px; color:#991b1b; }
+.alert .date { font-size:22px; color:#f87171; margin-top:3px; }
 .article { background:#fff; border:1px solid var(--border); border-radius:14px; padding:28px;
            margin-bottom:28px; }
-.article h2 { font-size:21px; font-weight:700; color:#0f172a; margin:28px 0 12px; padding-bottom:8px;
+.article h2 { font-size:42px; font-weight:700; color:#0f172a; margin:28px 0 12px; padding-bottom:8px;
               border-bottom:2px solid #d1d5db; }
 .article h2:first-child { margin-top:0; }
-.article h3 { font-size:16px; font-weight:600; color:#1e293b; margin:20px 0 8px; }
-.article h4 { font-size:14px; font-weight:600; color:#334155; margin:16px 0 6px; }
-.article p { font-size:14px; line-height:1.85; color:#334155; margin-bottom:12px; }
+.article h3 { font-size:32px; font-weight:600; color:#1e293b; margin:20px 0 8px; }
+.article h4 { font-size:28px; font-weight:600; color:#334155; margin:16px 0 6px; }
+.article p { font-size:28px; line-height:1.85; color:#334155; margin-bottom:12px; }
 .article ul,.article ol { margin:0 0 12px 20px; }
-.article li { font-size:14px; line-height:1.75; color:#334155; margin-bottom:4px; }
+.article li { font-size:28px; line-height:1.75; color:#334155; margin-bottom:4px; }
 .article strong { color:#0f172a; }
 .article blockquote { border-left:3px solid var(--blue); padding:10px 14px; margin:12px 0;
-                      background:#eff6ff; border-radius:0 8px 8px 0; font-size:13px; color:#334155; }
+                      background:#eff6ff; border-radius:0 8px 8px 0; font-size:26px; color:#334155; }
 .article blockquote p { margin-bottom:0; }
 .article hr { border:none; border-top:1px solid #d1d5db; margin:24px 0; }
-.article code { background:#e5e7eb; padding:2px 6px; border-radius:4px; font-size:13px; color:#4b5563;
+.article code { background:#e5e7eb; padding:2px 6px; border-radius:4px; font-size:26px; color:#4b5563;
                 font-family:'Cascadia Code','Fira Code',monospace; }
 .article pre { background:#0f172a; color:#e2e8f0; padding:16px; border-radius:10px; overflow-x:auto;
-               margin:12px 0; font-size:12.5px; line-height:1.6; }
+               margin:12px 0; font-size:25px; line-height:1.6; }
 .article pre code { background:none; color:inherit; padding:0; }
 .table-wrap { overflow-x:auto; margin:14px 0; }
-table { width:100%; border-collapse:collapse; font-size:13px; }
+table { width:100%; border-collapse:collapse; font-size:26px; }
 th { background:#f1f5f9; text-align:left; padding:9px 12px; font-weight:600; color:#0f172a;
      border-bottom:2px solid #e2e8f0; white-space:nowrap; }
 td { padding:9px 12px; border-bottom:1px solid #e2e8f0; color:#334155; vertical-align:top; }
 td.td-first { font-weight:600; color:#0f172a; white-space:nowrap; }
 tr:hover td { background:#f8fafc; }
 .section-block { margin-bottom:28px; }
-.section-title { font-size:19px; font-weight:700; color:#0f172a; margin-bottom:12px; }
-.section-title span { font-size:13px; color:#94a3b8; font-weight:400; margin-left:6px; }
-.gap-tag { display:inline-block; padding:1px 8px; border-radius:999px; font-size:11px; }
+.section-title { font-size:38px; font-weight:700; color:#0f172a; margin-bottom:12px; }
+.section-title span { font-size:26px; color:#94a3b8; font-weight:400; margin-left:6px; }
+.gap-tag { display:inline-block; padding:1px 8px; border-radius:999px; font-size:22px; }
 .gap-high { background:#fef2f2; color:#dc2626; border:1px solid #fecaca; }
 .gap-mid { background:#fffbeb; color:#b45309; border:1px solid #fde68a; }
 .chart-box { background:#fff; border:1px solid var(--border); border-radius:12px; padding:16px; }
-.chart-label { font-size:14px; font-weight:600; color:#0f172a; margin-bottom:8px; }
-.chart-unit { font-size:11px; color:#94a3b8; margin-top:4px; text-align:right; }
+.chart-label { font-size:28px; font-weight:600; color:#0f172a; margin-bottom:8px; }
+.chart-unit { font-size:22px; color:#94a3b8; margin-top:4px; text-align:right; }
 .sc-root { display:flex; flex-direction:column; }
-.sc-item { font-size:13.5px; color:#334155; padding:5px 10px; border-left:3px solid var(--border);
+.sc-item { font-size:27px; color:#334155; padding:5px 10px; border-left:3px solid var(--border);
            margin:2px 0; border-radius:0 6px 6px 0; }
 .sc-item strong { color:#0f172a; }
 .sc-item.lv1 { background:#eff6ff; border-left-color:var(--blue); font-weight:600; color:#1e40af;
-               font-size:14px; }
+               font-size:28px; }
 .sc-item.lv2 { margin-left:16px; background:#f8fafc; border-left-color:#93c5fd; }
 .sc-item.lv3 { margin-left:32px; border-left-color:#c7d2fe; }
-.sc-item.lv4 { margin-left:48px; border-left-color:#e2e8f0; color:#64748b; font-size:12.5px; }
-.footer { text-align:center; color:#94a3b8; font-size:12px; padding:24px 0 40px; border-top:1px solid var(--border); }
+.sc-item.lv4 { margin-left:48px; border-left-color:#e2e8f0; color:#64748b; font-size:25px; }
+.footer { text-align:center; color:#94a3b8; font-size:24px; padding:24px 0 40px; border-top:1px solid var(--border); }
 .footer p { margin:4px 0; }
-.details summary { cursor:pointer; color:#94a3b8; font-size:13px; margin:8px 0; }
+.details summary { cursor:pointer; color:#94a3b8; font-size:26px; margin:8px 0; }
 .details summary:hover { color:var(--blue); }
 .related { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
 .related a { background:#f1f5f9; border:1px solid var(--border); padding:4px 12px; border-radius:8px;
-             font-size:13px; color:#334155; }
+             font-size:26px; color:#334155; }
 .related a:hover { background:#e2e8f0; text-decoration:none; }
 @media (max-width:640px) {
-  .hero h1 { font-size:26px; }
+  .hero h1 { font-size:52px; }
   .grid { grid-template-columns:1fr; }
   .article { padding:18px; }
 }
@@ -131,7 +131,7 @@ tr:hover td { background:#f8fafc; }
     <div class="tag-row"><span class="tag">大模型</span><span class="tag">AI办公</span><span class="tag">AI+教育</span><span class="tag">AI+医疗</span><span class="tag">AI Agent</span><span class="tag">智能体</span></div>
     <p class="sector-meta">12 只成分股 · 更新于 2026-06-19</p>
   </div>
-  <details class="details"><summary>📋 历史提醒（2条，14天前）</summary><div style="margin-top:8px"><div class="alert"><span class="num">1</span><div><p>陆家嘴论坛宣布科创板第五套标准扩容至AI大模型企业，支持量子/具身智能上市；72家科技公司同日发布异动风险提示</p><p class="date">2026-06-19 · 涉及：科大讯飞、金山办公、海天瑞声</p></div></div><div class="alert"><span class="num">2</span><div><p>工信部印发《"人工智能+信息通信"创新发展实施意见》，明确加强高端光电芯片研发</p><p class="date">2026-06-18 · 涉及：科大讯飞、海康威视、金山办公</p></div></div></div></details>
+  
   <div class="article"><h2>行业概述</h2>
 <p>2026年是AI应用"投资元年"。国产大模型在中文理解、性价比上局部反超海外，日均Token调用量从2024年初1000亿飙升至2026年140万亿（两年增长超千倍）。核心驱动力：模型能力跃升 → 算力成本骤降 → 应用场景全面开花。</p>
 <p><strong>率先兑现业绩的三个方向</strong>：AI+办公（金山办公WPS AI付费用户1000万+）、AI+金融（同花顺AI选股跑赢沪深300达15%）、AI+教育/政务（科大讯飞星火大模型中标23亿，市占率超第二至五名之和）。</p>
@@ -163,26 +163,26 @@ tr:hover td { background:#f8fafc; }
 <tr><td class="td-first">AI应用安全合规/内容审核</td><td><span class="gap-tag gap-mid">中等</span></td><td>约50%</td><td>深信服（300454）、奇安信（688561）</td></tr>
 </tbody></table></div></section>
   <section class="section-block"><h2 class="section-title">📈 市场规模预测</h2><div class="chart-box"><p class="chart-label">中国AI应用产业市场规模</p><svg viewBox="0 0 488 220" width="100%" height="220" role="img" aria-label="中国AI应用产业市场规模"><line x1="16" y1="190" x2="480" y2="190" stroke="#e2e8f0"/><line x1="16" y1="190" x2="16" y2="12" stroke="#e2e8f0"/><rect x="20" y="188" width="36" height="2" rx="3" fill="#2563eb" opacity="0.85"><title>2023: 500亿元</title></rect>
-<text x="38" y="182" text-anchor="middle" font-size="11" fill="#64748b">500</text>
-<text x="38" y="208" text-anchor="middle" font-size="12" fill="#94a3b8">2023</text>
+<text x="38" y="182" text-anchor="middle" font-size="22" fill="#64748b">500</text>
+<text x="38" y="208" text-anchor="middle" font-size="24" fill="#94a3b8">2023</text>
 <rect x="84" y="185" width="36" height="5" rx="3" fill="#2563eb" opacity="0.85"><title>2024: 1200亿元</title></rect>
-<text x="102" y="179" text-anchor="middle" font-size="11" fill="#64748b">1200</text>
-<text x="102" y="208" text-anchor="middle" font-size="12" fill="#94a3b8">2024</text>
+<text x="102" y="179" text-anchor="middle" font-size="22" fill="#64748b">1200</text>
+<text x="102" y="208" text-anchor="middle" font-size="24" fill="#94a3b8">2024</text>
 <rect x="148" y="178" width="36" height="12" rx="3" fill="#2563eb" opacity="0.85"><title>2025: 2800亿元</title></rect>
-<text x="166" y="172" text-anchor="middle" font-size="11" fill="#64748b">2800</text>
-<text x="166" y="208" text-anchor="middle" font-size="12" fill="#94a3b8">2025</text>
+<text x="166" y="172" text-anchor="middle" font-size="22" fill="#64748b">2800</text>
+<text x="166" y="208" text-anchor="middle" font-size="24" fill="#94a3b8">2025</text>
 <rect x="212" y="165" width="36" height="25" rx="3" fill="#2563eb" opacity="0.85"><title>2026: 5500亿元</title></rect>
-<text x="230" y="159" text-anchor="middle" font-size="11" fill="#64748b">5500</text>
-<text x="230" y="208" text-anchor="middle" font-size="12" fill="#94a3b8">2026</text>
+<text x="230" y="159" text-anchor="middle" font-size="22" fill="#64748b">5500</text>
+<text x="230" y="208" text-anchor="middle" font-size="24" fill="#94a3b8">2026</text>
 <rect x="276" y="149" width="36" height="41" rx="3" fill="#2563eb" opacity="0.85"><title>2027: 9000亿元</title></rect>
-<text x="294" y="143" text-anchor="middle" font-size="11" fill="#64748b">9000</text>
-<text x="294" y="208" text-anchor="middle" font-size="12" fill="#94a3b8">2027</text>
+<text x="294" y="143" text-anchor="middle" font-size="22" fill="#64748b">9000</text>
+<text x="294" y="208" text-anchor="middle" font-size="24" fill="#94a3b8">2027</text>
 <rect x="340" y="122" width="36" height="68" rx="3" fill="#2563eb" opacity="0.85"><title>2028: 15000亿元</title></rect>
-<text x="358" y="116" text-anchor="middle" font-size="11" fill="#64748b">15000</text>
-<text x="358" y="208" text-anchor="middle" font-size="12" fill="#94a3b8">2028</text>
+<text x="358" y="116" text-anchor="middle" font-size="22" fill="#64748b">15000</text>
+<text x="358" y="208" text-anchor="middle" font-size="24" fill="#94a3b8">2028</text>
 <rect x="404" y="30" width="36" height="160" rx="3" fill="#2563eb" opacity="0.85"><title>2030: 35000亿元</title></rect>
-<text x="422" y="24" text-anchor="middle" font-size="11" fill="#64748b">35000</text>
-<text x="422" y="208" text-anchor="middle" font-size="12" fill="#94a3b8">2030</text></svg><p class="chart-unit">单位：元</p></div></section>
+<text x="422" y="24" text-anchor="middle" font-size="22" fill="#64748b">35000</text>
+<text x="422" y="208" text-anchor="middle" font-size="24" fill="#94a3b8">2030</text></svg><p class="chart-unit">单位：元</p></div></section>
   <section class="section-block"><h2 class="section-title">🔗 相关板块</h2><div class="related"><a href="ai-chips.html">AI芯片/算力</a><a href="optical-cpo.html">光通信/CPO</a></div></section>
   <div style="margin-top:32px;padding-top:20px;border-top:1px solid var(--border)">
     <a class="back" href="index.html">← 返回首页查看其他板块</a>
