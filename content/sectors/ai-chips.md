@@ -15,17 +15,9 @@ stocks:
   - 300661
   - 688568
   - 688234
-updated: '2026-06-26'
+updated: '2026-08-14'
 relatedSectors: [semiconductor, advanced-packaging, optical-cpo, compute-power-grid, solid-state-battery, storage-chips]
-alerts:
-  - date: '2026-06-22'
-    text: 海外机构Aletheia Capital大幅上调DRAM/HBM价格预期，存储芯片AI物料占比从40%→2027年70%+；三安光电800G光芯片批量出货、1.6T送样，5天3板涨38%
-    companies: [兆易创新, 香农芯创, 寒武纪, 澜起科技]
-  - date: '2026-06-22'
-    text: 华海清科定增募资37.95亿投入上海集成电路装备基地；士兰微/三安光电涨停，芯片ETF涨3.51%
-    companies: [华海清科, 士兰微, 三安光电]
-  - date: '2026-06-18'
-    text: 英伟达B200 GPU租赁价10月续约将涨约94%，中国拟投2万亿元建设AI数据中心网络
+alerts: []
 supplyChain: |
   # AI芯片产业链
   ## 上游：芯片设计IP与EDA

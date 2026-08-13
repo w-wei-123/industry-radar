@@ -1,128 +1,136 @@
 <!DOCTYPE html>
 <html lang="zh-CN"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="build-time" content="2026-08-14 01:07:42">
+<meta name="build-time" content="2026-08-14 01:26:34">
 <title>市场异动&amp;前瞻推演 — 行业雷达</title>
 <style>
-:root { --blue:#2563eb; --blue-d:#1d4ed8; --gray:#f8fafc; --border:#e2e8f0; }
+:root { --blue:#2563eb; --blue-d:#1d4ed8; --gray:#f8fafc; --border:#e2e8f0;
+        --ink:#0f172a; --body:#334155; --muted:#94a3b8; --radius:12px;
+        --shadow-sm:0 1px 2px rgba(15,23,42,.05);
+        --shadow-md:0 8px 24px rgba(15,23,42,.08); }
 * { box-sizing:border-box; margin:0; padding:0; }
 body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;
-       background:var(--gray); color:#1e293b; line-height:1.6; }
+       background:var(--gray); color:var(--body); line-height:1.7; font-size:16px; }
 a { color:var(--blue); text-decoration:none; }
 a:hover { text-decoration:underline; }
-.nav { background:#0f172a; color:#fff; position:sticky; top:0; z-index:50;
+.nav { background:var(--ink); color:#fff; position:sticky; top:0; z-index:50;
        box-shadow:0 1px 3px rgba(0,0,0,.15); }
-.nav-inner { max-width:1200px; margin:0 auto; padding:0 16px; display:flex; align-items:center;
-             gap:16px; height:52px; }
-.nav-logo { font-weight:800; font-size:34px; color:#fff; white-space:nowrap; }
+.nav-inner { max-width:1120px; margin:0 auto; padding:0 20px; display:flex; align-items:center;
+             gap:16px; height:56px; }
+.nav-logo { font-weight:800; font-size:20px; color:#fff; white-space:nowrap; letter-spacing:.3px; }
 .nav-logo:hover { text-decoration:none; }
 .nav-links { display:flex; gap:6px; overflow-x:auto; padding-bottom:4px; flex:1;
              scrollbar-width:none; }
 .nav-links::-webkit-scrollbar { display:none; }
-.nav-link { color:#cbd5e1; font-size:26px; padding:4px 10px; border-radius:6px; white-space:nowrap; }
+.nav-link { color:#cbd5e1; font-size:16px; padding:4px 10px; border-radius:6px; white-space:nowrap; }
 .nav-link:hover { color:#fff; background:rgba(255,255,255,.12); text-decoration:none; }
 .nav-link.active { color:#fff; background:var(--blue); font-weight:600; }
-.container { max-width:1200px; margin:0 auto; padding:24px 16px 60px; }
-.hero { text-align:center; padding:36px 0 28px; }
-.hero h1 { font-size:68px; font-weight:800; color:#0f172a; }
-.hero p { color:#64748b; margin-top:8px; font-size:30px; }
-.hero .updated { color:var(--blue); font-weight:600; margin-top:6px; font-size:26px; }
-.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:16px; }
-.card { position:relative; background:#fff; border:2px solid var(--border); border-radius:14px;
-        padding:18px; transition:box-shadow .15s, border-color .15s; display:block; }
-.card:hover { box-shadow:0 6px 20px rgba(0,0,0,.08); border-color:#94a3b8; text-decoration:none; }
-.card h2 { font-size:34px; font-weight:700; color:#0f172a; }
+.container { max-width:1120px; margin:0 auto; padding:28px 20px 72px; }
+.hero { text-align:center; padding:40px 0 32px; }
+.hero h1 { font-size:34px; font-weight:800; color:var(--ink); letter-spacing:.5px; }
+.hero p { color:#64748b; margin-top:10px; font-size:17px; }
+.hero .updated { color:var(--blue); font-weight:600; margin-top:8px; font-size:16px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(290px,1fr)); gap:18px; }
+.card { position:relative; background:#fff; border:1px solid var(--border); border-radius:var(--radius);
+        padding:20px; box-shadow:var(--shadow-sm); transition:box-shadow .18s, border-color .18s, transform .18s;
+        display:block; }
+.card:hover { box-shadow:var(--shadow-md); border-color:#94a3b8; transform:translateY(-2px);
+              text-decoration:none; }
+.card h2 { font-size:20px; font-weight:700; color:var(--ink); }
 .card:hover h2 { color:var(--blue); }
-.card .tags { color:#94a3b8; font-size:24px; margin-top:6px; }
-.card .meta { display:flex; justify-content:space-between; margin-top:12px; color:#94a3b8;
-              font-size:22px; }
-.card .meta .stocks { }
+.card .tags { color:var(--muted); font-size:14px; margin-top:8px; line-height:1.5; }
+.card .meta { display:flex; justify-content:space-between; margin-top:14px; color:var(--muted);
+              font-size:13px; border-top:1px dashed var(--border); padding-top:12px; }
 .card.new { border-color:var(--blue); background:#eff6ff; }
 .card.recent { border-color:#cbd5e1; }
 .badge { position:absolute; top:-10px; right:-10px; min-width:26px; height:26px; padding:0 8px;
          display:flex; align-items:center; justify-content:center; background:#ef4444; color:#fff;
-         font-size:24px; font-weight:700; border-radius:999px; box-shadow:0 2px 6px rgba(0,0,0,.2); }
+         font-size:14px; font-weight:700; border-radius:999px; box-shadow:0 2px 6px rgba(0,0,0,.2); }
 .badge.blue { background:var(--blue); }
 .badge.gray { background:#94a3b8; }
-.back { display:inline-block; font-size:26px; margin-bottom:20px; }
-.sector-header { margin-bottom:20px; }
-.sector-header h1 { font-size:56px; font-weight:800; color:#0f172a; }
-.tag-row { display:flex; flex-wrap:wrap; gap:6px; margin:10px 0; }
-.tag { background:#eff6ff; color:var(--blue-d); border:1px solid #bfdbfe; font-size:24px;
+.back { display:inline-block; font-size:16px; margin-bottom:24px; color:var(--muted); }
+.back:hover { color:var(--blue); }
+.sector-header { margin-bottom:24px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+.sector-header h1 { font-size:28px; font-weight:800; color:var(--ink); letter-spacing:.3px; }
+.tag-row { display:flex; flex-wrap:wrap; gap:6px; margin:12px 0; }
+.tag { background:#eff6ff; color:var(--blue-d); border:1px solid #bfdbfe; font-size:14px;
        padding:3px 10px; border-radius:999px; }
-.sector-meta { color:#94a3b8; font-size:26px; }
-.alert-section { margin:16px 0 28px; }
-.alert-section h2 { font-size:34px; color:#dc2626; margin-bottom:10px; }
+.sector-meta { color:var(--muted); font-size:16px; }
+.alert-section { margin:20px 0 32px; }
+.alert-section h2 { font-size:20px; color:#dc2626; margin-bottom:12px; }
 .alert { display:flex; gap:12px; background:#fef2f2; border:1px solid #fecaca; border-radius:10px;
-         padding:12px 14px; margin-bottom:8px; }
+         padding:14px 16px; margin-bottom:10px; }
 .alert .num { flex-shrink:0; width:22px; height:22px; border-radius:50%; background:#ef4444;
-              color:#fff; font-size:22px; font-weight:700; display:flex; align-items:center;
+              color:#fff; font-size:13px; font-weight:700; display:flex; align-items:center;
               justify-content:center; }
-.alert p { font-size:26px; color:#991b1b; }
-.alert .date { font-size:22px; color:#f87171; margin-top:3px; }
-.article { background:#fff; border:1px solid var(--border); border-radius:14px; padding:28px;
-           margin-bottom:28px; }
-.article h2 { font-size:42px; font-weight:700; color:#0f172a; margin:28px 0 12px; padding-bottom:8px;
-              border-bottom:2px solid #d1d5db; }
+.alert p { font-size:16px; color:#991b1b; line-height:1.6; }
+.alert .date { font-size:13px; color:#f87171; margin-top:4px; }
+.article { background:#fff; border:1px solid var(--border); border-radius:var(--radius);
+           padding:32px 36px; margin-bottom:32px; box-shadow:var(--shadow-sm); }
+.article h2 { font-size:22px; font-weight:700; color:var(--ink); margin:32px 0 14px; padding-bottom:10px;
+              border-bottom:1px solid #e2e8f0; }
 .article h2:first-child { margin-top:0; }
-.article h3 { font-size:32px; font-weight:600; color:#1e293b; margin:20px 0 8px; }
-.article h4 { font-size:28px; font-weight:600; color:#334155; margin:16px 0 6px; }
-.article p { font-size:28px; line-height:1.85; color:#334155; margin-bottom:12px; }
-.article ul,.article ol { margin:0 0 12px 20px; }
-.article li { font-size:28px; line-height:1.75; color:#334155; margin-bottom:4px; }
-.article strong { color:#0f172a; }
-.article blockquote { border-left:3px solid var(--blue); padding:10px 14px; margin:12px 0;
-                      background:#eff6ff; border-radius:0 8px 8px 0; font-size:26px; color:#334155; }
+.article h3 { font-size:19px; font-weight:600; color:#1e293b; margin:24px 0 10px; }
+.article h4 { font-size:17px; font-weight:600; color:#334155; margin:18px 0 8px; }
+.article p { font-size:16px; line-height:1.85; color:var(--body); margin-bottom:14px; }
+.article ul,.article ol { margin:0 0 14px 22px; }
+.article li { font-size:16px; line-height:1.75; color:var(--body); margin-bottom:6px; }
+.article strong { color:var(--ink); }
+.article blockquote { border-left:3px solid var(--blue); padding:12px 16px; margin:14px 0;
+                      background:#eff6ff; border-radius:0 8px 8px 0; font-size:15px; color:var(--body); }
 .article blockquote p { margin-bottom:0; }
-.article hr { border:none; border-top:1px solid #d1d5db; margin:24px 0; }
-.article code { background:#e5e7eb; padding:2px 6px; border-radius:4px; font-size:26px; color:#4b5563;
+.article hr { border:none; border-top:1px solid #e2e8f0; margin:28px 0; }
+.article code { background:#f1f5f9; padding:2px 6px; border-radius:4px; font-size:15px; color:#4b5563;
                 font-family:'Cascadia Code','Fira Code',monospace; }
-.article pre { background:#0f172a; color:#e2e8f0; padding:16px; border-radius:10px; overflow-x:auto;
-               margin:12px 0; font-size:25px; line-height:1.6; }
+.article pre { background:var(--ink); color:#e2e8f0; padding:18px 20px; border-radius:10px; overflow-x:auto;
+               margin:14px 0; font-size:14px; line-height:1.65; }
 .article pre code { background:none; color:inherit; padding:0; }
-.table-wrap { overflow-x:auto; margin:14px 0; }
-table { width:100%; border-collapse:collapse; font-size:26px; }
-th { background:#f1f5f9; text-align:left; padding:9px 12px; font-weight:600; color:#0f172a;
-     border-bottom:2px solid #e2e8f0; white-space:nowrap; }
-td { padding:9px 12px; border-bottom:1px solid #e2e8f0; color:#334155; vertical-align:top; }
-td.td-first { font-weight:600; color:#0f172a; white-space:nowrap; }
+.table-wrap { overflow-x:auto; margin:16px 0; }
+table { width:100%; border-collapse:collapse; font-size:15px; }
+th { background:#f1f5f9; text-align:left; padding:10px 14px; font-weight:600; color:var(--ink);
+     border-bottom:1px solid #d1d5db; white-space:nowrap; }
+td { padding:10px 14px; border-bottom:1px solid #eef2f7; color:var(--body); vertical-align:top; }
+td.td-first { font-weight:600; color:var(--ink); white-space:nowrap; }
 tr:hover td { background:#f8fafc; }
-.section-block { margin-bottom:28px; }
-.section-title { font-size:38px; font-weight:700; color:#0f172a; margin-bottom:12px; }
-.section-title span { font-size:26px; color:#94a3b8; font-weight:400; margin-left:6px; }
-.gap-tag { display:inline-block; padding:1px 8px; border-radius:999px; font-size:22px; }
+.section-block { margin-bottom:32px; }
+.section-title { font-size:21px; font-weight:700; color:var(--ink); margin-bottom:14px;
+                 padding-left:12px; border-left:4px solid var(--blue); line-height:1.4; }
+.section-title span { font-size:15px; color:var(--muted); font-weight:400; margin-left:8px; }
+.gap-tag { display:inline-block; padding:1px 8px; border-radius:999px; font-size:13px; }
 .gap-high { background:#fef2f2; color:#dc2626; border:1px solid #fecaca; }
 .gap-mid { background:#fffbeb; color:#b45309; border:1px solid #fde68a; }
 .chart-box { background:#fff; border:1px solid var(--border); border-radius:12px; padding:16px; }
-.chart-label { font-size:28px; font-weight:600; color:#0f172a; margin-bottom:8px; }
-.chart-unit { font-size:22px; color:#94a3b8; margin-top:4px; text-align:right; }
+.chart-label { font-size:17px; font-weight:600; color:#0f172a; margin-bottom:8px; }
+.chart-unit { font-size:13px; color:#94a3b8; margin-top:4px; text-align:right; }
 .sc-root { display:flex; flex-direction:column; }
-.sc-item { font-size:27px; color:#334155; padding:5px 10px; border-left:3px solid var(--border);
+.sc-item { font-size:16px; color:#334155; padding:5px 10px; border-left:3px solid var(--border);
            margin:2px 0; border-radius:0 6px 6px 0; }
 .sc-item strong { color:#0f172a; }
 .sc-item.lv1 { background:#eff6ff; border-left-color:var(--blue); font-weight:600; color:#1e40af;
-               font-size:28px; }
+               font-size:17px; }
 .sc-item.lv2 { margin-left:16px; background:#f8fafc; border-left-color:#93c5fd; }
 .sc-item.lv3 { margin-left:32px; border-left-color:#c7d2fe; }
-.sc-item.lv4 { margin-left:48px; border-left-color:#e2e8f0; color:#64748b; font-size:25px; }
-.footer { text-align:center; color:#94a3b8; font-size:24px; padding:24px 0 40px; border-top:1px solid var(--border); }
+.sc-item.lv4 { margin-left:48px; border-left-color:#e2e8f0; color:#64748b; font-size:15px; }
+.footer { text-align:center; color:#94a3b8; font-size:14px; padding:24px 0 40px; border-top:1px solid var(--border); }
 .footer p { margin:4px 0; }
-.details summary { cursor:pointer; color:#94a3b8; font-size:26px; margin:8px 0; }
+.details summary { cursor:pointer; color:#94a3b8; font-size:16px; margin:8px 0; }
 .details summary:hover { color:var(--blue); }
 .related { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
 .related a { background:#f1f5f9; border:1px solid var(--border); padding:4px 12px; border-radius:8px;
-             font-size:26px; color:#334155; }
+             font-size:16px; color:#334155; }
 .related a:hover { background:#e2e8f0; text-decoration:none; }
-.sentiment { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:8px; }
-.s-item { background:#f8fafc; border:1px solid var(--border); border-radius:10px;
-          padding:8px 14px; min-width:90px; text-align:center; }
-.s-label { font-size:24px; color:#94a3b8; }
-.s-val { font-size:44px; font-weight:700; color:#0f172a; }
-.s-val small { font-size:24px; color:#94a3b8; font-weight:400; }
-.s-ladder { font-size:28px; color:#334155; margin:10px 0 4px; }
-.s-reasons { margin-top:8px; display:flex; flex-wrap:wrap; gap:6px; }
+.sentiment { display:flex; flex-wrap:wrap; gap:12px; margin-bottom:12px; }
+.s-item { background:#fff; border:1px solid var(--border); border-radius:10px;
+          padding:10px 18px; min-width:96px; text-align:center; box-shadow:var(--shadow-sm); }
+.s-label { font-size:13px; color:var(--muted); margin-bottom:4px; }
+.s-val { font-size:28px; font-weight:700; color:var(--ink); line-height:1.2; }
+.s-val small { font-size:13px; color:var(--muted); font-weight:400; }
+.s-ladder { font-size:16px; color:var(--body); margin:12px 0 4px; line-height:1.7; }
+.s-ladder b { color:var(--ink); }
+.s-reasons { margin-top:10px; display:flex; flex-wrap:wrap; gap:6px; }
+.s-reasons .tag { font-size:13px; }
 @media (max-width:640px) {
-  .hero h1 { font-size:52px; }
+  .hero h1 { font-size:31px; }
   .grid { grid-template-columns:1fr; }
   .article { padding:18px; }
 }
@@ -137,7 +145,7 @@ tr:hover td { background:#f8fafc; }
   <div class="sector-header">
     <h1>市场异动&amp;前瞻推演</h1>
     <div class="tag-row"><span class="tag">异动追踪</span><span class="tag">产业链传导</span><span class="tag">前瞻推演</span><span class="tag">供需缺口</span><span class="tag">逻辑反推</span></div>
-    <p class="sector-meta">15 只成分股 · 更新于 2026-08-13</p>
+    <p class="sector-meta">15 只成分股 · 更新于 2026-08-14</p>
   </div>
   <div class="alert-section"><h2>🔔 近期提醒（2条，过去3天~未来7天）</h2><div class="alert"><span class="num">1</span><div><p>医药主线爆发（医疗服务单周+16%，创新药License-out超千亿美元，百济净利+627%）；电力主线确认（新型电力系统"十五五"规划→电网投资5万亿+，用电负荷四创新高）；8/14起对印度单模光纤征反倾销税5年（利好国产光纤）。高位风险：秦安5板(澄清不涉人形机器人)、一鸣4板(PE249警示炒作)。妖股验证：惠天热电🟡、澳洋健康🟡、坤泰入黑名单(Q1净利-61%)</p><p class="date">2026-08-13 · 涉及：秦安股份、一鸣食品、惠天热电、澳洋健康、坤泰股份</p></div></div><div class="alert"><span class="num">2</span><div><p>前瞻事件快报：①朱雀三号遥二今晨发射顺延（非取消），商业航天板块普跌，新窗口预估8/31 ②宇树科技A股"人形机器人第一股"8/20挂牌，发行PE 219倍/市值610亿，8/10申购超购8288倍 ③住房消费首次列入大宗消费首位，北京放宽限购 ④原油暴涨5%（霍尔木兹协议未达）+LME铜库存告急。MLCC/机器人今日异动：洁美科技+10%、绿的谐波+9.3%、中国卫星-8.1%</p><p class="date">2026-08-11 · 涉及：宇树科技、中国卫星、洁美科技、绿的谐波</p></div></div></div>
   <div class="article"><section class="section-block"><h2 class="section-title">📊 市场情绪 🔥 亢奋<span>情绪分 88</span></h2><div class="sentiment"><div class="s-item"><div class="s-label">涨停</div><div class="s-val">59</div></div><div class="s-item"><div class="s-label">炸板率</div><div class="s-val">37.9%<small>(炸36)</small></div></div><div class="s-item"><div class="s-label">跌停</div><div class="s-val">4</div></div><div class="s-item"><div class="s-label">最高板</div><div class="s-val">5</div></div><div class="s-item"><div class="s-label">晋级率</div><div class="s-val">23.1%</div></div><div class="s-item"><div class="s-label">赚钱效应</div><div class="s-val">1.11%</div></div></div><p class="s-ladder">连板天梯: 1板×36 → 2板×12 → 3板×3 → 4板×7 → 5板×1</p><div class="s-reasons"><span class="tag">创新药×5</span> <span class="tag">人形机器人×4</span> <span class="tag">AI应用×4</span> <span class="tag">央企×3</span> <span class="tag">CRO×3</span> <span class="tag">国企改革×3</span></div></section><section class="section-block"><h2 class="section-title">🐉 龙虎榜资金动向<span>20260813 上榜 62只</span></h2><p class="s-ladder"><b>机构净买</b>: 中鼎股份(4.87亿) | 陇神戎发(2.66亿) | 天娱数科(2.42亿) | 麦迪科技(1.50亿)</p><p class="s-ladder"><b>净买</b>: 中鼎股份 +4.87亿 | 移远通信 +3.47亿 | 陇神戎发 +2.66亿 | 天娱数科 +2.42亿 | 麦迪科技 +1.50亿 | 风语筑 +1.47亿</p><p class="s-ladder" style="color:#dc2626"><b>净卖警示</b>: 太极实业 -3.93亿 | 嘉泽新能 -2.05亿 | 达实智能 -1.74亿</p></section><section class="section-block"><h2 class="section-title">🔁 命中率复盘<span>系统自我验证 · 反向优化</span></h2><h2>🔁 命中率复盘 · 龙虎榜 alpha</h2>
@@ -224,192 +232,6 @@ tr:hover td { background:#f8fafc; }
 <li><strong>4板+ 梯队</strong>：北京文化、皇氏集团、蓝盾光电、同力天启、京投发展——高位接力风险极高</li>
 </ul>
 <p><strong>方向优先级：</strong> 🥇医药/创新药（业绩兑现主线） → 🥈电力（十五五规划+迎峰度夏） → 🥉光通信（反倾销催化） → ⚠️ 高位连板（回避）</p>
-<hr>
-<p><strong>🔴 7/16 更新：半导体見頂確認 · 商業航天主線確立 · WAIC埋伏窗口</strong></p>
-<p><strong>一、半导体：不是倒车接人</strong></p>
-<ul>
-<li>华海清科 -10.9%、长电科技 -10%、盛美上海 -8.5%：先进封装全面崩盘</li>
-<li>兆易创新 -10%：继 7/11 天量 594 亿暴跌后继续新低，"利好出尽"顶部确认</li>
-<li>中微公司 -7.6%、思瑞浦 -7.3%：设备链跟跌</li>
-<li>上证跌破 3900，两融较 6 月末降 882 亿</li>
-</ul>
-<p>机构嘴上说"中长期未变"，但万得半导体指数上半年涨了 105%——不管基本面多好，涨 105% 之后需要时间消化。<strong>1-2 个月内不要抄底半导体。</strong> 等缩量止跌+中报全部落地。</p>
-<p><strong>二、商业航天：新主线确认</strong></p>
-<div class="table-wrap"><table>
-<thead><tr>
-<th>证据</th>
-<th>数据</th>
-</tr></thead><tbody>
-<tr>
-<td class="td-first">航空航天 ETF</td>
-<td>连续 10 天净流入，越跌越买</td>
-</tr>
-<tr>
-<td class="td-first">7/14 板块-4%</td>
-<td>当日仍有 2.21 亿净流入</td>
-</tr>
-<tr>
-<td class="td-first">催化剂排到年底</td>
-<td>朱雀三号→千帆组网→15家IPO→太空算力</td>
-</tr>
-</tbody></table></div>
-<p><strong>核心标的：</strong></p>
-<ul>
-<li>火箭/回收：<strong>泰胜风能</strong>、<strong>华菱线缆</strong>（可回收点火线缆）</li>
-<li>卫星/通信：<strong>上海瀚讯</strong>、<strong>中国卫星</strong>（H1扭亏为盈）</li>
-<li>地面芯片：<strong>铖昌科技</strong>(001270)、<strong>信科移动</strong>(688387)</li>
-<li>太空算力（新方向）：<strong>中科曙光</strong>(603019)</li>
-<li>ETF工具：航空航天ETF华夏(159227)、航天ETF(159267)</li>
-</ul>
-<p><strong>三、WAIC 明天开幕(7/17-20)——今天最后埋伏窗口</strong></p>
-<p>历史规律：会前1-5天跑赢大盘，会后快速分化。本届最大看点：</p>
-<ul>
-<li>华为 Atlas 950 超节点真机首展（8192张昇腾卡直连，算力是英伟达NVL144的6.7倍）</li>
-<li>全球首款 AI 智能体手机（努比亚+阶跃星辰 AgentOS）</li>
-<li>宇树 GD01 载人变形机甲</li>
-</ul>
-<p><strong>核心标的：</strong></p>
-<ul>
-<li>华为昇腾链：<strong>神州数码</strong>(000034)、<strong>恒为科技</strong>(603496)</li>
-<li>国产算力：<strong>中科曙光</strong>(603019)、<strong>浪潮信息</strong>(000977)——今天换手10%抗跌</li>
-<li>AI 应用：<strong>科大讯飞</strong>(002230)、<strong>金山办公</strong>(688111)</li>
-<li>机器人短线反弹：<strong>绿的谐波</strong>(688017)——跌够了，WAIC可能有催化</li>
-</ul>
-<p><strong>四、液冷/电力——错杀方向</strong></p>
-<p>半导体资金在跑，但算力需求没减——散热和电力是确定性受益但被错杀的方向：</p>
-<ul>
-<li><strong>东阳光</strong>(600673)：氟化冷却液+190亿框架合同，从35跌下来→等32-33</li>
-<li><strong>高澜股份</strong>(300499)：冷板+浸没+集装箱三路线，字节供应商</li>
-<li><strong>英维克</strong>(002837)：冷板液冷市占42%，英伟达认证</li>
-</ul>
-<p><strong>五、消费暗线</strong></p>
-<p>中百集团 7/8 涨停后横盘 8 天，换手从 10% 缩到 8%→主力没跑。九部门零售20条+离境退税2.0，政策在堆积，但航天和WAIC抢了风头。</p>
-<ul>
-<li>情绪旗手：<strong>中百集团</strong>(000759)——44亿小市值，纯博弈，设止损6元</li>
-<li>价值标的：<strong>王府井</strong>(600859)——回购注销兜底+全品类免税牌照，9.4元低位</li>
-</ul>
-<p><strong>六、方向优先级</strong></p>
-<div class="table-wrap"><table>
-<thead><tr>
-<th>优先级</th>
-<th>方向</th>
-<th>逻辑</th>
-<th>时间窗口</th>
-</tr></thead><tbody>
-<tr>
-<td class="td-first">🥇</td>
-<td>商业航天</td>
-<td>机构持续加仓+密集催化+产业拐点</td>
-<td>中长期主线</td>
-</tr>
-<tr>
-<td class="td-first">🥈</td>
-<td>国产算力(WAIC)</td>
-<td>华为超节点+会前埋伏规律</td>
-<td>7/17-20</td>
-</tr>
-<tr>
-<td class="td-first">🥉</td>
-<td>液冷/电力</td>
-<td>错杀+确定性需求</td>
-<td>等缩量企稳</td>
-</tr>
-<tr>
-<td class="td-first">4</td>
-<td>消费</td>
-<td>政策堆积+航天退潮后轮动</td>
-<td>航天降温后</td>
-</tr>
-<tr>
-<td class="td-first">❌</td>
-<td>半导体/存储</td>
-<td>阶段性见顶，等消化</td>
-<td>1-2个月后</td>
-</tr>
-</tbody></table></div>
-<hr>
-<p><strong>🔴 7/10 更新：长征十号乙回收成功 + 半导体爆发 + 碳达峰方案</strong></p>
-<p><strong>一、🚀 长征十号乙首飞成功</strong></p>
-<p>7/10 12:15 发射，一子级海上网系回收成功——全球首次。中国成为第二个掌握大运力可回收火箭的国家。午后商业航天秒板潮。</p>
-<p><strong>二、🤖 机器人出货周期确认</strong></p>
-<ul>
-<li>绿的谐波(688017)：7/3 +18% → 7/6 -7% → 7/8 -16%，三天归零</li>
-<li>涨停诱多→高开低走→崩盘，标准出货三部曲。短期熄火，等 8 月 WRC</li>
-</ul>
-<p><strong>三、📊 今日重大新闻</strong></p>
-<ul>
-<li><strong>长鑫科技 7/16 申购</strong>，科创板第二大 IPO（295亿），阿里累计投入 76 亿</li>
-<li><strong>科创 50 大涨 8.41%</strong>，中芯国际涨超 13% 创新高。半导体全面爆发</li>
-<li><strong>十五五碳达峰方案落地</strong>：非化石能源 2030 年达 25%，新型储能 3 亿千瓦 → 利好新能源/储能/绿电</li>
-<li><strong>曙光 8000 落成</strong>：首个全国产十万卡 AI 超集群</li>
-<li><strong>华为 OPEN NPO 启动</strong>：联合 20+ 伙伴建近封装光学标准</li>
-<li>中报潮：<strong>兆易创新 H1 +1099%</strong>（~69亿）、天赐材料 +908%、工业富联 +93%</li>
-<li>燧原科技科创板 IPO 获批，"国产 GPU 四小龙"即将齐聚</li>
-<li><strong>消费政策</strong>：九部门零售创新意见（7/9），支持零售企业上市+免税扩容+离境退税2.0落地</li>
-</ul>
-<p><strong>四、前置信号规则</strong></p>
-<div class="table-wrap"><table>
-<thead><tr>
-<th>信号</th>
-<th>事件</th>
-<th>最佳窗口</th>
-</tr></thead><tbody>
-<tr>
-<td class="td-first">航行预警</td>
-<td>火箭发射</td>
-<td>预警时（发射前 2-3 天）</td>
-</tr>
-<tr>
-<td class="td-first">展会预告</td>
-<td>产业大会</td>
-<td>预告时（开展前 1-2 周）</td>
-</tr>
-<tr>
-<td class="td-first">IPO 注册</td>
-<td>公司上市</td>
-<td>注册到上市之间</td>
-</tr>
-</tbody></table></div>
-<blockquote>
-<p>7/8 航行预警 → 7/10 发射成功。提前 2 天布局 = 完美窗口。以后不会再漏。</p>
-</blockquote>
-<hr>
-<p><strong>🔴 7/7 更新：涨停板出货潮 · 液冷确认方向 · 资金高切低信号</strong></p>
-<p><strong>一、涨停板出货集中爆发</strong></p>
-<ul>
-<li><strong>航锦科技(000818)</strong>：高开 +10% → 收盘 +1%，竞价挂涨停诱多</li>
-<li><strong>蔚蓝锂芯(002245)</strong>：盘中涨停 → 收盘 -7.1%，振幅 17%，追板的亏惨</li>
-<li><strong>实益达(002137)</strong>：涨停但换手 25%，烂板出货</li>
-</ul>
-<p>三只同日涨停板诱多→游资集体撤退。</p>
-<p><strong>二、液冷：高澜之后谁接力</strong></p>
-<p>髙澜 7/6 涨停后缩量整理（+2%，换手 8%），资金没撤。东阳光 -5.1% 换手 2.3%→缩量回调，等 32-33 建仓。英维克龙头稳健。</p>
-<p><strong>三、半导体第三幕：液冷→电力→测试</strong></p>
-<p>半导体的故事从"AI需要芯片"→"芯片需要散热"→下一步是"芯片造出来要测试、跑起来要电力"。当前最优解是液冷（刚启动），下一波备选是测试设备（华峰测控、精测电子）和电力基础设施（国电南瑞、特变电工）。</p>
-<p><strong>四、风格切换信号</strong></p>
-<p>科技股今天大面积出现出货信号（实益达、航锦、蔚蓝锂芯涨停板诱多），同时消费/建筑/银行等低位板块被机构提及"高切低"。但低位板块的Wyckoff分布日也很密集→说明机构在卖它们买AI，暂时还没反过来。<strong>真正的风格切换需要等科技股彻底熄火+低位板块放量止跌。</strong> 现在还没到。</p>
-<p><strong>五、7/7 MACHINA巴黎峰会：Optimus V3欧洲首秀</strong></p>
-<p>特斯拉Optimus V3在欧洲首次公开展出，但A股机器人板块今天毫无反应（绿的谐波-7%）。说明机器人短期审美疲劳，等8月WRC再看了。</p>
-<p>relatedSectors: [semiconductor, ai-chips, optical-cpo, pcb, advanced-packaging, humanoid-robot, storage-chips]</p>
-<p>supplyChain: |</p>
-<p># 产业链传导框架</p>
-<p>## 第一层：直接需求触发</p>
-<p>### AI算力基建</p>
-<p>#### GPU → 光模块（中际旭创）→ PCB（沪电股份）→ 先进封装（长电科技）</p>
-<p>### 新能源转型</p>
-<p>#### 固态电池（宁德时代）→ 电解质（天赐材料）→ 锂/锆（赣锋锂业）</p>
-<p>### 机器人量产</p>
-<p>#### 丝杠（恒立液压）→ 减速器（绿的谐波）→ 传感器（东华测试）</p>
-<p>## 第二层：供应链缺口传导</p>
-<p>### 硬件满足后新瓶颈</p>
-<p>#### 液冷散热（英维克/高澜股份）</p>
-<p>#### 电力供给（国电南瑞/协鑫能科）</p>
-<p>#### 测试设备（长川科技/华峰测控）</p>
-<p>## 第三层：终端消费接力</p>
-<p>### 基建 → 产品 → 消费</p>
-<p>#### AI PC/手机换机潮（立讯精密）</p>
-<p>#### 假期消费电子（鹏鼎控股）</p>
-<p>#### 汽车智能化（韦尔股份）</p>
 <hr>
 <h2>行业概述</h2>
 <p><strong>不预测股价，预测产业链传导方向。</strong> 跟踪两个关键信号：</p>
@@ -609,491 +431,6 @@ tr:hover td { background:#f8fafc; }
 <td>消费电子成本承压</td>
 </tr>
 </tbody></table></div>
-<p><strong>🔴 7/2 更新：科技板块集体暴跌 · Serenity 错杀分析</strong></p>
-<p><strong>一、今日盘面：无差别抛售</strong></p>
-<p>全板块普跌，监控池 85 只标的中 <strong>31 只异动</strong>，全部为下跌异常：</p>
-<div class="table-wrap"><table>
-<thead><tr>
-<th>跌幅最大</th>
-<th>跌幅</th>
-<th>板块</th>
-</tr></thead><tbody>
-<tr>
-<td class="td-first">华海清科(688120)</td>
-<td><strong>-14.8%</strong></td>
-<td>先进封装</td>
-</tr>
-<tr>
-<td class="td-first">三环集团(300408)</td>
-<td><strong>-13.1%</strong></td>
-<td>MLCC</td>
-</tr>
-<tr>
-<td class="td-first">天孚通信(300394)</td>
-<td><strong>-12.0%</strong></td>
-<td>光通信/CPO</td>
-</tr>
-<tr>
-<td class="td-first">芯源微(688037)</td>
-<td>-11.8%</td>
-<td>先进封装</td>
-</tr>
-<tr>
-<td class="td-first">新易盛(300502)</td>
-<td>-11.6%</td>
-<td>光通信/CPO</td>
-</tr>
-<tr>
-<td class="td-first">中微公司(688012)</td>
-<td>-11.5%</td>
-<td>半导体</td>
-</tr>
-</tbody></table></div>
-<p>-10% 以上 18 只，先进封装、MLCC、光通信最惨。无差别抛售特征明显——不是某板块独跌，是流动性+情绪共振。</p>
-<p><strong>定性：类似 6/24 全球芯片暴跌的 A 股版本。交易结构过度拥挤的再次出清，非基本面逆转。</strong></p>
-<p><strong>二、Serenity 错杀识别（供应弹性=0 的瓶颈）</strong></p>
-<p>这些标的今天被砸了 10%，但它们的供应瓶颈不会因为股价跌了就消失：</p>
-<div class="table-wrap"><table>
-<thead><tr>
-<th>错杀标的</th>
-<th>跌幅</th>
-<th>为什么是错杀</th>
-</tr></thead><tbody>
-<tr>
-<td class="td-first"><strong>北方华创(002371)</strong></td>
-<td>-10.0%</td>
-<td>半导体设备交期 12-18 个月，订单排至 2027</td>
-</tr>
-<tr>
-<td class="td-first"><strong>中微公司(688012)</strong></td>
-<td>-11.5%</td>
-<td>刻蚀设备国产唯一，中芯/长存扩产刚需</td>
-</tr>
-<tr>
-<td class="td-first"><strong>天孚通信(300394)</strong></td>
-<td>-12.0%</td>
-<td>英伟达光引擎独家，CPO 不因 A 股跌而停</td>
-</tr>
-<tr>
-<td class="td-first"><strong>长电科技(600584)</strong></td>
-<td>-10.0%</td>
-<td>CoWoS 产能溢出逻辑独立于风险偏好</td>
-</tr>
-<tr>
-<td class="td-first"><strong>风华高科(000636)</strong></td>
-<td>-10.0%</td>
-<td>MLCC 涨价是稀土管制供给侧出清，非需求故事</td>
-</tr>
-</tbody></table></div>
-<p><strong>三、Serenity 隐藏标的池（跌了但更值得看）</strong></p>
-<p>中小市值瓶颈股，今天可能跌的少或不在监控池：</p>
-<div class="table-wrap"><table>
-<thead><tr>
-<th>隐藏标的</th>
-<th>瓶颈</th>
-<th>市值</th>
-<th>为什么被忽视</th>
-</tr></thead><tbody>
-<tr>
-<td class="td-first">久日新材(688199)</td>
-<td>ArF光刻胶PAG</td>
-<td>~30亿</td>
-<td>光引发剂龙头跨界半导体</td>
-</tr>
-<tr>
-<td class="td-first">德邦科技(688035)</td>
-<td>CoWoS底部填充胶</td>
-<td>~50亿</td>
-<td>先进封装必需材料</td>
-</tr>
-<tr>
-<td class="td-first">恒工精密(301261)</td>
-<td>柔轮材料(谐波减速器)</td>
-<td>~80亿</td>
-<td>绿的谐波唯一供应商，上市不到半年</td>
-</tr>
-<tr>
-<td class="td-first">飞凯材料(300398)</td>
-<td>临时键合胶+UV固化</td>
-<td>~60亿</td>
-<td>双赛道，先进封装+光通信</td>
-</tr>
-<tr>
-<td class="td-first">图南股份(000932)</td>
-<td>火箭涡轮盘高温合金</td>
-<td>~100亿</td>
-<td>唯一民营供应商</td>
-</tr>
-</tbody></table></div>
-<p><strong>四、产业链传导推演</strong></p>
-<pre><code>今日：无差别抛售（流动性冲击）
-   ↓
-明日：错杀标的开始分化
-   ├─ 有真实订单+供应瓶颈 → 快速修复（长电/天孚/北方华创）
-   ├─ 纯概念小票 → 继续跌（跟风股清退）
-   └─ 隐藏标的（小市值瓶颈）→ 缩量横盘（无人关注=无人抛售）
-   ↓
-下周：如果继续跌
-   → 资金从"故事"向"订单"加速迁移
-   → 封测/材料/设备（有BOM表验证）→ 相对抗跌
-   → Serenity优先级：供应商稀缺度5分的最先反弹</code></pre>
-<p>⚠️ <strong>风险观察</strong>：若北向连续3日净流出&gt;100亿 → 外资系统性撤离，非错杀是真杀。若中际旭创跌破1000元 → 光模块信仰崩塌。</p>
-<hr>
-<p><strong>🔴 7/3 更新：机器人引领修复 · Serenity 隐藏标的集体爆发</strong></p>
-<p><strong>一、7/2 暴跌 → 7/3 分化修复</strong></p>
-<p>昨日科技板块无差别抛售，今日资金精准回流机器人产业链，半导体/MLCC 继续承压：</p>
-<div class="table-wrap"><table>
-<thead><tr>
-<th>方向</th>
-<th>代表标的</th>
-<th>今日涨幅</th>
-</tr></thead><tbody>
-<tr>
-<td class="td-first">🤖 机器人丝杠</td>
-<td>恒立液压(601100)</td>
-<td><strong>+10.0%</strong></td>
-</tr>
-<tr>
-<td class="td-first">🤖 机器人减速器</td>
-<td>绿的谐波(688017)</td>
-<td><strong>+18.1%</strong></td>
-</tr>
-<tr>
-<td class="td-first">🤖 机器人关节</td>
-<td>双环传动(002472)</td>
-<td><strong>+10.0%</strong></td>
-</tr>
-<tr>
-<td class="td-first">🤖 精密磨床(丝杠上游)</td>
-<td><strong>华辰装备(300809)</strong></td>
-<td><strong>+11.7%</strong></td>
-</tr>
-<tr>
-<td class="td-first">🤖 柔轮材料(减速器上游)</td>
-<td><strong>恒工精密(301261)</strong></td>
-<td><strong>+9.1%</strong></td>
-</tr>
-<tr>
-<td class="td-first">📉 半导体材料</td>
-<td>南大光电(300346)</td>
-<td>-9.7%</td>
-</tr>
-<tr>
-<td class="td-first">📉 先进封装</td>
-<td>长电科技(600584)</td>
-<td>-5.3%</td>
-</tr>
-<tr>
-<td class="td-first">📉 MLCC</td>
-<td>风华高科(000636)</td>
-<td>-5.6%</td>
-</tr>
-</tbody></table></div>
-<p><strong>定性：资金从"被过度炒作的半导体"向"有真实订单+供应瓶颈的机器人硬件"迁移。Serenity 逻辑验证。</strong></p>
-<p><strong>二、Serenity 隐藏标的今日表现（昨天挖掘的池子）</strong></p>
-<p>昨天给的五只隐藏标的中，两只直接爆发：</p>
-<div class="table-wrap"><table>
-<thead><tr>
-<th>隐藏标的</th>
-<th>昨天</th>
-<th>今天</th>
-<th>Serenity得分</th>
-<th>逻辑验证</th>
-</tr></thead><tbody>
-<tr>
-<td class="td-first"><strong>华辰装备(300809)</strong></td>
-<td>未监控</td>
-<td><strong>+11.7%</strong></td>
-<td>85分·致命</td>
-<td>丝杠要磨床磨，市场开始理解这个逻辑 ✅</td>
-</tr>
-<tr>
-<td class="td-first"><strong>恒工精密(301261)</strong></td>
-<td>未监控</td>
-<td><strong>+9.1%</strong></td>
-<td>70分·严重</td>
-<td>绿的谐波的柔轮材料唯一供应商 ✅</td>
-</tr>
-<tr>
-<td class="td-first">久日新材(688199)</td>
-<td>未监控</td>
-<td>-8.4%</td>
-<td>75分</td>
-<td>光刻胶PAG，半导体承压拖累</td>
-</tr>
-<tr>
-<td class="td-first">德邦科技(688035)</td>
-<td>未监控</td>
-<td>-4.6%</td>
-<td>60分</td>
-<td>先进封装承压拖累</td>
-</tr>
-<tr>
-<td class="td-first">飞凯材料(300398)</td>
-<td>未监控</td>
-<td>-7.8%</td>
-<td>60分</td>
-<td>半导体属性拖累</td>
-</tr>
-</tbody></table></div>
-<p><strong>核心发现</strong>：机器人上游瓶颈标的（磨床、材料）表现远超半导体上游标的。产业链传导方向从<strong>"炒算力"转向"炒物理瓶颈"</strong>。</p>
-<p><strong>三、明日推演</strong></p>
-<pre><code>机器人板块今日涨停潮 → 明日大概率分化
-   ├─ 龙头（绿的谐波/恒立液压）→ 高开低走或横盘（涨停次日惯性）
-   ├─ 上游瓶颈（华辰装备/恒工精密）→ 可能跟涨（故事刚开始被认知）
-   ├─ 半导体材料 → 继续承压（资金抽血效应）
-   └─ 光模块/CPO → 超跌反弹（新易盛+3.3%是先行信号）</code></pre>
-<p><strong>短线关注</strong>：华辰装备(300809)刚被市场认知"丝杠上游磨床"的逻辑，45亿小市值+PE合理(40倍)，如果明天机器人板块不崩，是比日发精机更好的接力标的——<strong>日发精机的问题：PE亏损+涨停封板弱(量比1.01)</strong>。</p>
-<p>⚠️ <strong>风险观察</strong>：若北向连续3日净流出&gt;100亿 → 外资系统性撤离，非错杀是真杀。若中际旭创跌破1000元 → 光模块信仰崩塌。</p>
-<hr>
-<hr>
-<p><strong>🔴 7/4 更新：江波龙暴增744倍 · 存储超级周期确认 · Serenity产业链传导</strong></p>
-<p><strong>一、事件：A股"预增王"诞生</strong></p>
-<p>江波龙(301308)发布2026半年报预告：</p>
-<div class="table-wrap"><table>
-<thead><tr>
-<th>指标</th>
-<th>2026H1</th>
-<th>同比</th>
-<th>含义</th>
-</tr></thead><tbody>
-<tr>
-<td class="td-first">归母净利润</td>
-<td>92-110亿</td>
-<td><strong>+62,204%~74,394%</strong></td>
-<td>A股目前预增王</td>
-</tr>
-<tr>
-<td class="td-first">扣非净利润</td>
-<td>90-105亿</td>
-<td>+27,844%~32,502%</td>
-<td>主营真实暴增</td>
-</tr>
-<tr>
-<td class="td-first">营收</td>
-<td>220-250亿</td>
-<td>+116%~145%</td>
-<td>量价齐升</td>
-</tr>
-<tr>
-<td class="td-first">Q2单季净利</td>
-<td>53-71亿</td>
-<td>环比+38%~84%</td>
-<td>不是一次性脉冲</td>
-</tr>
-</tbody></table></div>
-<p>对比：江波龙2025年全年净利润14.23亿——今年<strong>半年干了去年的近8倍</strong>。年内股价涨152%，市值2615亿。</p>
-<p><strong>定性：这是整个存储产业链景气度的"确认信号"，不是孤立的一个公司业绩好。</strong></p>
-<p><strong>二、核心逻辑：为什么存储是2026年最强的产业趋势</strong></p>
-<p>三重逻辑共振：</p>
-<ol>
-<li><strong>量价红利</strong>：NAND合约价年内涨130-150%，下半年还有70-75%上行空间（TrendForce）。DRAM Q3极度紧缺，合约价季增13-18%</li>
-</ul>
-<ol>
-<li><strong>供给侧结构缺口</strong>：海外大厂（三星/SK海力士/美光/铠侠）全线转产HBM，<strong>系统性退出</strong>利基型SLC NAND/DDR3/DDR4市场。华邦电子2026-2027年产能已被客户锁定——缺口可能持续到<strong>2028年</strong></li>
-</ul>
-<ol>
-<li><strong>AI端侧增量</strong>：AI手机渗透率2029年达54%，单机存储3年翻倍。江波龙自研SPU主控+和AMD联合调优，端侧AI产品DRAM用量下降40%——这是技术壁垒</li>
-</ul>
-<p><strong>三、Serenity产业链传导（反向扒供应链）</strong></p>
-<p>从江波龙往上游扒，谁是最被忽视的瓶颈：</p>
-<pre><code>江波龙（模组）— 晶圆从哪来？
-  ├─ 海外：美光（采购占比33.5%）、三星、SK海力士、铠侠 → 供应的了但转HBM了
-  ├─ 国产NAND：长江存储（232层量产，落后三星一代）→ 需要扩产
-  └─ 国产DRAM：长鑫存储（19nm量产，17nm试产，IPO已获批）→ 扩产在即
-
-长鑫/长存扩产→谁受益？
-  ├─ 刻蚀设备：中微公司(688012)、北方华创(002371) ← 设备交期12-18个月，排至2027
-  ├─ 测试设备：长川科技(300604) ← 存储测试机国产化率仅8-10%！最大预期差
-  ├─ HBM量测：赛腾股份(603283) ← 国内唯一HBM量测，SK海力士HBM扩产受益
-  ├─ 洁净室：柏诚股份(601133)、亚翔集成(603929) ← 厂房基建刚需
-  ├─ 材料：鼎龙股份(300054，CMP)、安集科技(688019，抛光液)
-  └─ 封测：深科技(000021)、太极实业(600667) ← 存储封测配套
-
-利基型存储替代（海外退出→国产吃下）：
-  ├─ SLC NAND：东芯股份(688110) ← 下半年价格还有70-75%空间
-  ├─ NOR Flash：普冉股份(688766)、恒烁股份(688416)
-  └─ 利基DRAM：北京君正(300223) ← 全球车规DRAM第二</code></pre>
-<p><strong>四、Serenity隐藏标的池（存储链待挖掘）</strong></p>
-<div class="table-wrap"><table>
-<thead><tr>
-<th>隐藏标的</th>
-<th>节点</th>
-<th>Serenity逻辑</th>
-<th>市值</th>
-<th>为什么被忽视</th>
-</tr></thead><tbody>
-<tr>
-<td class="td-first"><strong>长川科技(300604)</strong></td>
-<td>存储测试机</td>
-<td>国产化率8-10%，长鑫长存扩产刚需</td>
-<td>~400亿</td>
-<td>市场只知道封测，不知道测试机才是最大缺口</td>
-</tr>
-<tr>
-<td class="td-first"><strong>赛腾股份(603283)</strong></td>
-<td>HBM量测</td>
-<td><strong>国内唯一</strong>HBM量测，SK海力士独家</td>
-<td>~80亿</td>
-<td>极少人知道这家能做HBM检测</td>
-</tr>
-<tr>
-<td class="td-first"><strong>东芯股份(688110)</strong></td>
-<td>SLC NAND</td>
-<td>海外退出→价格涨75%+国内唯一替代</td>
-<td>~200亿</td>
-<td>市场翻炒3D NAND大厂，没注意利基型缺口</td>
-</tr>
-<tr>
-<td class="td-first"><strong>柏诚股份(601133)</strong></td>
-<td>洁净室</td>
-<td>长鑫/长存扩产基建刚需</td>
-<td>~150亿</td>
-<td>被当成普通工程公司，半导体洁净室完全不同</td>
-</tr>
-<tr>
-<td class="td-first"><strong>深科技(000021)</strong></td>
-<td>存储封测</td>
-<td>长鑫/长存配套封测唯一标的</td>
-<td>~300亿</td>
-<td>被长电/通富掩盖，存储封测技术壁垒更高</td>
-</tr>
-</tbody></table></div>
-<p><strong>五、周一（7/6）推演</strong></p>
-<pre><code>江波龙740倍暴增→周一存储板块大概率高开
-  ├─ 江波龙(301308)：高开5-8%→高开低走概率大（利好已被定价+年内涨152%）
-  ├─ 兆易创新(603986)：可能跟涨（NOR Flash龙头，4000亿市值弹性有限）
-  ├─ 存储模组（佰维/德明利）：跟涨2-3天→分化
-  ├─ ★ 设备链（长川/赛腾）：可能被"连带挖掘"（逻辑扩散→新资金进场）
-  ├─ ★ 利基型替代（东芯/普冉/恒烁）：结构缺口逻辑开始被市场认知
-  └─ 封测（深科技/太极实业）：存储扩产→封测订单先行</code></pre>
-<p><strong>最值得关注的传导链</strong>：江波龙暴增 → 市场意识到"存储超级周期是真的" → 资金寻找板块内还没涨太多的 → <strong>存储测试设备（长川/赛腾）和利基型替代（东芯/普冉）逻辑最硬、市值最小、最容易被"连带挖掘"</strong>。</p>
-<p>⚠️ <strong>风险</strong>：存储是强周期行业——涨价时暴赚，跌价时暴亏。江波龙Q1末存货179.6亿（+54%），如果存储价格逆转，存货减值风险极大。另注意Q3合约价涨幅已在收敛（NAND从+90%→+10-15%），涨价最快阶段可能已过。</p>
-<p><strong>六、其他暴增验证：整条链都在兑现，不是孤例</strong></p>
-<div class="table-wrap"><table>
-<thead><tr>
-<th>公司</th>
-<th>代码</th>
-<th>H1增幅</th>
-<th>与存储链的关系</th>
-</tr></thead><tbody>
-<tr>
-<td class="td-first"><strong>中电港</strong></td>
-<td>001287</td>
-<td><strong>+176-193%</strong></td>
-<td>存储芯片分销商，江波龙是造存储的，中电港是卖存储的——上下游同时暴增</td>
-</tr>
-<tr>
-<td class="td-first"><strong>杭电股份</strong></td>
-<td>603618</td>
-<td>+852-958%</td>
-<td>光纤光缆回暖，传到光通信上游——光纤预制棒/光缆需求爆发</td>
-</tr>
-</tbody></table></div>
-<p><strong>中电港的意义被市场严重低估</strong>：模组厂（江波龙）暴增 → 你可以说"它囤货赚了差价"。但分销商（中电港）暴增 → 说明<strong>终端需求是真的</strong>，不是中间商囤货炒作。这是对整个存储景气度最强有力的交叉验证。</p>
-<p><strong>杭电股份→光通信链传导</strong>：</p>
-<pre><code>光纤光缆需求爆发（杭电+900%）
-  → 上游光纤预制棒：长飞光纤(601869)、亨通光电(600487)
-  → 上游光模块：中际旭创(300308)、新易盛(300502)
-  → 光纤涂料/材料：飞凯材料(300398) ← 双重身份：光通信+先进封装材料</code></pre>
-<p>杭电的暴增说明<strong>光通信链的上游也在兑现</strong>——不只是光模块在赚钱，光纤光缆也在赚钱。飞凯材料（光纤涂料+临时键合胶）上周被砸了7.8%，但它是两个赛道的上游瓶颈：光纤涂料（国内唯一）+ 先进封装临时键合胶。如果光通信链情绪回暖，它有修复逻辑。</p>
-<p><strong>七、机器人 vs 存储：阶段性判断</strong></p>
-<p>机器人产业逻辑没破（绿的谐波订单排到2027、特斯拉7-8月量产），但短期节奏被打乱：</p>
-<ul>
-<li><strong>本周（7/7-7/11）</strong>：存储业绩潮 → 资金向"能赚真钱"的存储链迁移 → 机器人从C位退到配角</li>
-<li><strong>7月中下旬</strong>：如果特斯拉Optimus量产公告落地 → 机器人重回C位</li>
-<li><strong>两条线不是互斥的</strong>：存储是"利润兑现"逻辑，机器人是"预期兑现"逻辑，不同资金偏好各取所需</li>
-</ul>
-<p>⚠️ <strong>关键观察点</strong>：绿的谐波7/3涨停(+18.1%)后，如果周一能守住涨幅（不跌超5%）→ 说明机器人不是一日游。如果直接砸回起点 → 机器人短期熄火，等下一个催化剂。</p>
-<hr>
-<hr>
-<p><strong>🔴 7/6 更新：机器人一日游验证 · 液冷启动 · 存储温和消化利好</strong></p>
-<p><strong>一、机器人：涨停→砸盘，一日游确认</strong></p>
-<div class="table-wrap"><table>
-<thead><tr>
-<th>标的</th>
-<th>7/3(周五)</th>
-<th>7/6(周一)</th>
-<th>结论</th>
-</tr></thead><tbody>
-<tr>
-<td class="td-first">绿的谐波(688017)</td>
-<td><strong>+18.1%</strong></td>
-<td><strong>-7.0%</strong></td>
-<td>回吐近40%涨幅</td>
-</tr>
-<tr>
-<td class="td-first">奥比中光(688322)</td>
-<td>—</td>
-<td><strong>-13.7%</strong></td>
-<td>机器人最惨标的</td>
-</tr>
-<tr>
-<td class="td-first">双环传动(002472)</td>
-<td>+10.0%</td>
-<td>0%（换手14.6%）</td>
-<td>巨量滞涨=涨停板出货</td>
-</tr>
-</tbody></table></div>
-<p>7/3的判断完全验证：机器人涨停潮是游资借特斯拉量产消息做的"一日游反弹"。绿的谐波两天回吐近一半涨幅→周一追进去的人已经亏钱了。</p>
-<p><strong>二、存储：没疯，这是好事</strong></p>
-<p>江波龙744倍暴增后第一个交易日——存储链<strong>零异动</strong>（所有标的波动在±7%以内）。不是利空出尽，是利好没有引发狂热追高。对比7/3机器人涨停潮→7/6砸盘，存储的"温和"反而是健康的——给了赛腾股份、东芯股份的回调买入窗口。</p>
-<p><strong>三、液冷启动：今天唯一涨停的AI方向</strong></p>
-<p>高澜股份(300499) <strong>+10.1%</strong> 涨停，换手22.1%——液冷是今天AI链里唯一大面积上涨的方向。逻辑：GPU功耗破千瓦→风冷物理极限→液冷从选配变标配。英伟达GB300/Rubin全线强制液冷，2026是"液冷元年"。</p>
-<div class="table-wrap"><table>
-<thead><tr>
-<th>梯队</th>
-<th>标的</th>
-<th>一句话</th>
-<th>今日</th>
-</tr></thead><tbody>
-<tr>
-<td class="td-first">龙头</td>
-<td><strong>英维克(002837)</strong></td>
-<td>冷板液冷市占42%，英伟达认证，在手订单45亿+</td>
-<td>—</td>
-</tr>
-<tr>
-<td class="td-first">弹性</td>
-<td><strong>高澜股份(300499)</strong></td>
-<td>唯一冷板+浸没+集装箱三路线，净利+294%，字节供应商</td>
-<td><strong>+10.1%涨停</strong></td>
-</tr>
-<tr>
-<td class="td-first">介质</td>
-<td><strong>东阳光(600673)</strong></td>
-<td>氟化冷却液，190亿框架合同，3M退出后国产替代</td>
-<td>—</td>
-</tr>
-<tr>
-<td class="td-first">介质</td>
-<td><strong>巨化股份(600160)</strong></td>
-<td>电子级氟化液纯度99.999%，制冷剂龙头</td>
-<td>—</td>
-</tr>
-<tr>
-<td class="td-first">CDU</td>
-<td><strong>申菱环境(301018)</strong></td>
-<td>谷歌核心供应商，液冷订单+205%</td>
-<td>—</td>
-</tr>
-<tr>
-<td class="td-first">水泵</td>
-<td><strong>飞龙股份(002536)</strong></td>
-<td>液冷水泵，谷歌供应链主力</td>
-<td>—</td>
-</tr>
-<tr>
-<td class="td-first">管路</td>
-<td><strong>川环科技(300547)</strong></td>
-<td>快接头+管路隐形冠军，英伟达供应链</td>
-<td>—</td>
-</tr>
-</tbody></table></div>
-<p><strong>液冷Serenity瓶颈</strong>：氟化冷却液。3M 2025年底彻底退出氟化物业务→全球供给缺口。国产替代两条路线：①巨化股份(电子级氟化液) ②东阳光(相变冷却液)。东阳光是"产-算-电"全链标的——既有氟化液，又搞数据中心，还做电极箔。190亿框架合同锁定了量，但市场把它当成传统化工股，PE极低。</p>
-<p><strong>四、MLCC继续失血</strong></p>
-<p>风华高科-7.5%、洁美科技-7.8%、国瓷材料换手10.4%→MLCC链连续第三个交易日被抽血。MLCC逻辑没破（AI用量182倍+稀土管制供给侧出清），但短期资金被存储和液冷抢走。如果MLCC再跌5-10%，国瓷材料(300285)的陶瓷粉料就是Serenity级别的错杀机会。</p>
-<hr>
 <h2>🧠 Pro 深度推演</h2>
 <h3>三个反直觉结论</h3>
 <p><strong>① 中际旭创超越茅台是"卖信号"而非"买信号"</strong></p>
@@ -1112,11 +449,11 @@ tr:hover td { background:#f8fafc; }
 <blockquote>
 <p>⚠️ <strong>免责声明</strong>：所有推演均为基于产业链逻辑的假设性分析，<strong>不构成投资建议</strong>。市场受宏观经济、政策、情绪等多重因素影响，实际走势可能与推演存在重大偏差。请独立判断，风险自负。</p>
 </blockquote></div>
+  <section class="section-block"><h2 class="section-title">🔗 产业链导图</h2><div class="sc-root"><div class="sc-item lv1">产业链传导框架</div><div class="sc-item lv2">第一层：直接需求触发</div><div class="sc-item lv3">AI算力基建</div><div class="sc-item lv4">GPU → 光模块（中际旭创）→ PCB（沪电股份）→ 先进封装（长电科技）</div><div class="sc-item lv3">新能源转型</div><div class="sc-item lv4">固态电池（宁德时代）→ 电解质（天赐材料）→ 锂/锆（赣锋锂业）</div><div class="sc-item lv3">机器人量产</div><div class="sc-item lv4">丝杠（恒立液压）→ 减速器（绿的谐波）→ 传感器（东华测试）</div><div class="sc-item lv2">第二层：供应链缺口传导</div><div class="sc-item lv3">硬件满足后新瓶颈</div><div class="sc-item lv4">液冷散热（英维克/高澜股份）</div><div class="sc-item lv4">电力供给（国电南瑞/协鑫能科）</div><div class="sc-item lv4">测试设备（长川科技/华峰测控）</div><div class="sc-item lv2">第三层：终端消费接力</div><div class="sc-item lv3">基建 → 产品 → 消费</div><div class="sc-item lv4">AI PC/手机换机潮（立讯精密）</div><div class="sc-item lv4">假期消费电子（鹏鼎控股）</div><div class="sc-item lv4">汽车智能化（韦尔股份）</div></div></section>
   
   
   
-  
-  
+  <section class="section-block"><h2 class="section-title">🔗 相关板块</h2><div class="related"><a href="semiconductor.html">半导体</a><a href="ai-chips.html">AI芯片/算力</a><a href="optical-cpo.html">光通信/CPO</a><a href="pcb.html">PCB</a><a href="advanced-packaging.html">先进封装</a><a href="humanoid-robot.html">人形机器人</a><a href="storage-chips.html">存储芯片</a></div></section>
   <div style="margin-top:32px;padding-top:20px;border-top:1px solid var(--border)">
     <a class="back" href="index.html">← 返回首页查看其他板块</a>
   </div>

@@ -21,7 +21,7 @@ stocks:
   - 600584
   - 688017
   - 688008
-updated: '2026-07-04'
+updated: '2026-08-14'
 relatedSectors: [semiconductor, storage-chips, ai-chips, optical-cpo, pcb, advanced-packaging, compute-power-grid]
 supplyChain: |
   # AI产业链价值流向
@@ -125,13 +125,7 @@ materials:
     gapLevel: 物理瓶颈
     localization: 排至2030年
     suppliers: 中国巨石(600176)、宏和科技(603256)
-alerts:
-  - date: '2026-07-04'
-    text: 江波龙H1暴增744倍→存储超级周期确认→全链传导至设备/材料/封测；杭电光纤+900%→光通信上游兑现
-    companies: [江波龙, 长川科技, 赛腾股份, 杭电股份, 中电港]
-  - date: '2026-07-03'
-    text: 机器人大涨→丝杠上游精密磨床(华辰装备+11.7%)和柔轮材料(恒工精密+9.1%)被市场开始定价，Serenity物理瓶颈逻辑验证
-    companies: [华辰装备, 恒工精密, 绿的谐波, 恒立液压]
+alerts: []
 ---
 
 ## 8 层总览

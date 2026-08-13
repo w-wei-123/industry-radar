@@ -15,15 +15,9 @@ stocks:
   - 300253
   - 300418
   - 603859
-updated: '2026-06-19'
+updated: '2026-08-14'
 relatedSectors: [ai-chips, optical-cpo]
-alerts:
-  - date: '2026-06-19'
-    text: 陆家嘴论坛宣布科创板第五套标准扩容至AI大模型企业，支持量子/具身智能上市；72家科技公司同日发布异动风险提示
-    companies: [科大讯飞, 金山办公, 海天瑞声]
-  - date: '2026-06-18'
-    text: 工信部印发《"人工智能+信息通信"创新发展实施意见》，明确加强高端光电芯片研发
-    companies: [科大讯飞, 海康威视, 金山办公]
+alerts: []
 supplyChain: |
   # AI应用生态
   ## 大模型底座
