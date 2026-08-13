@@ -15,6 +15,10 @@ OUTPUT = Path(__file__).parent / "output"
 OUTPUT.mkdir(parents=True, exist_ok=True)
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
 
+# ── 前瞻事件扫描（导入）──
+sys.path.insert(0, str(Path(__file__).parent))
+import forward_events
+
 # ── 配置 ──
 WATCHLIST = {
     "半导体":       ["688981","002371","603501","688012","688072","002049","300661","688536"],
@@ -88,6 +92,27 @@ def auto_hunt(alerts):
         print(f"  🧠 建议Serenity深挖: {' '.join(sectors_hit)}")
         print(f"     手动运行: python serenity_hunter.py <板块名>")
 
+# ── 前瞻事件检查（日历 + 搜索清单，输出到控制台供 Claude 执行 WebSearch）──
+def forward_event_report():
+    lines = []
+    today = date.today()
+    events = forward_events.load_events()
+    hits = forward_events.check_calendar(events, today)
+    lines.append("## 前瞻事件日历")
+    if hits:
+        lines.append("")
+        lines.extend("> " + h for h in hits)
+    else:
+        lines.append("- ✅ 未来3天内无已知事件")
+    # 搜索清单写入单独文件，供每日扫描的 WebSearch 阶段使用
+    search_lines = []
+    for cat, queries in forward_events.SEARCH_TEMPLATES.items():
+        search_lines.append(f"### {cat}")
+        for q in queries:
+            q = q.replace("{M}", str(today.month)).replace("{D}", str(today.day))
+            search_lines.append(f"- {q}")
+    return lines, search_lines
+
 # ── 主流程 ──
 def main():
     t0 = time.time()
@@ -121,6 +146,13 @@ def main():
         lines.append("✅ 无异常信号")
 
     report = "\n".join(lines)
+
+    # 前瞻事件：日历 + 搜索清单，先拼进报告再写盘
+    event_lines, search_lines = forward_event_report()
+    report += "\n\n" + "\n".join(event_lines) + "\n"
+    (OUTPUT / "forward_search_checklist.md").write_text(
+        "# 前瞻事件搜索清单\n\n" + "\n".join(search_lines), encoding="utf-8")
+
     (OUTPUT / "daily_alerts.md").write_text(report, encoding="utf-8")
     (OUTPUT / "scan_summary.json").write_text(json.dumps({"date": today, "alerts": len(alerts), "top": alerts[:10]}, ensure_ascii=False, indent=2), encoding="utf-8")
 
@@ -131,6 +163,9 @@ def main():
     # 异动→自动Serenity深挖
     if len(alerts) >= 5:
         auto_hunt(alerts)
+
+    if search_lines:
+        print(f"🔭 前瞻清单已生成: engine/output/forward_search_checklist.md")
 
     elapsed = time.time() - t0
     print(f"扫描完成: {len(alerts)}个异动 | {elapsed:.1f}s | {today}")
