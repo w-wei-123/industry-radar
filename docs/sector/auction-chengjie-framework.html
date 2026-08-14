@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="build-time" content="2026-08-14 11:33:36">
+<title>竞价承接框架 — 行业雷达</title>
+<style>
+:root { --blue:#2563eb; --blue-d:#1d4ed8; --gray:#f8fafc; --border:#e2e8f0;
+        --ink:#0f172a; --body:#334155; --muted:#94a3b8; --radius:12px;
+        --shadow-sm:0 1px 2px rgba(15,23,42,.05);
+        --shadow-md:0 8px 24px rgba(15,23,42,.08); }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;
+       background:var(--gray); color:var(--body); line-height:1.7; font-size:16px; }
+a { color:var(--blue); text-decoration:none; }
+a:hover { text-decoration:underline; }
+.nav { background:var(--ink); color:#fff; position:sticky; top:0; z-index:50;
+       box-shadow:0 1px 3px rgba(0,0,0,.15); }
+.nav-inner { max-width:1120px; margin:0 auto; padding:0 20px; display:flex; align-items:center;
+             gap:16px; height:56px; }
+.nav-logo { font-weight:800; font-size:20px; color:#fff; white-space:nowrap; letter-spacing:.3px; }
+.nav-logo:hover { text-decoration:none; }
+.nav-links { display:flex; gap:6px; overflow-x:auto; padding-bottom:4px; flex:1;
+             scrollbar-width:none; }
+.nav-links::-webkit-scrollbar { display:none; }
+.nav-link { color:#cbd5e1; font-size:16px; padding:4px 10px; border-radius:6px; white-space:nowrap; }
+.nav-link:hover { color:#fff; background:rgba(255,255,255,.12); text-decoration:none; }
+.nav-link.active { color:#fff; background:var(--blue); font-weight:600; }
+.container { max-width:1120px; margin:0 auto; padding:28px 20px 72px; }
+.hero { text-align:center; padding:40px 0 32px; }
+.hero h1 { font-size:34px; font-weight:800; color:var(--ink); letter-spacing:.5px; }
+.hero p { color:#64748b; margin-top:10px; font-size:17px; }
+.hero .updated { color:var(--blue); font-weight:600; margin-top:8px; font-size:16px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(290px,1fr)); gap:18px; }
+.card { position:relative; background:#fff; border:1px solid var(--border); border-radius:var(--radius);
+        padding:20px; box-shadow:var(--shadow-sm); transition:box-shadow .18s, border-color .18s, transform .18s;
+        display:block; }
+.card:hover { box-shadow:var(--shadow-md); border-color:#94a3b8; transform:translateY(-2px);
+              text-decoration:none; }
+.card h2 { font-size:20px; font-weight:700; color:var(--ink); }
+.card:hover h2 { color:var(--blue); }
+.card .tags { color:var(--muted); font-size:14px; margin-top:8px; line-height:1.5; }
+.card .meta { display:flex; justify-content:space-between; margin-top:14px; color:var(--muted);
+              font-size:13px; border-top:1px dashed var(--border); padding-top:12px; }
+.card.new { border-color:var(--blue); background:#eff6ff; }
+.card.recent { border-color:#cbd5e1; }
+.badge { position:absolute; top:-10px; right:-10px; min-width:26px; height:26px; padding:0 8px;
+         display:flex; align-items:center; justify-content:center; background:#ef4444; color:#fff;
+         font-size:14px; font-weight:700; border-radius:999px; box-shadow:0 2px 6px rgba(0,0,0,.2); }
+.badge.blue { background:var(--blue); }
+.badge.gray { background:#94a3b8; }
+.back { display:inline-block; font-size:16px; margin-bottom:24px; color:var(--muted); }
+.back:hover { color:var(--blue); }
+.sector-header { margin-bottom:24px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+.sector-header h1 { font-size:28px; font-weight:800; color:var(--ink); letter-spacing:.3px; }
+.tag-row { display:flex; flex-wrap:wrap; gap:6px; margin:12px 0; }
+.tag { background:#eff6ff; color:var(--blue-d); border:1px solid #bfdbfe; font-size:14px;
+       padding:3px 10px; border-radius:999px; }
+.sector-meta { color:var(--muted); font-size:16px; }
+.alert-section { margin:20px 0 32px; }
+.alert-section h2 { font-size:20px; color:#dc2626; margin-bottom:12px; }
+.alert { display:flex; gap:12px; background:#fef2f2; border:1px solid #fecaca; border-radius:10px;
+         padding:14px 16px; margin-bottom:10px; }
+.alert .num { flex-shrink:0; width:22px; height:22px; border-radius:50%; background:#ef4444;
+              color:#fff; font-size:13px; font-weight:700; display:flex; align-items:center;
+              justify-content:center; }
+.alert p { font-size:16px; color:#991b1b; line-height:1.6; }
+.alert .date { font-size:13px; color:#f87171; margin-top:4px; }
+.article { background:#fff; border:1px solid var(--border); border-radius:var(--radius);
+           padding:32px 36px; margin-bottom:32px; box-shadow:var(--shadow-sm); }
+.article h2 { font-size:22px; font-weight:700; color:var(--ink); margin:32px 0 14px; padding-bottom:10px;
+              border-bottom:1px solid #e2e8f0; }
+.article h2:first-child { margin-top:0; }
+.article h3 { font-size:19px; font-weight:600; color:#1e293b; margin:24px 0 10px; }
+.article h4 { font-size:17px; font-weight:600; color:#334155; margin:18px 0 8px; }
+.article p { font-size:16px; line-height:1.85; color:var(--body); margin-bottom:14px; }
+.article ul,.article ol { margin:0 0 14px 22px; }
+.article li { font-size:16px; line-height:1.75; color:var(--body); margin-bottom:6px; }
+.article strong { color:var(--ink); }
+.article blockquote { border-left:3px solid var(--blue); padding:12px 16px; margin:14px 0;
+                      background:#eff6ff; border-radius:0 8px 8px 0; font-size:15px; color:var(--body); }
+.article blockquote p { margin-bottom:0; }
+.article hr { border:none; border-top:1px solid #e2e8f0; margin:28px 0; }
+.article code { background:#f1f5f9; padding:2px 6px; border-radius:4px; font-size:15px; color:#4b5563;
+                font-family:'Cascadia Code','Fira Code',monospace; }
+.article pre { background:var(--ink); color:#e2e8f0; padding:18px 20px; border-radius:10px; overflow-x:auto;
+               margin:14px 0; font-size:14px; line-height:1.65; }
+.article pre code { background:none; color:inherit; padding:0; }
+.table-wrap { overflow-x:auto; margin:16px 0; }
+table { width:100%; border-collapse:collapse; font-size:15px; }
+th { background:#f1f5f9; text-align:left; padding:10px 14px; font-weight:600; color:var(--ink);
+     border-bottom:1px solid #d1d5db; white-space:nowrap; }
+td { padding:10px 14px; border-bottom:1px solid #eef2f7; color:var(--body); vertical-align:top; }
+td.td-first { font-weight:600; color:var(--ink); white-space:nowrap; }
+tr:hover td { background:#f8fafc; }
+.section-block { margin-bottom:32px; }
+.section-title { font-size:21px; font-weight:700; color:var(--ink); margin-bottom:14px;
+                 padding-left:12px; border-left:4px solid var(--blue); line-height:1.4; }
+.section-title span { font-size:15px; color:var(--muted); font-weight:400; margin-left:8px; }
+.gap-tag { display:inline-block; padding:1px 8px; border-radius:999px; font-size:13px; }
+.gap-high { background:#fef2f2; color:#dc2626; border:1px solid #fecaca; }
+.gap-mid { background:#fffbeb; color:#b45309; border:1px solid #fde68a; }
+.chart-box { background:#fff; border:1px solid var(--border); border-radius:12px; padding:16px; }
+.chart-label { font-size:17px; font-weight:600; color:#0f172a; margin-bottom:8px; }
+.chart-unit { font-size:13px; color:#94a3b8; margin-top:4px; text-align:right; }
+.sc-root { display:flex; flex-direction:column; }
+.sc-item { font-size:16px; color:#334155; padding:5px 10px; border-left:3px solid var(--border);
+           margin:2px 0; border-radius:0 6px 6px 0; }
+.sc-item strong { color:#0f172a; }
+.sc-item.lv1 { background:#eff6ff; border-left-color:var(--blue); font-weight:600; color:#1e40af;
+               font-size:17px; }
+.sc-item.lv2 { margin-left:16px; background:#f8fafc; border-left-color:#93c5fd; }
+.sc-item.lv3 { margin-left:32px; border-left-color:#c7d2fe; }
+.sc-item.lv4 { margin-left:48px; border-left-color:#e2e8f0; color:#64748b; font-size:15px; }
+.footer { text-align:center; color:#94a3b8; font-size:14px; padding:24px 0 40px; border-top:1px solid var(--border); }
+.footer p { margin:4px 0; }
+.details summary { cursor:pointer; color:#94a3b8; font-size:16px; margin:8px 0; }
+.details summary:hover { color:var(--blue); }
+.related { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+.related a { background:#f1f5f9; border:1px solid var(--border); padding:4px 12px; border-radius:8px;
+             font-size:16px; color:#334155; }
+.related a:hover { background:#e2e8f0; text-decoration:none; }
+.sentiment { display:flex; flex-wrap:wrap; gap:12px; margin-bottom:12px; }
+.s-item { background:#fff; border:1px solid var(--border); border-radius:10px;
+          padding:10px 18px; min-width:96px; text-align:center; box-shadow:var(--shadow-sm); }
+.s-label { font-size:13px; color:var(--muted); margin-bottom:4px; }
+.s-val { font-size:28px; font-weight:700; color:var(--ink); line-height:1.2; }
+.s-val small { font-size:13px; color:var(--muted); font-weight:400; }
+.s-ladder { font-size:16px; color:var(--body); margin:12px 0 4px; line-height:1.7; }
+.s-ladder b { color:var(--ink); }
+.s-reasons { margin-top:10px; display:flex; flex-wrap:wrap; gap:6px; }
+.s-reasons .tag { font-size:13px; }
+@media (max-width:640px) {
+  .hero h1 { font-size:31px; }
+  .grid { grid-template-columns:1fr; }
+  .article { padding:18px; }
+}
+</style></head>
+<body>
+<nav class="nav"><div class="nav-inner">
+<a class="nav-logo" href="index.html">📡 行业雷达</a>
+<div class="nav-links"><a class="nav-link" href="sector/market-pulse.html">市场异动&前瞻推演</a><a class="nav-link" href="sector/ai-chips.html">AI芯片/算力</a><a class="nav-link" href="sector/semiconductor.html">半导体</a><a class="nav-link" href="sector/optical-cpo.html">光通信/CPO</a><a class="nav-link" href="sector/storage-chips.html">存储芯片</a><a class="nav-link" href="sector/advanced-packaging.html">先进封装</a><a class="nav-link" href="sector/pcb.html">PCB</a><a class="nav-link" href="sector/ai-applications.html">AI应用</a><a class="nav-link" href="sector/humanoid-robot.html">人形机器人</a><a class="nav-link" href="sector/low-altitude-economy.html">低空经济</a><a class="nav-link" href="sector/commercial-aerospace.html">商业航天</a><a class="nav-link" href="sector/solid-state-battery.html">固态电池</a><a class="nav-link" href="sector/compute-power-grid.html">算电协同</a><a class="nav-link" href="sector/6g-communications.html">6G/通信技术</a><a class="nav-link" href="sector/ai-supply-chain.html">AI产业链全景图</a><a class="nav-link active" href="sector/auction-chengjie-framework.html">竞价承接框架</a><a class="nav-link" href="sector/auction-stats.html">竞价续板率</a></div>
+</div></nav>
+<div class="container">
+  <a class="back" href="index.html">← 返回首页</a>
+  <div class="sector-header">
+    <h1>竞价承接框架</h1>
+    <div class="tag-row"><span class="tag">竞价承接</span><span class="tag">连板</span><span class="tag">妖股</span><span class="tag">情绪</span></div>
+    <p class="sector-meta">3 只成分股 · 更新于 2026-08-14</p>
+  </div>
+  
+  <div class="article"><h2>竞价承接强度框架（情绪抓妖股）</h2>
+<blockquote>
+<p>核心问题：<strong>9:25 集合竞价定盘的那一刻，怎么判断资金承接意愿强不强、今天还能不能继续涨停？</strong></p>
+<p>答案：看 <strong>竞价涨幅（开在哪）</strong> + <strong>竞价量/竞价换手（承接了多少货）</strong> + <strong>全天换手（换手够不够充分）</strong> 三者组合。</p>
+</blockquote>
+<h3>数据源现状（重要）</h3>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>数据</th>
+<th>可得性</th>
+<th>来源</th>
+</tr></thead><tbody>
+<tr>
+<td class="td-first">竞价涨幅（开盘价-昨收）</td>
+<td>✅ 免费可得</td>
+<td>日K开盘价即可，腾讯/东财都行</td>
+</tr>
+<tr>
+<td class="td-first">竞价量 / 竞价换手率</td>
+<td>❌ <strong>历史数据免费接口拿不到</strong></td>
+<td>东财/腾讯/同花顺均无历史竞价成交量，只能实时抓</td>
+</tr>
+<tr>
+<td class="td-first">全天换手率</td>
+<td>✅ 免费可得</td>
+<td>腾讯 <code>qt.gtimg.cn</code> / 东财实时</td>
+</tr>
+</tbody></table></div>
+<p><strong>结论</strong>：历史竞价量无法回溯，框架采用 <strong>每日 9:26 实时抓竞价</strong> + <strong>全天换手率做代理校验</strong> 两条腿走路。</p>
+<p>系统已用 <code>auction_sniffer.py</code> 自动抓取：5板以上妖股 + 低位涨停自动进观察池，工作日 9:26 定时任务抓竞价快照。</p>
+<h3>三只参考妖股的承接数据（实测）</h3>
+<p><strong>立新能源(001258) · 流通约9.4亿股 · 6连板 07/16~07/23</strong></p>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>日期</th>
+<th>竞价涨幅</th>
+<th>收盘</th>
+<th>全天换手</th>
+<th>形态</th>
+<th>次日</th>
+</tr></thead><tbody>
+<tr>
+<td class="td-first">07-16</td>
+<td>-1.17%</td>
+<td>+9.94%</td>
+<td>5.3%</td>
+<td>平/低开换手</td>
+<td>续板</td>
+</tr>
+<tr>
+<td class="td-first">07-17</td>
+<td>-1.33%</td>
+<td>+9.97%</td>
+<td>6.1%</td>
+<td>平/低开换手</td>
+<td>续板</td>
+</tr>
+<tr>
+<td class="td-first">07-20</td>
+<td>+6.89%</td>
+<td>+10.04%</td>
+<td>8.8%</td>
+<td>高开秒</td>
+<td>续板</td>
+</tr>
+<tr>
+<td class="td-first">07-21</td>
+<td>+10.00%</td>
+<td>+10.00%</td>
+<td>17.0%</td>
+<td>一字</td>
+<td>续板</td>
+</tr>
+<tr>
+<td class="td-first">07-22</td>
+<td>+8.89%</td>
+<td>+9.99%</td>
+<td>6.6%</td>
+<td>高开秒</td>
+<td>续板</td>
+</tr>
+<tr>
+<td class="td-first">07-23</td>
+<td>+9.72%</td>
+<td>+9.99%</td>
+<td>11.3%</td>
+<td>一字</td>
+<td>次日仅+7.6% 开+7.3%（冲高回落）</td>
+</tr>
+</tbody></table></div>
+<p><strong>百花医药(600721) · 流通约3.8亿股 · 7连板 08/04~08/12</strong></p>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>日期</th>
+<th>竞价涨幅</th>
+<th>收盘</th>
+<th>全天换手</th>
+<th>形态</th>
+<th>次日</th>
+</tr></thead><tbody>
+<tr>
+<td class="td-first">08-04</td>
+<td>+10.00%</td>
+<td>+10.00%</td>
+<td>2.8%</td>
+<td>一字</td>
+<td>续板</td>
+</tr>
+<tr>
+<td class="td-first">08-05</td>
+<td>+9.97%</td>
+<td>+9.97%</td>
+<td>10.8%</td>
+<td>一字</td>
+<td>续板</td>
+</tr>
+<tr>
+<td class="td-first">08-06</td>
+<td>+9.53%</td>
+<td>+9.99%</td>
+<td>32.7%</td>
+<td>一字(开板换手)</td>
+<td>续板</td>
+</tr>
+<tr>
+<td class="td-first">08-07</td>
+<td>+6.99%</td>
+<td>+10.02%</td>
+<td>15.6%</td>
+<td>高开秒</td>
+<td>续板</td>
+</tr>
+<tr>
+<td class="td-first">08-10</td>
+<td>+9.96%</td>
+<td>+9.96%</td>
+<td>1.3%</td>
+<td>一字</td>
+<td>续板</td>
+</tr>
+<tr>
+<td class="td-first">08-11</td>
+<td>+10.01%</td>
+<td>+10.01%</td>
+<td>17.4%</td>
+<td>一字</td>
+<td>续板</td>
+</tr>
+<tr>
+<td class="td-first"><strong>08-12</strong></td>
+<td><strong>+4.94%</strong></td>
+<td>+10.04%</td>
+<td><strong>34.4%</strong></td>
+<td>高开换手(放量)</td>
+<td><strong>08-13 断板(+3.35% 低开-3.06%)</strong></td>
+</tr>
+</tbody></table></div>
+<p><strong>哈药股份(600664) · 流通约25亿股 · 5连板 07/10~07/16 + 3连板 08/07~08/11</strong></p>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>日期</th>
+<th>竞价涨幅</th>
+<th>收盘</th>
+<th>全天换手</th>
+<th>形态</th>
+<th>次日</th>
+</tr></thead><tbody>
+<tr>
+<td class="td-first">07-10</td>
+<td>+8.82%</td>
+<td>+10.13%</td>
+<td>4.0%</td>
+<td>高开秒</td>
+<td>续板</td>
+</tr>
+<tr>
+<td class="td-first">07-13</td>
+<td>+4.15%</td>
+<td>+10.09%</td>
+<td>8.0%</td>
+<td>高开换手</td>
+<td>续板</td>
+</tr>
+<tr>
+<td class="td-first">07-14</td>
+<td>+2.43%</td>
+<td>+9.97%</td>
+<td>17.5%</td>
+<td>高开换手</td>
+<td>续板</td>
+</tr>
+<tr>
+<td class="td-first">07-15</td>
+<td>+5.88%</td>
+<td>+10.05%</td>
+<td>4.4%</td>
+<td>高开秒</td>
+<td>续板</td>
+</tr>
+<tr>
+<td class="td-first">07-16</td>
+<td>+10.02%</td>
+<td>+10.02%</td>
+<td>11.8%</td>
+<td>一字</td>
+<td>次日+7.9% 开+2.4%</td>
+</tr>
+<tr>
+<td class="td-first">07-21</td>
+<td><strong>-7.91%</strong></td>
+<td>+9.98%</td>
+<td><strong>28.9%</strong></td>
+<td>低开巨量反包</td>
+<td>次日+2.4% 开-0.7%（高开兑现）</td>
+</tr>
+<tr>
+<td class="td-first">08-07</td>
+<td>+6.91%</td>
+<td>+9.97%</td>
+<td>10.7%</td>
+<td>高开秒</td>
+<td>续板</td>
+</tr>
+<tr>
+<td class="td-first">08-10</td>
+<td>+9.94%</td>
+<td>+9.94%</td>
+<td>5.2%</td>
+<td>一字</td>
+<td>续板</td>
+</tr>
+<tr>
+<td class="td-first"><strong>08-11</strong></td>
+<td><strong>+3.19%</strong></td>
+<td>+9.97%</td>
+<td><strong>27.0%</strong></td>
+<td>高开换手(放量)</td>
+<td><strong>08-12 未封(+6.53%)</strong></td>
+</tr>
+</tbody></table></div>
+<h3>承接强度分级（由参考表归纳）</h3>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>级别</th>
+<th>竞价涨幅</th>
+<th>全天换手</th>
+<th>含义</th>
+<th>操作倾向</th>
+</tr></thead><tbody>
+<tr>
+<td class="td-first">🔴 一字缩量（最强承接）</td>
+<td>≥+9.5% 一字</td>
+<td>&lt;5%</td>
+<td>卖盘锁死、无货可接，一致性强</td>
+<td>排队打板，开板就是机会</td>
+</tr>
+<tr>
+<td class="td-first">🟠 高开秒板（活跃承接）</td>
+<td>+5%~9%</td>
+<td>5%~15%</td>
+<td>竞价抢筹明显，开盘秒封</td>
+<td>强承接，可打</td>
+</tr>
+<tr>
+<td class="td-first">🟡 高开换手（分歧承接）</td>
+<td>+1%~5%</td>
+<td>15%~25%</td>
+<td>有人卖有人接，换手充分</td>
+<td><strong>看换手位置</strong>：低位健康、高位警惕</td>
+</tr>
+<tr>
+<td class="td-first">🟢 平/低开换手（弱转强/反包）</td>
+<td>&lt;+1% 甚至低开</td>
+<td>视情况</td>
+<td>竞价没人抢，靠盘中情绪拉板</td>
+<td>只认<strong>低开巨量反包</strong>（如哈药07-21），缩量低开板弱</td>
+</tr>
+</tbody></table></div>
+<h3>关键规则（实战信号）</h3>
+<ol>
+<li><strong>一字缩量 = 最强的承接</strong>：百花 08-04(2.8%)、08-10(1.3%)、哈药 08-10(5.2%) 续板全是竞价一字+低换手。换手越低越难买到，说明<strong>根本没人卖</strong>。</li>
+<li><strong>高位竞价涨幅从一字回落 + 放量 = 断板前兆</strong>：</li>
+</ul>
+<p>- 百花 08-12：竞价 +10%→<strong>+4.94%</strong>、全天换手 <strong>34.4%</strong> → 次日断板</p>
+<p>- 哈药 08-11：竞价 +10%→<strong>+3.19%</strong>、换手 <strong>27%</strong> → 次日未封</p>
+<p>- <strong>信号：5板以上妖股竞价涨幅跌破 +5% 且全天换手&gt;25% → 分歧转弱，次日大概率断板，减仓/回避。</strong></p>
+<ol>
+<li><strong>低开巨量反包 = 主力强做多</strong>：哈药 07-21 竞价 <strong>-7.91%</strong>、换手 <strong>28.9%</strong>，盘中从-8%拉到涨停，是分歧中的主力吸筹反包，次日仍有溢价。<strong>但只适合已充分换手的中位票，高位低开=出货。</strong></li>
+<li><strong>竞价换手率 &gt; 全天换手的量级对照</strong>：竞价换手率 2%~5% 视为正常承接（对应全天 5%~15%）；竞价换手 10%+ 属异常放量，一字板里的巨量（百花 08-06 全天32.7%）说明开板换手、分歧加大。</li>
+</ul>
+<h3>每日自动工作流</h3>
+<pre><code>每日20:00 daily_scan 运行
+  └─ 同花顺涨停池 → 5板以上妖股 + 低位(≤2板)涨停 → 写入 engine/output/auction_watch.txt
+每日9:26 定时任务 AuctionSniff9x25
+  └─ auction_sniffer.py 实时抓竞价(涨幅/量/换手) → engine/output/auction_log.csv
+盘中/盘后
+  └─ 对照承接分级判断：低位涨停承接强→可接力；妖股竞价破位放量→避雷</code></pre>
+<p>观察池文件 <code>auction_watch.txt</code> 每行格式：<code>代码,名称,secid,标签</code>，标签 <code>YAOGU5/6/7</code>（板数≥5）、<code>LOW</code>（低位）、<code>REF</code>（参考票）。三只参考票永久保留。</p>
+<h3>数据局限与下一步</h3>
+<ul>
+<li>历史竞价量免费接口拿不到，参考表的"竞价换手"是<strong>实时抓取后的次日回看</strong>，需累积。</li>
+<li>已建好 <code>auction_log.csv</code> 每日累积，运行一周后可对"竞价涨幅×换手→次日是否续板"做命中率回测。</li>
+<li>后续新增 5板+ 妖股会自动进观察池，无需手动维护。</li>
+</ul></div>
+  
+  
+  
+  
+  
+  <div style="margin-top:32px;padding-top:20px;border-top:1px solid var(--border)">
+    <a class="back" href="index.html">← 返回首页查看其他板块</a>
+  </div>
+</div>
+<div class="footer"><p>数据来源：公开研报、政府协会、行业榜单 · 仅供参考，不构成投资建议</p></div>
+</body></html>

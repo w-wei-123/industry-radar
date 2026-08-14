@@ -206,6 +206,21 @@ def main():
     (OUTPUT / "daily_alerts.md").write_text(report, encoding="utf-8")
     (OUTPUT / "scan_summary.json").write_text(json.dumps({"date": today, "alerts": len(alerts), "top": alerts[:10]}, ensure_ascii=False, indent=2), encoding="utf-8")
 
+    # 竞价承接嗅探器: 涨停池(5板妖股+低位涨停)自动纳入次日9:25竞价观察池
+    try:
+        import auction_sniffer
+        auction_sniffer.update_watchlist(today.strftime('%Y%m%d'))
+    except Exception as _e:
+        print(f"⚠️ auction watchlist 更新失败: {_e}")
+
+    # 竞价承接·续板率统计: 涨停特征→次日续板概率, 样本每日累积写入 content/sectors/auction-stats.md
+    try:
+        import auction_stats
+        auction_stats.main()
+        print("📊 续板率统计已更新: content/sectors/auction-stats.md")
+    except Exception as _e:
+        print(f"⚠️ auction_stats 统计失败: {_e}")
+
     # 弹窗
     if len(alerts) >= 5:
         toast("行业雷达", f"今日{len(alerts)}个异动信号\n{alerts[0]['name']}({alerts[0]['code']}) {alerts[0]['change']:+.1f}%")

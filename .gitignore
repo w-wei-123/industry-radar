@@ -14,3 +14,8 @@ engine/output/forward_search_checklist.md
 engine/output/auto_deploy.log
 engine/output/review.md
 engine/output/*.json
+
+# 竞价承接嗅探器（动态数据，本地累积；网站渲染结果不入库）
+engine/output/auction_log.csv
+engine/output/auction_watch.txt
+engine/output/auction_live.log

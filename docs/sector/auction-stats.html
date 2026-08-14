@@ -2,7 +2,7 @@
 <html lang="zh-CN"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="build-time" content="2026-08-14 11:33:36">
-<title>行业雷达 — A股前沿行业全景分析</title>
+<title>竞价续板率 — 行业雷达</title>
 <style>
 :root { --blue:#2563eb; --blue-d:#1d4ed8; --gray:#f8fafc; --border:#e2e8f0;
         --ink:#0f172a; --body:#334155; --muted:#94a3b8; --radius:12px;
@@ -138,100 +138,287 @@ tr:hover td { background:#f8fafc; }
 <body>
 <nav class="nav"><div class="nav-inner">
 <a class="nav-logo" href="index.html">📡 行业雷达</a>
-<div class="nav-links"><a class="nav-link" href="sector/market-pulse.html">市场异动&前瞻推演</a><a class="nav-link" href="sector/ai-chips.html">AI芯片/算力</a><a class="nav-link" href="sector/semiconductor.html">半导体</a><a class="nav-link" href="sector/optical-cpo.html">光通信/CPO</a><a class="nav-link" href="sector/storage-chips.html">存储芯片</a><a class="nav-link" href="sector/advanced-packaging.html">先进封装</a><a class="nav-link" href="sector/pcb.html">PCB</a><a class="nav-link" href="sector/ai-applications.html">AI应用</a><a class="nav-link" href="sector/humanoid-robot.html">人形机器人</a><a class="nav-link" href="sector/low-altitude-economy.html">低空经济</a><a class="nav-link" href="sector/commercial-aerospace.html">商业航天</a><a class="nav-link" href="sector/solid-state-battery.html">固态电池</a><a class="nav-link" href="sector/compute-power-grid.html">算电协同</a><a class="nav-link" href="sector/6g-communications.html">6G/通信技术</a><a class="nav-link" href="sector/ai-supply-chain.html">AI产业链全景图</a><a class="nav-link" href="sector/auction-chengjie-framework.html">竞价承接框架</a><a class="nav-link" href="sector/auction-stats.html">竞价续板率</a></div>
+<div class="nav-links"><a class="nav-link" href="sector/market-pulse.html">市场异动&前瞻推演</a><a class="nav-link" href="sector/ai-chips.html">AI芯片/算力</a><a class="nav-link" href="sector/semiconductor.html">半导体</a><a class="nav-link" href="sector/optical-cpo.html">光通信/CPO</a><a class="nav-link" href="sector/storage-chips.html">存储芯片</a><a class="nav-link" href="sector/advanced-packaging.html">先进封装</a><a class="nav-link" href="sector/pcb.html">PCB</a><a class="nav-link" href="sector/ai-applications.html">AI应用</a><a class="nav-link" href="sector/humanoid-robot.html">人形机器人</a><a class="nav-link" href="sector/low-altitude-economy.html">低空经济</a><a class="nav-link" href="sector/commercial-aerospace.html">商业航天</a><a class="nav-link" href="sector/solid-state-battery.html">固态电池</a><a class="nav-link" href="sector/compute-power-grid.html">算电协同</a><a class="nav-link" href="sector/6g-communications.html">6G/通信技术</a><a class="nav-link" href="sector/ai-supply-chain.html">AI产业链全景图</a><a class="nav-link" href="sector/auction-chengjie-framework.html">竞价承接框架</a><a class="nav-link active" href="sector/auction-stats.html">竞价续板率</a></div>
 </div></nav>
 <div class="container">
-  <div class="hero">
-    <h1>行业雷达</h1>
-    <p>聚焦 A 股前沿行业 · 头部企业 · 产业链全景 · 材料缺口 · 市场前景</p>
-    <p class="updated">🕐 最后更新 2026-08-14（2026-08-14 扫描）</p>
+  <a class="back" href="index.html">← 返回首页</a>
+  <div class="sector-header">
+    <h1>竞价续板率</h1>
+    <div class="tag-row"><span class="tag">竞价承接</span><span class="tag">续板率</span><span class="tag">连板</span><span class="tag">统计</span></div>
+    <p class="sector-meta">7 只成分股 · 更新于 2026-08-14</p>
   </div>
-  <div class="grid"><a class="card new" href="sector/market-pulse.html">
-<span class="badge">2</span>
-<h2>市场异动&amp;前瞻推演</h2>
-<p class="tags">异动追踪 · 产业链传导 · 前瞻推演</p>
-<div class="meta"><span>15 只标的</span><span style="color:var(--blue);font-weight:600;">🕐 今天</span></div>
-</a><a class="card new" href="sector/ai-chips.html">
-<span class="badge blue">今日</span>
-<h2>AI芯片/算力</h2>
-<p class="tags">GPU · DCU · 推理芯片</p>
-<div class="meta"><span>12 只标的</span><span style="color:var(--blue);font-weight:600;">🕐 今天</span></div>
-</a><a class="card new" href="sector/semiconductor.html">
-<span class="badge blue">今日</span>
-<h2>半导体</h2>
-<p class="tags">芯片制造 · 设备 · 材料</p>
-<div class="meta"><span>16 只标的</span><span style="color:var(--blue);font-weight:600;">🕐 今天</span></div>
-</a><a class="card new" href="sector/optical-cpo.html">
-<span class="badge blue">今日</span>
-<h2>光通信/CPO</h2>
-<p class="tags">CPO · 光模块 · 800G</p>
-<div class="meta"><span>11 只标的</span><span style="color:var(--blue);font-weight:600;">🕐 今天</span></div>
-</a><a class="card new" href="sector/storage-chips.html">
-<span class="badge blue">今日</span>
-<h2>存储芯片</h2>
-<p class="tags">NAND · DRAM · HBM</p>
-<div class="meta"><span>13 只标的</span><span style="color:var(--blue);font-weight:600;">🕐 今天</span></div>
-</a><a class="card new" href="sector/advanced-packaging.html">
-<span class="badge blue">今日</span>
-<h2>先进封装</h2>
-<p class="tags">Chiplet · CoWoS · 2.5D/3D封装</p>
-<div class="meta"><span>10 只标的</span><span style="color:var(--blue);font-weight:600;">🕐 今天</span></div>
-</a><a class="card new" href="sector/pcb.html">
-<span class="badge blue">今日</span>
-<h2>PCB</h2>
-<p class="tags">AI服务器板 · 汽车电子板 · IC载板</p>
-<div class="meta"><span>12 只标的</span><span style="color:var(--blue);font-weight:600;">🕐 今天</span></div>
-</a><a class="card new" href="sector/ai-applications.html">
-<span class="badge blue">今日</span>
-<h2>AI应用</h2>
-<p class="tags">大模型 · AI办公 · AI+教育</p>
-<div class="meta"><span>12 只标的</span><span style="color:var(--blue);font-weight:600;">🕐 今天</span></div>
-</a><a class="card new" href="sector/humanoid-robot.html">
-<span class="badge blue">今日</span>
-<h2>人形机器人</h2>
-<p class="tags">特斯拉Optimus · 丝杠 · 减速器</p>
-<div class="meta"><span>14 只标的</span><span style="color:var(--blue);font-weight:600;">🕐 今天</span></div>
-</a><a class="card new" href="sector/low-altitude-economy.html">
-<span class="badge blue">今日</span>
-<h2>低空经济</h2>
-<p class="tags">eVTOL · 无人机 · 空管系统</p>
-<div class="meta"><span>12 只标的</span><span style="color:var(--blue);font-weight:600;">🕐 今天</span></div>
-</a><a class="card new" href="sector/commercial-aerospace.html">
-<span class="badge blue">今日</span>
-<h2>商业航天</h2>
-<p class="tags">卫星互联网 · 可复用火箭 · 低轨星座</p>
-<div class="meta"><span>12 只标的</span><span style="color:var(--blue);font-weight:600;">🕐 今天</span></div>
-</a><a class="card new" href="sector/solid-state-battery.html">
-<span class="badge blue">今日</span>
-<h2>固态电池</h2>
-<p class="tags">硫化物全固态 · 氧化物半固态 · 凝聚态</p>
-<div class="meta"><span>14 只标的</span><span style="color:var(--blue);font-weight:600;">🕐 今天</span></div>
-</a><a class="card new" href="sector/compute-power-grid.html">
-<span class="badge blue">今日</span>
-<h2>算电协同</h2>
-<p class="tags">东数西算 · 液冷 · 智能电网</p>
-<div class="meta"><span>14 只标的</span><span style="color:var(--blue);font-weight:600;">🕐 今天</span></div>
-</a><a class="card new" href="sector/6g-communications.html">
-<span class="badge blue">今日</span>
-<h2>6G/通信技术</h2>
-<p class="tags">太赫兹 · 空天地一体化 · 卫星互联网</p>
-<div class="meta"><span>15 只标的</span><span style="color:var(--blue);font-weight:600;">🕐 今天</span></div>
-</a><a class="card new" href="sector/ai-supply-chain.html">
-<span class="badge blue">今日</span>
-<h2>AI产业链全景图</h2>
-<p class="tags">全景图 · 产业链 · 上中下游</p>
-<div class="meta"><span>18 只标的</span><span style="color:var(--blue);font-weight:600;">🕐 今天</span></div>
-</a><a class="card new" href="sector/auction-chengjie-framework.html">
-<span class="badge blue">今日</span>
-<h2>竞价承接框架</h2>
-<p class="tags">竞价承接 · 连板 · 妖股</p>
-<div class="meta"><span>3 只标的</span><span style="color:var(--blue);font-weight:600;">🕐 今天</span></div>
-</a><a class="card new" href="sector/auction-stats.html">
-<span class="badge blue">今日</span>
-<h2>竞价续板率</h2>
-<p class="tags">竞价承接 · 续板率 · 连板</p>
-<div class="meta"><span>7 只标的</span><span style="color:var(--blue);font-weight:600;">🕐 今天</span></div>
-</a></div>
+  
+  <div class="article"><h2>竞价承接·续板率统计</h2>
+<blockquote>
+<p>核心问题：<strong>涨停当天（尤其5板以上妖股），哪些竞价/换手特征 → 次日续板概率更大？</strong></p>
+<p>数据来自 <code>auction_stats.py</code> 每日自动重算，样本随每日扫描持续累积——从明天起，每出现一次竞价快照+次日结果就多一个样本，续板率越统计越准。</p>
+</blockquote>
+<h3>样本池（自动发现: 历史妖股 + 当日5板+ + 参考票）</h3>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>股票</th>
+<th>代码</th>
+<th>涨停日样本</th>
+<th>连板段</th>
+</tr></thead><tbody>
+<tr>
+<td class="td-first">哈药股份</td>
+<td>sh600664</td>
+<td>12</td>
+<td>2026-04-07、2连板(2026-04-14~2026-04-15)、5连板(2026-07-10~2026-07-16)、2026-07-21、3连板(2026-08-07~2026-08-11)</td>
+</tr>
+<tr>
+<td class="td-first">百花医药</td>
+<td>sh600721</td>
+<td>11</td>
+<td>2026-04-08、2026-06-08、2连板(2026-07-15~2026-07-16)、7连板(2026-08-04~2026-08-12)</td>
+</tr>
+<tr>
+<td class="td-first">风范股份</td>
+<td>sh601700</td>
+<td>8</td>
+<td>2026-03-11、2026-07-23、4连板(2026-08-03~2026-08-06)、2026-08-10、2026-08-12</td>
+</tr>
+<tr>
+<td class="td-first">秦安股份</td>
+<td>sh603758</td>
+<td>7</td>
+<td>2026-05-08、2026-07-01、5连板(2026-08-07~2026-08-13)</td>
+</tr>
+<tr>
+<td class="td-first">立新能源</td>
+<td>sz001258</td>
+<td>13</td>
+<td>2026-03-09、2026-03-19、2026-03-23、2026-05-18、6连板(2026-07-16~2026-07-23)、2026-07-27、2连板(2026-08-10~2026-08-11)</td>
+</tr>
+<tr>
+<td class="td-first">宝鼎科技</td>
+<td>sz002552</td>
+<td>22</td>
+<td>4连板(2026-05-07~2026-05-12)、2连板(2026-05-18~2026-05-19)、3连板(2026-05-22~2026-05-26)、2026-05-28、3连板(2026-06-12~2026-06-16)、2026-06-24、2026-07-09、2026-07-31、5连板(2026-08-04~2026-08-10)、2026-08-12</td>
+</tr>
+<tr>
+<td class="td-first">通宇通讯</td>
+<td>sz002792</td>
+<td>8</td>
+<td>2026-02-03、2026-04-03、2026-05-06、2连板(2026-08-03~2026-08-04)、2连板(2026-08-06~2026-08-07)、2026-08-12</td>
+</tr>
+</tbody></table></div>
+<h3>全样本续板率</h3>
+<ul>
+<li><strong>总续板率 50%</strong>（81个涨停日样本，41次续板）—— 样本每日自动累积，本页自动重算。</li>
+<li>🟢 续板率最高竞价形态: <strong>高开强(+5~9.5%)</strong>（样本14，续板率79%）—— 下次看到同形态，续板概率明显更高。</li>
+<li>🔴 续板率最低竞价形态: <strong>平/低开(&lt;+1%)</strong>（样本21，续板率33%）—— 高位竞价破位放量时警惕断板。</li>
+<li>🟢 续板率最高换手: <strong>缩量(&lt;5%)</strong>（样本28，续板率57%）</li>
+<li>🔴 续板率最低换手: <strong>巨量(≥25%)</strong>（样本6，续板率17%）</li>
+<li>🟢 连板高度上续板率最高: <strong>4板</strong>（样本7，续板率71%）</li>
+</ul>
+<h3>按连板高度 → 次日续板率</h3>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>特征</th>
+<th>样本</th>
+<th>续板</th>
+<th>续板率</th>
+</tr></thead><tbody>
+<tr>
+<td class="td-first">首板</td>
+<td>40</td>
+<td>16</td>
+<td><strong>40%</strong></td>
+</tr>
+<tr>
+<td class="td-first">2-3板</td>
+<td>26</td>
+<td>17</td>
+<td><strong>65%</strong></td>
+</tr>
+<tr>
+<td class="td-first">5板+</td>
+<td>8</td>
+<td>3</td>
+<td><strong>38%</strong></td>
+</tr>
+<tr>
+<td class="td-first">4板</td>
+<td>7</td>
+<td>5</td>
+<td><strong>71%</strong></td>
+</tr>
+</tbody></table></div>
+<h3>按竞价涨幅(开盘定位) → 次日续板率</h3>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>特征</th>
+<th>样本</th>
+<th>续板</th>
+<th>续板率</th>
+</tr></thead><tbody>
+<tr>
+<td class="td-first">高开中(+1~5%)</td>
+<td>27</td>
+<td>12</td>
+<td><strong>44%</strong></td>
+</tr>
+<tr>
+<td class="td-first">平/低开(&lt;+1%)</td>
+<td>21</td>
+<td>7</td>
+<td><strong>33%</strong></td>
+</tr>
+<tr>
+<td class="td-first">一字(≥9.5%)</td>
+<td>19</td>
+<td>11</td>
+<td><strong>58%</strong></td>
+</tr>
+<tr>
+<td class="td-first">高开强(+5~9.5%)</td>
+<td>14</td>
+<td>11</td>
+<td><strong>79%</strong></td>
+</tr>
+</tbody></table></div>
+<h3>按全天换手 → 次日续板率</h3>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>特征</th>
+<th>样本</th>
+<th>续板</th>
+<th>续板率</th>
+</tr></thead><tbody>
+<tr>
+<td class="td-first">温和(5~15%)</td>
+<td>35</td>
+<td>18</td>
+<td><strong>51%</strong></td>
+</tr>
+<tr>
+<td class="td-first">缩量(&lt;5%)</td>
+<td>28</td>
+<td>16</td>
+<td><strong>57%</strong></td>
+</tr>
+<tr>
+<td class="td-first">换手(15~25%)</td>
+<td>12</td>
+<td>6</td>
+<td><strong>50%</strong></td>
+</tr>
+<tr>
+<td class="td-first">巨量(≥25%)</td>
+<td>6</td>
+<td>1</td>
+<td><strong>17%</strong></td>
+</tr>
+</tbody></table></div>
+<h3>交叉: 连板高度 × 竞价涨幅 → 续板率</h3>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>特征</th>
+<th>样本</th>
+<th>续板</th>
+<th>续板率</th>
+</tr></thead><tbody>
+<tr>
+<td class="td-first">首板·平/低开(&lt;+1%)</td>
+<td>19</td>
+<td>6</td>
+<td><strong>32%</strong></td>
+</tr>
+<tr>
+<td class="td-first">首板·高开中(+1~5%)</td>
+<td>14</td>
+<td>6</td>
+<td><strong>43%</strong></td>
+</tr>
+<tr>
+<td class="td-first">2-3板·高开中(+1~5%)</td>
+<td>11</td>
+<td>6</td>
+<td><strong>55%</strong></td>
+</tr>
+<tr>
+<td class="td-first">2-3板·一字(≥9.5%)</td>
+<td>7</td>
+<td>6</td>
+<td><strong>86%</strong></td>
+</tr>
+<tr>
+<td class="td-first">2-3板·高开强(+5~9.5%)</td>
+<td>6</td>
+<td>4</td>
+<td><strong>67%</strong></td>
+</tr>
+<tr>
+<td class="td-first">5板+·一字(≥9.5%)</td>
+<td>6</td>
+<td>2</td>
+<td><strong>33%</strong></td>
+</tr>
+<tr>
+<td class="td-first">4板·高开强(+5~9.5%)</td>
+<td>4</td>
+<td>3</td>
+<td><strong>75%</strong></td>
+</tr>
+<tr>
+<td class="td-first">首板·一字(≥9.5%)</td>
+<td>4</td>
+<td>1</td>
+<td><strong>25%</strong></td>
+</tr>
+<tr>
+<td class="td-first">首板·高开强(+5~9.5%)</td>
+<td>3</td>
+<td>3</td>
+<td><strong>100%</strong></td>
+</tr>
+<tr>
+<td class="td-first">4板·一字(≥9.5%)</td>
+<td>2</td>
+<td>2</td>
+<td><strong>100%</strong></td>
+</tr>
+<tr>
+<td class="td-first">2-3板·平/低开(&lt;+1%)</td>
+<td>2</td>
+<td>1</td>
+<td><strong>50%</strong></td>
+</tr>
+<tr>
+<td class="td-first">5板+·高开中(+1~5%)</td>
+<td>1</td>
+<td>0</td>
+<td><strong>0%</strong></td>
+</tr>
+<tr>
+<td class="td-first">5板+·高开强(+5~9.5%)</td>
+<td>1</td>
+<td>1</td>
+<td><strong>100%</strong></td>
+</tr>
+<tr>
+<td class="td-first">4板·高开中(+1~5%)</td>
+<td>1</td>
+<td>0</td>
+<td><strong>0%</strong></td>
+</tr>
+</tbody></table></div>
+<h3>数据说明</h3>
+<ul>
+<li>涨停判定: 10%板≥9.5%，20%板≥19.5%，30%板≥29.5%（按板块涨停阈值）。</li>
+<li>竞价涨幅 = 开盘价相对昨收，日K可得；竞价成交量(9:25量)自 9:26 定时任务起实时记录到 <code>auction_log.csv</code>，跨天累积后本页会追加"竞价换手率"维度。</li>
+<li>样本不剔除一字/放量极端值，保持原始分布。</li>
+</ul></div>
+  
+  
+  
+  
+  
+  <div style="margin-top:32px;padding-top:20px;border-top:1px solid var(--border)">
+    <a class="back" href="index.html">← 返回首页查看其他板块</a>
+  </div>
 </div>
 <div class="footer"><p>数据来源：公开研报、政府协会、行业榜单 · 仅供参考，不构成投资建议</p></div>
 </body></html>

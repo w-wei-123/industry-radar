@@ -39,6 +39,8 @@ SECTOR_LABELS = {
     "6g-communications": "6G/通信技术",
     "ai-supply-chain": "AI产业链全景图",
     "market-pulse": "市场异动&前瞻推演",
+    "auction-chengjie-framework": "竞价承接框架",
+    "auction-stats": "竞价续板率",
 }
 
 # ── 板块 slug 顺序（market-pulse 置顶）──
@@ -48,6 +50,8 @@ SECTOR_ORDER = [
     "advanced-packaging", "pcb", "ai-applications", "humanoid-robot",
     "low-altitude-economy", "commercial-aerospace", "solid-state-battery",
     "compute-power-grid", "6g-communications", "ai-supply-chain",
+    "auction-chengjie-framework",
+    "auction-stats",
 ]
 
 
