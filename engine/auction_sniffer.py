@@ -137,12 +137,17 @@ def backfill_daily(code, name, secid, days=20):
                     round(prev, 2), round(turn, 2) if turn else None, boards, note])
     return out
 
-def live_snapshot(watch):
-    """实时抓竞价快照。返回要写入的行列表。"""
+def live_snapshot(watch, retries=2):
+    """实时抓竞价快照。返回要写入的行列表。瞬时失败自动重试。"""
     now = datetime.datetime.now()
     rows = []
     for code, (name, secid) in watch.items():
-        tq = tencent_qt(code)
+        tq = None
+        for _a in range(retries + 1):
+            tq = tencent_qt(code)
+            if tq:
+                break
+            time.sleep(0.5)
         eq = em_qt(secid)
         qt = tq or {}
         gap = qt.get('gap')
@@ -235,12 +240,12 @@ def update_watchlist(trade_date=None, keep_days=1):
         if not code:
             continue
         name = r.get('name', code)
-        secid, _ = to_secid(code)
+        secid, tcode = to_secid(code)
         tag = 'YAOGU%d' % r.get('days', 0) if r.get('days', 0) >= 5 else 'LOW'
-        lines.append('%s,%s,%s,%s' % (secid, name, secid, tag))
+        lines.append('%s,%s,%s,%s' % (tcode, name, secid, tag))
     # 始终保留三只参考票
     for code, (name, secid) in DEFAULT_WATCH.items():
-        lines.append('%s,%s,%s,REF' % (secid, name, secid))
+        lines.append('%s,%s,%s,REF' % (code, name, secid))
     ensure_out()
     with open(WATCH, 'w', encoding='utf-8') as f:
         f.write('\n'.join(lines) + '\n')

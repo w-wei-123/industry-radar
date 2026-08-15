@@ -209,7 +209,7 @@ def main():
     # 竞价承接嗅探器: 涨停池(5板妖股+低位涨停)自动纳入次日9:25竞价观察池
     try:
         import auction_sniffer
-        auction_sniffer.update_watchlist(today.strftime('%Y%m%d'))
+        auction_sniffer.update_watchlist(date.today().strftime('%Y%m%d'))
     except Exception as _e:
         print(f"⚠️ auction watchlist 更新失败: {_e}")
 
