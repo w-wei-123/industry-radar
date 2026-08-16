@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="build-time" content="2026-08-16 23:09:14">
+<meta name="build-time" content="2026-08-16 23:16:24">
 <title>先进封装 — 行业雷达</title>
 <style>
 :root { --blue:#2563eb; --blue-d:#1d4ed8; --gray:#f8fafc; --border:#e2e8f0;
@@ -79,17 +79,19 @@ a:hover { text-decoration:underline; }
 .article blockquote { border-left:3px solid var(--blue); padding:12px 16px; margin:14px 0;
                       background:#eff6ff; border-radius:0 8px 8px 0; font-size:15px; color:var(--body); }
 .article blockquote p { margin-bottom:0; }
-.takeaway { background:#eff6ff; border:1px solid #bfdbfe; border-radius:12px; padding:16px 20px;
+.takeaway { background:linear-gradient(180deg,#f2f7ff,#eaf1ff); border:1px solid #bfdbfe;
+            border-left:4px solid var(--blue); border-radius:12px; padding:18px 22px;
             margin-bottom:20px; box-shadow:var(--shadow-sm); }
-.risk-box { background:#fef2f2; border:1px solid #fecaca; border-radius:12px; padding:16px 20px;
+.risk-box { background:linear-gradient(180deg,#fef5f5,#fdeeee); border:1px solid #fecaca;
+            border-left:4px solid #ef4444; border-radius:12px; padding:18px 22px;
             margin-bottom:20px; box-shadow:var(--shadow-sm); }
-.tk-label { font-size:17px; font-weight:700; color:#1d4ed8; }
-.tk-label span { font-size:13px; color:#93c5fd; font-weight:400; margin-left:8px; }
-.takeaway ul,.risk-box ul { margin:10px 0 0 18px; }
+.tk-label { font-size:17px; font-weight:800; color:#1d4ed8; letter-spacing:.2px; }
+.tk-label span { font-size:13px; color:#7c9fe0; font-weight:400; margin-left:8px; }
+.takeaway ul,.risk-box ul { margin:12px 0 0 18px; }
 .takeaway li { font-size:15px; line-height:1.7; margin-bottom:6px; color:#1e3a8a; }
 .takeaway li strong { color:#1d4ed8; }
 .risk-box .tk-label { color:#dc2626; }
-.risk-box .tk-label span { color:#f87171; }
+.risk-box .tk-label span { color:#f0a0a0; }
 .risk-box li { font-size:15px; line-height:1.7; margin-bottom:6px; color:#7f1d1d; }
 .risk-box li strong { color:#b91c1c; }
 .article hr { border:none; border-top:1px solid #e2e8f0; margin:28px 0; }
