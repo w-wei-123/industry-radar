@@ -15,7 +15,15 @@ stocks:
   - 300045
   - 002465
   - 688270
-updated: '2026-08-14'
+updated: '2026-08-16'
+keyPoints:
+  - 长征七号改发射失利（8/10）压制短期情绪，朱雀三号新窗口 8/31
+  - 卫星互联网组网加速，商业火箭发射密度提升
+  - 低轨星座 + 可复用火箭是两大主线
+risks:
+  - 发射失利冲击情绪，高密度发射不及预期
+  - 订单确认周期长，业绩兑现慢
+  - 题材波动大，注意炒作退潮
 relatedSectors: [6g-communications, low-altitude-economy, solid-state-battery]
 alerts: []
 supplyChain: |

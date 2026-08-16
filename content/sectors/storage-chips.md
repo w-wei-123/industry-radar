@@ -16,7 +16,16 @@ stocks:
   - 000021
   - 603283
   - 300604
-updated: '2026-08-14'
+updated: '2026-08-16'
+keyPoints:
+  - 十年一遇超级景气周期：长鑫科技(688825)市值 3.69 万亿登顶 A 股第一，DDR5 32GB 本月 +23.3%
+  - 缺货延续至 2028：SK 海力士预警明年最严重"存储荒"，华邦产能已被客户锁定
+  - 江波龙 H1 净利 105.77 亿（+715 倍），超级周期从预期变为利润
+  - 海外大厂转产 HBM 退出利基市场 → 国产 SLC NAND/NOR Flash 缺口扩大
+risks:
+  - 存储股短期涨幅大，警惕加速赶顶回调（长鑫单日成交 198 亿）
+  - 涨价预期已充分定价，HBM 产能超预期释放将压制价格
+  - 高位股注意中报兑现后的"利好出尽"
 relatedSectors: [semiconductor, ai-chips, advanced-packaging, market-pulse, optical-cpo]
 alerts: []
 supplyChain: |

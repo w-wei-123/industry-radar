@@ -21,7 +21,14 @@ stocks:
   - 600584
   - 688017
   - 688008
-updated: '2026-08-14'
+updated: '2026-08-16'
+keyPoints:
+  - 8 层 AI 供应链全景：电力→半导体→AI芯片→存储→光模块→PCB/MLCC→封装→终端
+  - 8/16 主线共振：存储（登顶）+ 光模块（CPO量产）+ 设备（税优）
+  - 瓶颈热力图：光芯片/MLCC粉料/高端载板国产化率最低，弹性最大
+risks:
+  - 全链景气但结构分化，高位环节估值偏高
+  - 出口管制升级可能压制部分环节
 relatedSectors: [semiconductor, storage-chips, ai-chips, optical-cpo, pcb, advanced-packaging, compute-power-grid]
 supplyChain: |
   # AI产业链价值流向

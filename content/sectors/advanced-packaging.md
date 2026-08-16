@@ -13,7 +13,16 @@ stocks:
   - 300604
   - 688072
   - 688019
-updated: '2026-08-14'
+updated: '2026-08-16'
+keyPoints:
+  - CoWoS 排产超 6 个月，中长尾订单结构性外溢国产封测厂（长电/通富）
+  - 英伟达 CPO 量产 + HBM 需求带动先进封装景气
+  - 全球先进封装 490 亿(2024)→1100 亿(2030)美元，CAGR 14%
+  - 大基金三期重点支持，2025 行业融资超 600 亿
+risks:
+  - 国产封测毛利率偏低，技术追赶台积电仍需时间
+  - HBM 封测若由海外主导，国产受益程度有限
+  - 订单外溢兑现节奏不确定
 relatedSectors: [semiconductor, ai-chips, pcb, storage-chips]
 alerts: []
 supplyChain: |

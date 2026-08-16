@@ -17,7 +17,14 @@ stocks:
   - 300073
   - 002882
   - 603200
-updated: '2026-08-14'
+updated: '2026-08-16'
+keyPoints:
+  - 新型储能 2030 装机 3 亿千瓦目标翻倍，固态电池产业化提速
+  - 硫化物/氧化物技术路线并进，电解质材料率先受益
+  - 低空 eVTOL + 人形机器人打开增量场景
+risks:
+  - 量产进度不及预期，技术路线未收敛
+  - 锂价波动影响上游盈利
 relatedSectors: [low-altitude-economy, humanoid-robot, compute-power-grid]
 alerts: []
 supplyChain: |

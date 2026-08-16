@@ -19,7 +19,16 @@ stocks:
   - 300346
   - 002156
   - 002185
-updated: '2026-08-14'
+updated: '2026-08-16'
+keyPoints:
+  - 四部门税优落地：集成电路非货币资产交换 5 年分期 → 利好设备/制造资产整合
+  - 中芯国际 Q2 营收 30.06 亿美元创历史新高，互联网公司算力投资超预期
+  - 设备国产化率 35%→2028 超 50%，北方华创/中微对位替代加速
+  - 存储超级周期带动全链景气，Omdia 上调 2026 全球半导体至 +94.1%
+risks:
+  - EUV 光刻机 + 高端光刻胶仍 0% 国产，先进制程卡脖子未解
+  - 设备股估值偏高，税优利好兑现后注意回调
+  - 地缘博弈升级风险（出口管制扩大）
 relatedSectors: [advanced-packaging, ai-chips, optical-cpo, pcb, compute-power-grid, storage-chips]
 alerts: []
 supplyChain: |

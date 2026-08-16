@@ -15,7 +15,16 @@ stocks:
   - 300661
   - 688568
   - 688234
-updated: '2026-08-14'
+updated: '2026-08-16'
+keyPoints:
+  - 寒武纪 H1 净利 +122.61%、海光 H2 服务器收入预增 80%+，业绩验证产业拐点
+  - 国产 GPU 从"可用"到"好用"：推理需求爆发（日均 Token 超 140 万亿）
+  - 字节/阿里自研芯片 + 上海算力券 → ASIC/设计服务受益
+  - 算力租赁 8/16 确认爆发，从"倒卖 GPU"升级"Token 工厂"
+risks:
+  - 美国芯片管制加码风险（拟禁光模块外溢至算力链）
+  - 国产 GPU 与英伟达代差仍在，AI 应用落地不及预期则估值回落
+  - 高位题材股出清风险
 relatedSectors: [semiconductor, advanced-packaging, optical-cpo, compute-power-grid, solid-state-battery, storage-chips]
 alerts: []
 supplyChain: |

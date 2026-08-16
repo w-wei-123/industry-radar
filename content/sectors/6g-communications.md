@@ -18,7 +18,14 @@ stocks:
   - 600941
   - 002049
   - 688375
-updated: '2026-08-14'
+updated: '2026-08-16'
+keyPoints:
+  - 8/14 通信板块领涨两市，AI 科技修复主线之一
+  - 通信网年内投资 8000 亿-1 万亿，6G 标准冻结临近
+  - 卫星互联网 + 太赫兹是 6G 两大增量方向
+risks:
+  - 6G 商用约 2030 年落地，中短期业绩催化弱
+  - 运营商资本开支周期波动
 relatedSectors: [commercial-aerospace, optical-cpo, semiconductor]
 alerts: []
 supplyChain: |

@@ -15,7 +15,14 @@ stocks:
   - 300253
   - 300418
   - 603859
-updated: '2026-08-14'
+updated: '2026-08-16'
+keyPoints:
+  - 模型迭代提速：DeepSeek V4 Pro 上线（8/17 生效）、阿里开源 Qwen3.8、智谱 GLM-5.3
+  - Token 贷（广州海珠）+ 算力券 → AI 应用从"叙事"走向"变现"
+  - 硬件→软件→数据轮动，2026-2027 软件接力
+risks:
+  - AI 应用商业化兑现慢，估值透支风险
+  - 腾讯/字节自研应用竞争，第三方应用承压
 relatedSectors: [ai-chips, optical-cpo]
 alerts: []
 supplyChain: |

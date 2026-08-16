@@ -15,7 +15,15 @@ stocks:
   - 688287
   - 600879
   - 600862
-updated: '2026-08-14'
+updated: '2026-08-16'
+keyPoints:
+  - 特朗普对无人机加征 10-100% 关税（8/14）→ 出海链承压，内需政策对冲
+  - 舟山财政落实低空专项资金，低空物流航线常态化运营
+  - 低空经济"十五五"规划预期升温
+risks:
+  - 美国无人机关税直接压制出海 eVTOL/无人机厂商
+  - 空域管理/适航法规进展不及预期
+  - 政策依赖性强，商业化进度慢
 relatedSectors: [solid-state-battery, commercial-aerospace, ai-chips, 6g-communications]
 alerts: []
 supplyChain: |

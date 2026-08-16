@@ -445,6 +445,19 @@ a:hover { text-decoration:underline; }
 .article blockquote { border-left:3px solid var(--blue); padding:12px 16px; margin:14px 0;
                       background:#eff6ff; border-radius:0 8px 8px 0; font-size:15px; color:var(--body); }
 .article blockquote p { margin-bottom:0; }
+.takeaway { background:#eff6ff; border:1px solid #bfdbfe; border-radius:12px; padding:16px 20px;
+            margin-bottom:20px; box-shadow:var(--shadow-sm); }
+.risk-box { background:#fef2f2; border:1px solid #fecaca; border-radius:12px; padding:16px 20px;
+            margin-bottom:20px; box-shadow:var(--shadow-sm); }
+.tk-label { font-size:17px; font-weight:700; color:#1d4ed8; }
+.tk-label span { font-size:13px; color:#93c5fd; font-weight:400; margin-left:8px; }
+.takeaway ul,.risk-box ul { margin:10px 0 0 18px; }
+.takeaway li { font-size:15px; line-height:1.7; margin-bottom:6px; color:#1e3a8a; }
+.takeaway li strong { color:#1d4ed8; }
+.risk-box .tk-label { color:#dc2626; }
+.risk-box .tk-label span { color:#f87171; }
+.risk-box li { font-size:15px; line-height:1.7; margin-bottom:6px; color:#7f1d1d; }
+.risk-box li strong { color:#b91c1c; }
 .article hr { border:none; border-top:1px solid #e2e8f0; margin:28px 0; }
 .article code { background:#f1f5f9; padding:2px 6px; border-radius:4px; font-size:15px; color:#4b5563;
                 font-family:'Cascadia Code','Fira Code',monospace; }
@@ -728,6 +741,24 @@ def render_sector_page(s: dict, sectors: list, build_time: str) -> str:
     supply_chain = s['supplyChain']
     related = meta.get('relatedSectors', [])
 
+    # 核心要点（结论前置卡片，frontmatter keyPoints 字段驱动）
+    kp_html = ''
+    kp = meta.get('keyPoints', [])
+    if kp:
+        items = ''.join(f'<li>{md_escape(str(k))}</li>' for k in kp)
+        kp_html = (f'<section class="section-block"><div class="takeaway">'
+                   f'<div class="tk-label">📌 核心要点<span>60秒速读</span></div>'
+                   f'<ul>{items}</ul></div></section>')
+
+    # 风险提示（frontmatter risks 字段驱动）
+    risk_html = ''
+    risks = meta.get('risks', [])
+    if risks:
+        items = ''.join(f'<li>{md_escape(str(r))}</li>' for r in risks)
+        risk_html = (f'<section class="section-block"><div class="risk-box">'
+                     f'<div class="tk-label">⚠️ 风险提示<span>不构成投资建议</span></div>'
+                     f'<ul>{items}</ul></div></section>')
+
     # 活跃提醒窗口：已发生3天内 或 未来7天内（过期推演每天扫描会补新，直接剔除）
     active = [a for a in alerts if -7 <= days_since(str(a.get('date', ''))) <= 3]
     history = []
@@ -805,12 +836,14 @@ def render_sector_page(s: dict, sectors: list, build_time: str) -> str:
     <div class="tag-row">{tag_row}</div>
     <p class="sector-meta">{len(stocks)} 只成分股 · 更新于 {updated}</p>
   </div>
+  {kp_html}
   {alerts_html}
   <div class="article">{body_html}</div>
   {sc_html}
   {comp_html}
   {mat_html}
   {chart_html}
+  {risk_html}
   {rel_html}
   <div style="margin-top:32px;padding-top:20px;border-top:1px solid var(--border)">
     <a class="back" href="index.html">← 返回首页查看其他板块</a>

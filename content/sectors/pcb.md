@@ -15,7 +15,16 @@ stocks:
   - 600183
   - 000823
   - 002579
-updated: '2026-08-14'
+updated: '2026-08-16'
+keyPoints:
+  - AI 服务器单台 PCB 价值量是普通服务器 8 倍，GB300 配套 224Gbps 超高速板
+  - 沪电/胜宏直接受益英伟达链，汽车板/通信板多点开花
+  - IC 载板国产突破：深南电路/兴森 FC-BGA 量产
+  - 全球产能从台日向大陆转移，泰国基地规避贸易风险
+risks:
+  - 高端 IC 载板(ABF)仍被日韩台主导
+  - 上游电子布/覆铜板涨价侵蚀毛利
+  - 英伟达订单节奏波动影响业绩
 relatedSectors: [semiconductor, ai-chips, optical-cpo, advanced-packaging]
 alerts: []
 supplyChain: |

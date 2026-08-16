@@ -17,7 +17,16 @@ stocks:
   - 600821
   - 300617
   - 300365
-updated: '2026-08-14'
+updated: '2026-08-16'
+keyPoints:
+  - 2026 首次写入政府工作报告，算电协同成为万亿级新基建
+  - 算力用电 CAGR 40%+，电力供给是算力扩张第一瓶颈
+  - 上海算力券 + 通信网年内投资 8000 亿-1 万亿
+  - 短期看液冷（PUE 强制 1.2）、中期看电网、长期看交易
+risks:
+  - 2 万亿数据中心规划若批复延后，短期催化缺失
+  - 绿电直供电价政策不确定性
+  - 夏季用电高峰过后季节催化减弱
 relatedSectors: [ai-chips, semiconductor, solid-state-battery]
 alerts: []
 supplyChain: |
